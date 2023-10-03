@@ -35,5 +35,6 @@ def decryption(cipherText):
 if __name__ == '__main__':
     
     print("Provide ciphertext")
-    cipheText = input()
+    cipherText = input()
+    decryption(cipherText)
 

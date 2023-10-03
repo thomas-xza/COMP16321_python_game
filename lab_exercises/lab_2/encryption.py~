@@ -6,7 +6,7 @@ cipherText = ""
 alphabet = "XYZABCDEFGHIJKLMNOPQRSTUVWXYZABC"
 plaintextPosition = 0
 
-while (plaintextPosition < length(plaintext)):
+while (plaintextPosition < len(plaintext)):
     plaintextChar = plaintext[plaintextPosition]
     alphabetPosition = 3
     

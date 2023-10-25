@@ -23,7 +23,7 @@ class Basics:#(s)
             :return: A text file paragraph as a string
         """
 
-        with open('test.txt', encoding="utf-8") as f:
+        with open('./test.txt', encoding="utf-8") as f:
 
             read_data = f.read()
 

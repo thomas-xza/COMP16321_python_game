@@ -1,0 +1,7 @@
+import python_fundamentals.py as py_fun
+
+x = py_fun.Basics()
+
+x.read_file()
+
+x.length_of_file()

@@ -21,24 +21,20 @@ intro.pack()
 
 n = random.randrange(0,max)
 
+play_status = tk.Label()
+
+
 def play(n):
 
     play_status["text"] = f"{n}, fail!"
+
     
-
-
 main_button = tk.Button(
     master=frame_b,
     relief=tk.FLAT,
     text=str(n),
     command=play(n)
     )
-
-    
-
-play_status = tk.Label(
-    )
-
 
 main_button.pack()
 
@@ -51,14 +47,6 @@ level_status.pack()
 frame_a.pack()
 frame_b.pack()
 frame_c.pack()
-
-def handle_input(event):
-    
-    """Print the character associated to the key pressed"""
-    
-
-window.bind("<KeyPress>", handle_input)
-
 
 
 window.mainloop()

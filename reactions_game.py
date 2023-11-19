@@ -20,14 +20,21 @@ def init(data):
     ##  100 millisecond == 0.1 seconds
     
     data.timerDelay = 400
+    data.prev_timer_delay = data.timerDelay
+
+    ##  Level-up handling
+    
     data.level = 1
     data.hit_target = False
     data.max_random = 1
     data.target_n = random.randrange(0,data.max_random)
-    data.prev_timer_delay = data.timerDelay
     data.play_success = 0
+
+    ##  Extra features
+    
     data.pause = 0
     data.bossmode = False
+    data.cheatmode = 0
 
     
 ##  timerFired() is called at regular intervals.
@@ -73,7 +80,15 @@ def timerFired(data):
     
     if data.play_success == 0:
 
-        data.timerDelay = data.prev_timer_delay        
+        data.timerDelay = data.prev_timer_delay
+
+    if data.cheatmode == 10:
+
+        data.level = 100
+        data.timerDelay = 20
+        data.max_random = 2
+        data.target_n = 1
+        
 
             
 def mousePressed(event, data):
@@ -86,6 +101,10 @@ def keyPressed(event, data):
     if event.char == 'b':
 
         data.bossmode = not data.bossmode
+
+    if event.char == 'c':
+
+        data.cheatmode += 1
 
     if event.char == 'p' and data.pause == 0:
 

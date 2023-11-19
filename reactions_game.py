@@ -24,8 +24,8 @@ def init(data):
     data.hit_target = False
     data.max_random = 1
     data.target_n = random.randrange(0,data.max_random)
-    data.prev_timer_delay = 0
-    data.play_success = False
+    data.prev_timer_delay = data.timerDelay
+    data.play_success = 0
     data.pause = 0
 
     
@@ -46,33 +46,39 @@ def timerFired(data):
         data.prev_timer_delay = data.timerDelay
         data.timerDelay = 2**32
 
-    if data.play_success > 0:
-
-        data.hit_target = False
-        data.timerDelay = data.prev_timer_delay - 50
-        data.play_success -= 1
-    
+    ##  Below is the level up & animation sequence.
+        
     if data.hit_target == True:
 
         data.hit_target = False
-        data.play_success = 10
+
+        ##  Level up variables.
+        
         data.level += 1
         data.max_random += 1
         data.target_n = random.randrange(0,data.max_random)
-        data.prev_timer_delay = data.timerDelay
-        data.timerDelay = 400
 
+        ##  Play animation sequence
+
+        data.play_success = 10
+        data.prev_timer_delay = data.timerDelay
+        data.timerDelay = 60
+
+    if data.play_success > 0:
+
+        data.play_success -= 1
     
+    if data.play_success == 0:
+
+        data.timerDelay = data.prev_timer_delay        
+
+            
 def mousePressed(event, data):
 
     pass
 
 
-
-
 def keyPressed(event, data):
-
-    print(event)
 
     if event.char == 'p' and data.pause == 0:
 
@@ -83,12 +89,11 @@ def keyPressed(event, data):
         data.pause = 1
     
     if data.target_n == data.random_n:
+        
         data.hit_target = True
 
 
 def redrawAll(canvas, data):
-
-    canvas.create_image(50, 50, image=data.frames[5])
 
     
     canvas.create_text(data.width/2, data.height/3,
@@ -105,19 +110,35 @@ def redrawAll(canvas, data):
     else:
 
         canvas.create_text(data.width/2, data.height/2,
-                           text=f"w00t! {data.play_success}",
+                           text=f"w00t!",
                            font = ('', '80', ''),
                        fill="white")
         
-        ##        ,                           format="gif -index 3")
-
-        
-        
+        canvas.create_image(
+            data.width/2,
+            data.height,
+            image=data.frames[10 - data.play_success],
+            anchor=S)
 
     canvas.create_text(data.width/2, data.height/5*4,
                        text=f"Current level: {data.level}",
                        font = ('', '20', ''),
                        fill="white")
+
+##  Function from:
+##    https://stackoverflow.com/questions/3177969/how-to-resize-an-image-using-tkinter
+
+def resizeImage(img, newWidth, newHeight):
+    oldWidth = img.width()
+    oldHeight = img.height()
+    newPhotoImage = PhotoImage(width=newWidth, height=newHeight)
+    for x in range(newWidth):
+        for y in range(newHeight):
+            xOld = int(x*oldWidth/newWidth)
+            yOld = int(y*oldHeight/newHeight)
+            rgb = '#%02x%02x%02x' % img.get(xOld, yOld)
+            newPhotoImage.put(rgb, (x, y))
+    return newPhotoImage
     
 
 ####   Allegedly the below need not be edited whatsoever.
@@ -204,7 +225,9 @@ def run(width=800, height=600):
                     height=data.height,
                     background='black')
 
-    data.frames = [PhotoImage(file='explosion.gif',format = 'gif -index %i' %(i)) for i in range(10)]
+    data.frames = [PhotoImage(file='explosion_medium.gif',format = 'gif -index %i' %(i)) for i in range(10)]
+
+    
 
 
 
@@ -228,5 +251,5 @@ def run(width=800, height=600):
     
     root.mainloop()
 
-#run(width=300, height=300)
-run()
+run(width=1280, height=720)
+#run()

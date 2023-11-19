@@ -37,13 +37,13 @@ animations are playing.
 The logic regarding the states of the gameplay are changed by the
 following functions:
 
-- timerFired() changes states based on times (e.g. as an animation
+- `timerFired()` changes states based on times (e.g. as an animation
   countdown)
 
-- keyPressed() and mousePressed() handles state changes based on user
+- `keyPressed()` and `mousePressed()` handles state changes based on user
   input
 
-The function redrawAll() takes the current state and makes graphical
+The function `redrawAll()` takes the current state and makes graphical
 actions based on it, using Tkinter's `canvas` type.
 
 This state template is originally from a piece of code which displays

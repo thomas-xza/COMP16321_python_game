@@ -35,6 +35,7 @@ def init(data):
     data.pause = 0
     data.bossmode = False
     data.cheatmode = 0
+    data.darkmode = True
 
     
 ##  timerFired() is called at regular intervals.
@@ -89,7 +90,29 @@ def timerFired(data):
         data.max_random = 2
         data.target_n = 1
         data.cheatmode = 0
+
         
+def darkmode_val(data, text):
+
+    if text == True:
+
+        if data.darkmode == True:
+
+            return 'white'
+
+        else:
+
+            return 'black'
+
+    if text == False:
+
+        if data.darkmode == True:
+
+            return 'black'
+
+        else:
+
+            return 'white'
 
             
 def mousePressed(event, data):
@@ -98,6 +121,10 @@ def mousePressed(event, data):
 
 
 def keyPressed(event, data):
+
+    if event.char == 'd':
+
+        data.darkmode = not data.darkmode
 
     if event.char == 'b':
 
@@ -124,21 +151,21 @@ def keyPressed(event, data):
 
 def redrawAll(canvas, data):
 
-    draw_astral(canvas)    
+    draw_astral(canvas, data)
 
     if data.play_success == False and data.pause == 0 and data.bossmode == False:
     
         canvas.create_text(data.width/2, data.height/2,
                            text=str(data.random_n),
                            font = ('', '50', ''),
-                       fill="white")
+                       fill=darkmode_val(data, True))
 
     elif data.pause == 2:
 
         canvas.create_text(data.width/2, data.height/2,
                            text="PAUSED!",
                            font = ('', '50', ''),
-                       fill="white")
+                       fill=darkmode_val(data, True))
 
     elif data.bossmode == True:
 
@@ -155,40 +182,40 @@ def redrawAll(canvas, data):
         canvas.create_text(data.width/2, data.height/2,
                            text=f"w00t!",
                            font = ('', '80', ''),
-                       fill="white")
+                       fill=darkmode_val(data, True))
 
     if data.bossmode == False:
 
         canvas.create_text(data.width/2, data.height/3,
                            text=f"Hit keyboard at {data.target_n}!!",
                            font = ('', '50', ''),
-                           fill="white")
+                           fill=darkmode_val(data, True))
 
         canvas.create_text(data.width/2, data.height/5*4,
                            text=f"Level: {data.level}",
                            font = ('', '20', ''),
-                           fill="white")
+                           fill=darkmode_val(data, True))
 
 
-def draw_astral(canvas):
+def draw_astral(canvas, data):
 
-    canvas.create_oval(15, 170, 25, 180, fill="white")
+    canvas.create_oval(15, 170, 25, 180, fill=darkmode_val(data, True))
 
-    canvas.create_oval(145, 95, 155, 105, fill="white")
+    canvas.create_oval(145, 95, 155, 105, fill=darkmode_val(data, True))
 
-    canvas.create_oval(395, 595, 405, 605, fill="white")
+    canvas.create_oval(395, 595, 405, 605, fill=darkmode_val(data, True))
 
-    canvas.create_oval(795, 395, 805, 405, fill="white")
+    canvas.create_oval(795, 395, 805, 405, fill=darkmode_val(data, True))
 
-    canvas.create_oval(1195, 345, 1205, 355, fill="white")
+    canvas.create_oval(1195, 345, 1205, 355, fill=darkmode_val(data, True))
 
-    canvas.create_line(20, 175, 150, 100, activedash=True, fill="white", dash=(5, 5), width=2)
+    canvas.create_line(20, 175, 150, 100, activedash=True, fill=darkmode_val(data, True), dash=(5, 5), width=2)
         
-    canvas.create_line(150, 100, 400, 600, activedash=True, fill="white", dash=(5, 5), width=2)
+    canvas.create_line(150, 100, 400, 600, activedash=True, fill=darkmode_val(data, True), dash=(5, 5), width=2)
         
-    canvas.create_line(800, 400, 400, 600, activedash=True, fill="white", dash=(5, 5), width=2)
+    canvas.create_line(800, 400, 400, 600, activedash=True, fill=darkmode_val(data, True), dash=(5, 5), width=2)
         
-    canvas.create_line(800, 400, 1200, 350, activedash=True, fill="white", dash=(5, 5), width=2)
+    canvas.create_line(800, 400, 1200, 350, activedash=True, fill=darkmode_val(data, True), dash=(5, 5), width=2)
         
 
     
@@ -206,7 +233,7 @@ def run(width=800, height=600):
         ##  Create a blank rectangle.
         
         canvas.create_rectangle(0, 0, data.width, data.height,
-                                fill='black', width=0)
+                                fill=darkmode_val(data, False), width=0)
 
         ##  Add more data to it.
         

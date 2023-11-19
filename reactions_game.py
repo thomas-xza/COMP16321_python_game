@@ -11,6 +11,7 @@ from tkinter import *
 import random
 
 
+
 ##  Initialise some values.
     
 def init(data):
@@ -87,6 +88,9 @@ def keyPressed(event, data):
 
 def redrawAll(canvas, data):
 
+    canvas.create_image(50, 50, image=data.frames[5])
+
+    
     canvas.create_text(data.width/2, data.height/3,
                        text=f"Hit keyboard at {data.target_n}!!",
                        font = ('', '50', ''),
@@ -105,10 +109,7 @@ def redrawAll(canvas, data):
                            font = ('', '80', ''),
                        fill="white")
         
-        explosion_gif = PhotoImage(file="explosion_1.png")
-##        ,                           format="gif -index 3")
-        
-        canvas.create_image(data.width/2, data.height/2, image=explosion_gif)
+        ##        ,                           format="gif -index 3")
 
         
         
@@ -121,7 +122,7 @@ def redrawAll(canvas, data):
 
 ####   Allegedly the below need not be edited whatsoever.
     
-def run(width=1280, height=720):
+def run(width=800, height=600):
 
     
     def redrawAllWrapper(canvas, data):
@@ -195,10 +196,18 @@ def run(width=1280, height=720):
     ##  Initialise TK parts, load Canvas type to TK root frame.
     
     root = Tk()
+
+    explosion_gif = PhotoImage(file="explosion.gif", format="gif - 3")
+    
     canvas = Canvas(master=root,
                     width=data.width,
                     height=data.height,
                     background='black')
+
+    data.frames = [PhotoImage(file='explosion.gif',format = 'gif -index %i' %(i)) for i in range(10)]
+
+
+
     canvas.pack()
     
     
@@ -219,4 +228,5 @@ def run(width=1280, height=720):
     
     root.mainloop()
 
+#run(width=300, height=300)
 run()

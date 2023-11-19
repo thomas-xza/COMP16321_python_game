@@ -14,6 +14,10 @@ Python 2 hell. "This is an unofficial mirror of Tkinter reference
 documentation (based on Python 2.7 and Tk 8.5) created by the late
 John Shipman.  It was last updated in 2013 and is unmaintained."
 
+I originally discovered event loops in 2022, with Python's `asyncio`,
+and then went on to more deeply understand them in 2023 with
+Javascript's more native implementation.
+
 
 ##  Gameplay
 
@@ -65,7 +69,7 @@ Coursework_02.pdf) via the following means.
 
 ##  Resources
 
- - An intro to TKinter - https://realpython.com/python-gui-tkinter/#displaying-clickable-buttons-with-button-widgets
+ - An intro to TKinter, and how the event loop works - https://realpython.com/python-gui-tkinter/#making-your-applications-interactive
 
 - A template for running timers from Carnegie Mellon University - https://www.cs.cmu.edu/~112-n19/notes/notes-animations-part2.html
 
@@ -81,3 +85,4 @@ taught me about a less dynamic, and therefore less efficient,
 algorithm, to introduce quality-of-service networking concepts. Sure
 enough, the HFSC algorithm worked exceptionally well, and it put CMU
 on the radar for me in a big way.
+

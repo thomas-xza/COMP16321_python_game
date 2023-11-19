@@ -84,10 +84,11 @@ def timerFired(data):
 
     if data.cheatmode == 10:
 
-        data.level = 100
+        data.level += 100
         data.timerDelay = 20
         data.max_random = 2
         data.target_n = 1
+        data.cheatmode = 0
         
 
             

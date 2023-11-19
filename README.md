@@ -34,14 +34,20 @@ A timer runs at set intervals, which increases in speed based on the
 current difficulty level, or is set to a fixed speed when trasition
 animations are playing.
 
-The logic regarding the states of the gameplay are handled by 1
-function named timerFired(), and major changes to the state are
-initially triggered by keyPressed() and mousePressed(). The function
-redrawAll() takes the current state and makes graphical actions based
-on it.
+The logic regarding the states of the gameplay are changed by the
+following functions:
 
-This is originally from a template piece of code which displays a
-simple timer, on the Carnegie Mellon University website. Note that
+- timerFired() changes states based on times (e.g. as an animation
+  countdown)
+
+- keyPressed() and mousePressed() handles state changes based on user
+  input
+
+The function redrawAll() takes the current state and makes graphical
+actions based on it, using Tkinter's `canvas` type.
+
+This state template is originally from a piece of code which displays
+a simple timer, on the Carnegie Mellon University website. Note that
 there are some quirks inside the CMU template, such as using an object
 of an empty class to store all state data, which seems to be a
 workaround for shorter syntax than using a Python dictionary.

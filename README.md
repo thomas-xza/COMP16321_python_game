@@ -75,6 +75,7 @@ Coursework_02.pdf) via the following means.
 
 - Pixel art explosion from Open Game Art - https://opengameart.org/content/animated-explosions
 
+- Official Tkinter docs - https://tkdocs.com/shipman/intro.html
 
 ##  Extra notes
 

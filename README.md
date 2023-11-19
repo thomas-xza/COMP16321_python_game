@@ -86,9 +86,9 @@ Coursework_02.pdf) via the following means.
 ##  Extra notes
 
 I originally came around to Carnegie Mellon software whilst setting up
-the HFSC algorithm on OpenWRT for a router in an office with a limited
-uplink, after a tutor from a short course at City University had
-taught me about a less dynamic, and therefore less efficient,
+the HFSC algorithm on OpenWRT for a MIPS router in an office with a
+limited uplink, after a tutor from a short course at City University
+had taught me about a less dynamic, and therefore less efficient,
 algorithm, to introduce quality-of-service networking concepts. Sure
 enough, the HFSC algorithm worked exceptionally well, and it put CMU
 on the radar for me in a big way.

@@ -2,14 +2,14 @@
 
 ##  The template of this code is from Carnegie Mellon:
 ##    https://www.cs.cmu.edu/~112-n19/notes/notes-animations-part2.html
-##    Because I didn't want to spend days building this concept!
+##    Because I didn't want to spend days learning about Tkinter.
+##  Many comments added to figure out how it works, various redundant
+##    parts deleted.
 
-##  Comments added to figure out how it works, various redundant parts
-##    deleted.
 
 from tkinter import *
 import random
-
+import subprocess
 
 
 ##  Initialise some values.
@@ -184,6 +184,10 @@ def redrawAll(canvas, data):
                            font = ('', '80', ''),
                        fill=darkmode_val(data, True))
 
+        if data.play_success == 9:
+
+            subprocess.Popen(["aplay", "mechanical_explosion.wav"])
+
     if data.bossmode == False:
 
         canvas.create_text(data.width/2, data.height/3,
@@ -277,16 +281,18 @@ def run(width=800, height=600):
         canvas.after(data.timerDelay, timerFiredWrapper, canvas, data)
 
 
-    ##  Create an empty class type, and initialise an object of it.
-        
+    ##  Create an empty class, and initiate an object of it.
+    ##    This is a quirky CMU hack around Python's long syntax,
+    ##      i.e. allows data.value rather than data['value']
+
     class Struct(object):
         pass
 
     data = Struct()
 
     
-    ##  Start initialising the object with data.
-    
+    ##  Initialise data in the object.
+        
     data.width = width
     data.height = height
     init(data)
@@ -304,10 +310,6 @@ def run(width=800, height=600):
                     background='black')
 
     data.frames = [PhotoImage(file='explosion_medium_transparent.gif',format = 'gif -index %i' %(i)) for i in range(10)]
-
-    
-
-
 
     canvas.pack()
     

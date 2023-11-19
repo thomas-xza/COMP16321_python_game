@@ -105,11 +105,10 @@ def redrawAll(canvas, data):
                            font = ('', '80', ''),
                        fill="white")
         
-        explosion_gif = PhotoImage(file="explosion.gif",
-                                   format="gif -index "+str(data.play_success))
-
+        explosion_gif = PhotoImage(file="explosion_1.png")
+##        ,                           format="gif -index 3")
         
-        canvas.create_image(500, 500, image=explosion_gif, anchor=NW)
+        canvas.create_image(data.width/2, data.height/2, image=explosion_gif)
 
         
         

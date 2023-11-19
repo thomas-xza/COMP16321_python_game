@@ -21,23 +21,45 @@ def init(data):
     data.timerDelay = 400
     data.level = 1
     data.hit_target = False
-    data.max_random = 5
+    data.max_random = 1
     data.target_n = random.randrange(0,data.max_random)
+    data.prev_timer_delay = 0
+    data.play_success = False
+    data.pause = 0
 
     
 ##  timerFired() is called at regular intervals.
+##    Is used to update state of game.
 
 def timerFired(data):
 
     data.random_n = random.randrange(0, data.max_random)
 
+    if data.pause == 1:
+
+        data.timerDelay = data.prev_timer_delay
+        data.pause = 0
+
+    if data.pause == 2:
+
+        data.prev_timer_delay = data.timerDelay
+        data.timerDelay = 2**32
+
+    if data.play_success > 0:
+
+        data.hit_target = False
+        data.timerDelay = data.prev_timer_delay - 50
+        data.play_success -= 1
+    
     if data.hit_target == True:
 
         data.hit_target = False
+        data.play_success = 10
         data.level += 1
-        data.timerDelay -= 50
         data.max_random += 1
         data.target_n = random.randrange(0,data.max_random)
+        data.prev_timer_delay = data.timerDelay
+        data.timerDelay = 400
 
     
 def mousePressed(event, data):
@@ -51,28 +73,57 @@ def keyPressed(event, data):
 
     print(event)
 
+    if event.char == 'p' and data.pause == 0:
+
+        data.pause = 2
+
+    elif event.char == 'p' and data.pause == 2:
+
+        data.pause = 1
+    
     if data.target_n == data.random_n:
         data.hit_target = True
-        
+
 
 def redrawAll(canvas, data):
 
     canvas.create_text(data.width/2, data.height/3,
                        text=f"Hit keyboard at {data.target_n}!!",
-                       font = ('', '50', ''))
+                       font = ('', '50', ''),
+                       fill="white")
     
-    canvas.create_text(data.width/2, data.height/2,
-                       text=str(data.random_n),
-                       font = ('', '50', ''))
+    if data.play_success == False:
+    
+        canvas.create_text(data.width/2, data.height/2,
+                           text=str(data.random_n),
+                           font = ('', '50', ''),
+                       fill="white")
+    else:
+
+        canvas.create_text(data.width/2, data.height/2,
+                           text=f"w00t! {data.play_success}",
+                           font = ('', '80', ''),
+                       fill="white")
+        
+        explosion_gif = PhotoImage(file="explosion.gif",
+                                   format="gif -index "+str(data.play_success))
+
+        
+        canvas.create_image(500, 500, image=explosion_gif, anchor=NW)
+
+        
+        
 
     canvas.create_text(data.width/2, data.height/5*4,
                        text=f"Current level: {data.level}",
-                       font = ('', '20', ''))
+                       font = ('', '20', ''),
+                       fill="white")
     
 
 ####   Allegedly the below need not be edited whatsoever.
     
-def run(width=800, height=600):
+def run(width=1280, height=720):
+
     
     def redrawAllWrapper(canvas, data):
 
@@ -83,7 +134,7 @@ def run(width=800, height=600):
         ##  Create a blank rectangle.
         
         canvas.create_rectangle(0, 0, data.width, data.height,
-                                fill='white', width=0)
+                                fill='black', width=0)
 
         ##  Add more data to it.
         
@@ -91,7 +142,7 @@ def run(width=800, height=600):
         
         canvas.update()
 
-        
+                
     def mousePressedWrapper(event, canvas, data):
         
         ##  Handle input data.
@@ -122,11 +173,11 @@ def run(width=800, height=600):
         
         redrawAllWrapper(canvas, data)
         
-        ##  Pause, then recursively(?) call this function.
+        ##  Pause, then add another call to this function to event loop.
         
         canvas.after(data.timerDelay, timerFiredWrapper, canvas, data)
 
-        
+
     ##  Create an empty class type, and initialise an object of it.
         
     class Struct(object):
@@ -142,12 +193,15 @@ def run(width=800, height=600):
     init(data)
 
     
-    ##  Initialise TK parts, load Canvas type to to TK root frame.
+    ##  Initialise TK parts, load Canvas type to TK root frame.
     
     root = Tk()
-    canvas = Canvas(master=root, width=data.width, height=data.height)
+    canvas = Canvas(master=root,
+                    width=data.width,
+                    height=data.height,
+                    background='black')
     canvas.pack()
-
+    
     
     ##  Add key bindings to trigger functions based on user input.
     
@@ -156,8 +210,8 @@ def run(width=800, height=600):
     root.bind("<Key>", lambda event:
                             keyPressedWrapper(event, canvas, data))
 
-    
-    ##  
+
+    ##  Add an initial event instance to the event loop.
     
     timerFiredWrapper(canvas, data)
 

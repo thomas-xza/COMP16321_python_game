@@ -27,6 +27,7 @@ def init(data):
     data.prev_timer_delay = data.timerDelay
     data.play_success = 0
     data.pause = 0
+    data.bossmode = False
 
     
 ##  timerFired() is called at regular intervals.
@@ -34,17 +35,19 @@ def init(data):
 
 def timerFired(data):
 
-    data.random_n = random.randrange(0, data.max_random)
+    if data.pause == 0:
 
-    if data.pause == 1:
-
-        data.timerDelay = data.prev_timer_delay
-        data.pause = 0
-
-    if data.pause == 2:
+        data.random_n = random.randrange(0, data.max_random)
+        
+    elif data.pause == 2:
 
         data.prev_timer_delay = data.timerDelay
         data.timerDelay = 2**32
+
+    elif data.pause == 1:
+
+        data.timerDelay = data.prev_timer_delay
+        data.pause = 0        
 
     ##  Below is the level up & animation sequence.
         
@@ -80,6 +83,10 @@ def mousePressed(event, data):
 
 def keyPressed(event, data):
 
+    if event.char == 'b':
+
+        data.bossmode = not data.bossmode
+
     if event.char == 'p' and data.pause == 0:
 
         data.pause = 2
@@ -87,60 +94,84 @@ def keyPressed(event, data):
     elif event.char == 'p' and data.pause == 2:
 
         data.pause = 1
+
+    else:
     
-    if data.target_n == data.random_n:
+        if data.target_n == data.random_n:
         
-        data.hit_target = True
+            data.hit_target = True
 
 
 def redrawAll(canvas, data):
 
-    
-    canvas.create_text(data.width/2, data.height/3,
-                       text=f"Hit keyboard at {data.target_n}!!",
-                       font = ('', '50', ''),
-                       fill="white")
-    
-    if data.play_success == False:
+    draw_astral(canvas)    
+
+    if data.play_success == False and data.pause == 0 and data.bossmode == False:
     
         canvas.create_text(data.width/2, data.height/2,
                            text=str(data.random_n),
                            font = ('', '50', ''),
                        fill="white")
-    else:
+
+    elif data.pause == 2:
 
         canvas.create_text(data.width/2, data.height/2,
-                           text=f"w00t!",
-                           font = ('', '80', ''),
+                           text="PAUSED!",
+                           font = ('', '50', ''),
                        fill="white")
-        
+
+    elif data.bossmode == True:
+
+        pass
+
+    else:
+
         canvas.create_image(
             data.width/2,
             data.height,
             image=data.frames[10 - data.play_success],
             anchor=S)
 
-    canvas.create_text(data.width/2, data.height/5*4,
-                       text=f"Current level: {data.level}",
-                       font = ('', '20', ''),
+        canvas.create_text(data.width/2, data.height/2,
+                           text=f"w00t!",
+                           font = ('', '80', ''),
                        fill="white")
 
-##  Function from:
-##    https://stackoverflow.com/questions/3177969/how-to-resize-an-image-using-tkinter
+    if data.bossmode == False:
 
-def resizeImage(img, newWidth, newHeight):
-    oldWidth = img.width()
-    oldHeight = img.height()
-    newPhotoImage = PhotoImage(width=newWidth, height=newHeight)
-    for x in range(newWidth):
-        for y in range(newHeight):
-            xOld = int(x*oldWidth/newWidth)
-            yOld = int(y*oldHeight/newHeight)
-            rgb = '#%02x%02x%02x' % img.get(xOld, yOld)
-            newPhotoImage.put(rgb, (x, y))
-    return newPhotoImage
+        canvas.create_text(data.width/2, data.height/3,
+                           text=f"Hit keyboard at {data.target_n}!!",
+                           font = ('', '50', ''),
+                           fill="white")
+
+        canvas.create_text(data.width/2, data.height/5*4,
+                           text=f"Level: {data.level}",
+                           font = ('', '20', ''),
+                           fill="white")
+
+
+def draw_astral(canvas):
+
+    canvas.create_oval(15, 170, 25, 180, fill="white")
+
+    canvas.create_oval(145, 95, 155, 105, fill="white")
+
+    canvas.create_oval(395, 595, 405, 605, fill="white")
+
+    canvas.create_oval(795, 395, 805, 405, fill="white")
+
+    canvas.create_oval(1195, 345, 1205, 355, fill="white")
+
+    canvas.create_line(20, 175, 150, 100, activedash=True, fill="white", dash=(5, 5), width=2)
+        
+    canvas.create_line(150, 100, 400, 600, activedash=True, fill="white", dash=(5, 5), width=2)
+        
+    canvas.create_line(800, 400, 400, 600, activedash=True, fill="white", dash=(5, 5), width=2)
+        
+    canvas.create_line(800, 400, 1200, 350, activedash=True, fill="white", dash=(5, 5), width=2)
+        
+
     
-
 ####   Allegedly the below need not be edited whatsoever.
     
 def run(width=800, height=600):
@@ -225,7 +256,7 @@ def run(width=800, height=600):
                     height=data.height,
                     background='black')
 
-    data.frames = [PhotoImage(file='explosion_medium.gif',format = 'gif -index %i' %(i)) for i in range(10)]
+    data.frames = [PhotoImage(file='explosion_medium_transparent.gif',format = 'gif -index %i' %(i)) for i in range(10)]
 
     
 

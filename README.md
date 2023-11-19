@@ -40,10 +40,16 @@ initially triggered by keyPressed() and mousePressed(). The function
 redrawAll() takes the current state and makes graphical actions based
 on it.
 
-Note that there are some quirks inside the CMU template, such as using
-an object of an empty class to store all state data, which seems to be
-a workaround for shorter syntax than using a Python dictionary.
+This is originally from a template piece of code which displays a
+simple timer, on the Carnegie Mellon University website. Note that
+there are some quirks inside the CMU template, such as using an object
+of an empty class to store all state data, which seems to be a
+workaround for shorter syntax than using a Python dictionary.
 
+A few extra touches have been thrown in, such as using Python's
+`subprocess` library to play sounds via Linux's `aplay`, and upscaling
+an animated pixel `.gif` and adjusting the background to be
+transparent.
 
 
 ##  Specification
@@ -71,7 +77,7 @@ Coursework_02.pdf) via the following means.
 
  - An intro to TKinter, and how the event loop works - https://realpython.com/python-gui-tkinter/#making-your-applications-interactive
 
-- A template for running timers from Carnegie Mellon University - https://www.cs.cmu.edu/~112-n19/notes/notes-animations-part2.html
+- A template for running timers with Tkinter, from Carnegie Mellon University - https://www.cs.cmu.edu/~112-n19/notes/notes-animations-part2.html
 
 - Pixel art explosion from Open Game Art - https://opengameart.org/content/animated-explosions
 

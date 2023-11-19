@@ -1,0 +1,2 @@
+The green-only state has been repeated
+The red-and-green state has been omitted

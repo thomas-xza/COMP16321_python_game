@@ -43,6 +43,9 @@ def init(data):
 ##  timerFired() is called at regular intervals.
 ##    Is used to update state of game.
 
+##    Warning: this should be based on intricate diagrams of state
+##      machines, but was instead hacked together quickly.
+
 def timerFired(data):
 
     if data.pause == 0:

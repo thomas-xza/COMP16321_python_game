@@ -61,14 +61,16 @@ def run(width=800, height=600):
         
         canvas.delete(ALL)
 
-        ##  Create a blank rectangle.
+        ##  Create a blank rectangle object.
         
         canvas.create_rectangle(0, 0, data['width'], data['height'],
                                 fill=darkmode_val(data, False), width=0)
 
-        ##  Add more data to it.
+        ##  Add data to it.
         
         redrawAll(canvas, data)
+
+        ##  Load it.
         
         canvas.update()
 

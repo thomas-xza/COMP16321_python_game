@@ -25,8 +25,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.84096521"
-     inkscape:cx="529.74843"
-     inkscape:cy="336.51808"
+     inkscape:cx="532.12665"
+     inkscape:cy="380.51515"
      inkscape:window-width="1440"
      inkscape:window-height="831"
      inkscape:window-x="0"
@@ -158,6 +158,44 @@
          d="M 5.77,0 -2.88,5 V -5 Z"
          id="path3538-6" />
     </marker>
+    <marker
+       style="overflow:visible"
+       id="marker3540-53"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="12.975"
+       markerHeight="15"
+       viewBox="0 0 5.3244081 6.1553851"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path3538-5" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker3540-53-2"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="12.975"
+       markerHeight="15"
+       viewBox="0 0 5.3244081 6.1553851"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path3538-5-9" />
+    </marker>
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -166,8 +204,8 @@
     <circle
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.127095;stroke-opacity:1"
        id="path2923"
-       cx="138.50594"
-       cy="92.17466"
+       cx="140.46739"
+       cy="91.547882"
        r="13.956206" />
     <circle
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.127095;stroke-opacity:1"
@@ -221,7 +259,7 @@
        style="white-space:pre;shape-inside:url(#rect4064);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan6553">leaderboard</tspan></text>
+         id="tspan8764">leaderboard</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-29.583238,42.693769)"
@@ -229,11 +267,11 @@
        style="white-space:pre;shape-inside:url(#rect4064-7);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan6555">update
+         id="tspan8766">update
 </tspan><tspan
          x="258.77539"
          y="182.87305"
-         id="tspan6557">leaderboard</tspan></text>
+         id="tspan8768">leaderboard</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,169.48556,4.8928307)"
@@ -241,7 +279,7 @@
        style="white-space:pre;shape-inside:url(#rect4064-3);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan6559">pause</tspan></text>
+         id="tspan8770">pause</tspan></text>
     <circle
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.127095;stroke-opacity:1"
        id="path2923-3-6"
@@ -255,32 +293,42 @@
        style="white-space:pre;shape-inside:url(#rect4064-3-3);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan6561">unpause</tspan></text>
+         id="tspan8772">unpause</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.175px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
-       x="234.79399"
-       y="150.65193"
+       x="232.9837"
+       y="150.9518"
        id="text6540"><tspan
          sodipodi:role="line"
          id="tspan6538"
          style="stroke-width:0.265"
-         x="234.79399"
-         y="150.65193">level up</tspan><tspan
+         x="232.9837"
+         y="150.9518">level up/load</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.265"
-         x="234.79399"
-         y="154.62068"
+         x="232.9837"
+         y="154.92055"
          id="tspan1853">sequence</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.265"
-         x="234.79399"
-         y="158.58943"
+         x="232.9837"
+         y="158.8893"
          id="tspan6542" /></text>
     <path
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3540)"
        d="m 120.74105,101.23223 c -1.12481,-2.464129 -41.067057,-0.90807 -56.374502,7.86546"
        id="path6591"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3540-53)"
+       d="m 132.45064,112.38523 c -1.12481,-2.46413 -6.26852,15.53076 9.12762,26.82124"
+       id="path6591-6"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3540-53-2)"
+       d="m 151.45315,138.84817 c 0.64098,2.63178 9.07927,-14.07358 -3.91701,-28.05974"
+       id="path6591-6-1"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker3650)"
@@ -305,18 +353,18 @@
     <text
        xml:space="preserve"
        style="font-size:3.175px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
-       x="134.47981"
-       y="92.860428"
+       x="136.44127"
+       y="92.23365"
        id="text7766"><tspan
          sodipodi:role="line"
          id="tspan7764"
          style="stroke-width:0.265"
-         x="134.47981"
-         y="92.860428">play</tspan><tspan
+         x="136.44127"
+         y="92.23365">play</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.265"
-         x="134.47981"
-         y="96.829178"
+         x="136.44127"
+         y="96.2024"
          id="tspan7768" /></text>
     <text
        xml:space="preserve"
@@ -329,6 +377,12 @@
          style="stroke-width:0.265"
          x="43.478828"
          y="122.66809">save</tspan></text>
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.127095;stroke-opacity:1"
+       id="path2923-7-2-3"
+       cx="151.61423"
+       cy="158.56903"
+       r="13.956206" />
     <text
        xml:space="preserve"
        style="font-size:3.175px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
@@ -371,27 +425,6 @@
          x="84.231468"
          y="115.89848"
          id="tspan1479-1-2" /></text>
-    <text
-       xml:space="preserve"
-       style="font-size:3.175px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
-       x="89.34156"
-       y="123.83201"
-       id="text17910-3-6-7-7"><tspan
-         sodipodi:role="line"
-         style="stroke-width:0.265"
-         x="89.34156"
-         y="123.83201"
-         id="tspan1473-2-5-9">keyboard</tspan><tspan
-         sodipodi:role="line"
-         style="stroke-width:0.265"
-         x="89.34156"
-         y="127.80076"
-         id="tspan1477-9-9-2">input</tspan><tspan
-         sodipodi:role="line"
-         style="stroke-width:0.265"
-         x="89.34156"
-         y="131.76952"
-         id="tspan1479-1-2-0" /></text>
     <text
        xml:space="preserve"
        style="font-size:3.175px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
@@ -524,5 +557,16 @@
          x="210.21898"
          y="107.90206"
          id="tspan4522-9">clock tick</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
+       x="81.949203"
+       y="125.27244"
+       id="text17910-3-7-0-6"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.265"
+         x="81.949203"
+         y="125.27244"
+         id="tspan4522-9-1">clock tick</tspan></text>
   </g>
 </svg>

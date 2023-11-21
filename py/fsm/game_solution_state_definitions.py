@@ -12,7 +12,9 @@ def handle_state_definitions(data):
 
         data['timerDelay'] = data['prev_timer_delay']
         data['random_n'] = random.randrange(1, data['max_random'])
-        data['score'] -= 1
+
+        if data['score'] != 0:
+            data['score'] -= 1
 
     elif state == 'pause' or state == 'bossmode':
 

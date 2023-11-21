@@ -2,8 +2,6 @@
 
 import random
 
-import pdb; pdb.set_trace()
-
 def handle_state_definitions(data):
 
     data['state'] = data['next_state']
@@ -13,8 +11,6 @@ def handle_state_definitions(data):
     print(data)
     
     if state == 'play':
-
-        breakpoint()
 
         data['timerDelay'] = data['prev_timer_delay']
         data['random_n'] = random.randrange(1, data['max_random'])
@@ -56,7 +52,7 @@ def handle_level_up_state(data):
 
     elif data['level_up_src'] == 'win':
 
-        data = load_level(data, data['level + 1'])
+        data = load_level(data, data['level'] + 1)
 
     return data
 
@@ -82,7 +78,7 @@ def load_level(data, level):
         data['level'] = level
         data['max_random'] = new_max_random
         data['target_n'] = random.randrange(1, new_max_random)
-        data['timerDelay'] -= data['timerDelay // 20']
+        data['timerDelay'] -= data['timerDelay'] // 20
     
     elif data['play_animation'] > 0:
 

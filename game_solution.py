@@ -64,7 +64,7 @@ def run(width=800, height=600):
 
         ##  Create a blank rectangle.
         
-        canvas.create_rectangle(0, 0, data.width, data.height,
+        canvas.create_rectangle(0, 0, data['width'], data['height'],
                                 fill=darkmode_val(data, False), width=0)
 
         ##  Add more data to it.
@@ -108,26 +108,19 @@ def run(width=800, height=600):
         
         ##  Pause, then add another call to this function to event loop.
         
-        canvas.after(data.timerDelay, timerFiredWrapper, canvas, data)
+        canvas.after(data['timerDelay'], timerFiredWrapper, canvas, data)
 
 
-    ##  Create an empty class, and initiate an object of it.
-
-    ##  This is a quirky CMU hack around Python's long syntax,
-    ##    i.e. allows data.value rather than data['value']. But it
-    ##    breaks functional programming ideals, such as immutability
-    ##    of variables.
-
-    class Struct(object):
-        pass
-
-    data = Struct()
+    ##  CMU's template was an object of an empty class.  However, this
+    ##    is a bad hack, and was eventually rewritten...
+    
+    data = {}
 
     
     ##  Initialise data in the object.
         
-    data.width = width
-    data.height = height
+    data['width'] = width
+    data['height'] = height
     init(data)
 
     
@@ -136,13 +129,13 @@ def run(width=800, height=600):
     root = Tk()
 
     canvas = Canvas(master=root,
-                    width=data.width,
-                    height=data.height,
+                    width=data['width'],
+                    height=data['height'],
                     background='black')
 
-    # data.frames = [PhotoImage(file='./img/explosion_medium_transparent.gif',format = 'gif -index %i' %(i)) for i in range(10)]
+    # data['frames'] = [PhotoImage(file='./img/explosion_medium_transparent.gif',format = 'gif -index %i' %(i)) for i in range(10)]
 
-    data.frames = [PhotoImage(file='./img/explosion.gif',format = 'gif -index %i' %(i)) for i in range(10)]
+    data['frames'] = [PhotoImage(file='./img/explosion.gif',format = 'gif -index %i' %(i)) for i in range(10)]
 
     canvas.pack()
     

@@ -5,7 +5,7 @@ def darkmode_val(data, text):
 
     if text == True:
 
-        if data.darkmode == True:
+        if data['darkmode'] == True:
 
             return 'white'
 
@@ -15,7 +15,7 @@ def darkmode_val(data, text):
 
     if text == False:
 
-        if data.darkmode == True:
+        if data['darkmode'] == True:
 
             return 'black'
 

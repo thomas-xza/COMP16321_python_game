@@ -16,12 +16,12 @@ def handle_state_presentation(canvas, data):
                            font = ('', '10', ''),
                            fill=darkmode_val(data, True))
 
-        canvas.create_text(data['width/2'], data['height/2'],
+        canvas.create_text(data['width']/2, data['height']/2,
                            text=str(data['random_n']),
                            font = ('', '10', ''),
                        fill=darkmode_val(data, True))
 
-        canvas.create_text(data['width/2'], data['height']/5*4,
+        canvas.create_text(data['width']/2, data['height']/5*4,
                            text=f"Level: {data['level']}",
                            font = ('', '10', ''),
                            fill=darkmode_val(data, True))

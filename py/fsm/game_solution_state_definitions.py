@@ -4,12 +4,10 @@ import random
 
 def handle_state_definitions(data):
 
-    data['state'] = data['next_state']
- 
-    state = data['state']
+    print("tick...")
 
-    print(data)
-    
+    state = data['next_state']
+ 
     if state == 'play':
 
         data['timerDelay'] = data['prev_timer_delay']
@@ -17,8 +15,19 @@ def handle_state_definitions(data):
 
     elif state == 'pause' or state == 'bossmode':
 
-        data['prev_timer_delay'] = data['timerDelay']
-        data['timerDelay'] = 2**32
+        ##  Now we can't actually pause with this CMU template,
+        ##    because setting the timer high can't be interrupted.
+
+        ##  So, next option is to allow game to keep running in
+        ##    background, and hide and restore status.
+
+        data['level_pause'] = data['level']
+
+    elif state == 'unpause':
+
+        data['level'] = data['level_pause']
+
+        data['next_state'] = 'play'
 
     elif state == 'leaderboard':
 
@@ -27,6 +36,8 @@ def handle_state_definitions(data):
     elif state == 'level_up':
 
         data = handle_level_up_state(data)
+
+    data['state'] = data['next_state']
 
     return data
 

@@ -4,6 +4,10 @@
 
 def handle_state_transitions(key, data):
 
+    print("key input pressed")
+
+    print("\nbefore:", data)
+
     if data['state'] != 'play' and data['next_state'] == 'play':
 
         ##  All non-play states go back to state 'play' - see diagram.
@@ -12,7 +16,7 @@ def handle_state_transitions(key, data):
 
     elif data['state'] == 'pause' and key == 'p':
 
-        data['next_state'] = 'play'
+        data['next_state'] = 'unpause'
 
     elif data['state'] == 'play':
 
@@ -54,3 +58,8 @@ def handle_state_transitions(key, data):
     if key == 'd':
 
         data['darkmode'] = not data['darkmode']
+
+    print("\nafter:", data)
+
+    return data
+

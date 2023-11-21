@@ -7,6 +7,8 @@ from py.gfx.game_solution_graphics import *
 
 def handle_state_presentation(canvas, data):
 
+    print("drawing...")
+
     draw_astral(canvas,data)
 
     if data['state'] == 'play':

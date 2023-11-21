@@ -4,9 +4,10 @@
 ##    https://www.cs.cmu.edu/~112-n19/notes/notes-animations-part2.html
 ##    Because I didn't want to spend days learning about Tkinter.
 ##  Many comments added to figure out how it works, a few redundant
-##    parts deleted.
+##    parts deleted, main data structure adjusted.
 
-##  I did enjoy the finite state machine aspect of it, though.
+##  I built a finite state machine on top of it, quite complicated,
+##  error-prone.
 
 
 from tkinter import *
@@ -45,8 +46,6 @@ def keyPressed(event, data):
 
 
 def redrawAll(canvas, data):
-
-    draw_astral(canvas, data)
 
     handle_state_presentation(canvas, data)
 

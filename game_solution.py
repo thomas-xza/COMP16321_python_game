@@ -10,16 +10,11 @@
 
 
 from tkinter import *
-import random
-import subprocess
-import sys
 
 from py.fsm.game_solution_state_definitions import *
 from py.fsm.game_solution_state_initialisation import *
 from py.fsm.game_solution_state_transitions import *
 from py.fsm.game_solution_state_presentations import *
-
-from py.gfx.game_solution_graphics import *
 
 
 ##  Initialise some values.
@@ -28,78 +23,15 @@ def init(data):
 
     handle_state_initialisation(data)
 
-
     
 ##  timerFired() is called at regular intervals.
 ##    Is used to update state of game.
 
-##  See state_diagram.svg for info on how these states work
+##  See state_diagram.svg for info on how these states work.
 
 def timerFired(data):
 
     handle_state_definitions(data)
-
-    if data.pause == 0:
-
-        data.random_n = random.randrange(0, data.max_random)
-        
-    elif data.pause == 2:
-
-        data.prev_timer_delay = data.timerDelay
-        data.timerDelay = 2**32
-
-    elif data.pause == 1:
-
-        data.timerDelay = data.prev_timer_delay
-        data.pause = 0
-
-    ##  Below is the level up & animation sequence.
-        
-    if data.hit_target == True:
-
-        data.hit_target = False
-
-        ##  Level up variables.
-        
-        data.level += 1
-        data.max_random += 1
-        data.target_n = random.randrange(0,data.max_random)
-
-        ##  Play animation sequence
-
-        data.play_success = 10
-        data.prev_timer_delay = data.timerDelay
-        data.timerDelay = 60
-
-    if data.play_success > 0:
-
-        data.play_success -= 1
-    
-    if data.play_success == 0:
-
-        data.timerDelay = data.prev_timer_delay
-
-    if data.cheatmode == 10:
-
-        data.level += 100
-        data.timerDelay = 20
-        data.max_random = 2
-        data.target_n = 1
-        data.cheatmode = 0
-
-    if data.save == True:
-
-        with open('savefile.txt', encoding="utf-8") as f:
-            f.write(data.level)
-
-        data.save = False
-
-    if data.load == True:
-
-        with open('savefile.txt', encoding="utf-8") as f:
-            data.level = int(f.read().strip())
-
-        data.load = False
 
         
 def mousePressed(event, data):
@@ -109,9 +41,7 @@ def mousePressed(event, data):
 
 def keyPressed(event, data):
 
-    key = event.char
-
-    handle_state_transitions(key, data)
+    handle_state_transitions(event.char, data)
 
 
 def redrawAll(canvas, data):
@@ -119,75 +49,6 @@ def redrawAll(canvas, data):
     draw_astral(canvas, data)
 
     handle_state_presentation(canvas, data)
-
-    if data.play_success == False and data.pause == 0 and data.bossmode == False:
-    
-        canvas.create_text(data.width/2, data.height/2,
-                           text=str(data.random_n),
-                           font = ('', '50', ''),
-                       fill=darkmode_val(data, True))
-
-    elif data.pause == 2:
-
-        canvas.create_text(data.width/2, data.height/2,
-                           text="PAUSED!",
-                           font = ('', '50', ''),
-                       fill=darkmode_val(data, True))
-
-    elif data.bossmode == True:
-
-        pass
-
-    else:
-
-        canvas.create_image(
-            data.width/2,
-            data.height,
-            image=data.frames[10 - data.play_success],
-            anchor=S)
-
-        canvas.create_text(data.width/2, data.height/2,
-                           text=f"w00t!",
-                           font = ('', '80', ''),
-                       fill=darkmode_val(data, True))
-
-        if data.play_success == 9:
-
-            subprocess.Popen(["aplay", "mechanical_explosion.wav"])
-
-    if data.bossmode == False:
-
-        canvas.create_text(data.width/2, data.height/3,
-                           text=f"Hit keyboard at {data.target_n}!!",
-                           font = ('', '50', ''),
-                           fill=darkmode_val(data, True))
-
-        canvas.create_text(data.width/2, data.height/5*4,
-                           text=f"Level: {data.level}",
-                           font = ('', '20', ''),
-                           fill=darkmode_val(data, True))
-
-
-def draw_astral(canvas, data):
-
-    canvas.create_oval(15, 170, 25, 180, fill=darkmode_val(data, True))
-
-    canvas.create_oval(145, 95, 155, 105, fill=darkmode_val(data, True))
-
-    canvas.create_oval(395, 595, 405, 605, fill=darkmode_val(data, True))
-
-    canvas.create_oval(795, 395, 805, 405, fill=darkmode_val(data, True))
-
-    canvas.create_oval(1195, 345, 1205, 355, fill=darkmode_val(data, True))
-
-    canvas.create_line(20, 175, 150, 100, activedash=True, fill=darkmode_val(data, True), dash=(5, 5), width=2)
-        
-    canvas.create_line(150, 100, 400, 600, activedash=True, fill=darkmode_val(data, True), dash=(5, 5), width=2)
-        
-    canvas.create_line(800, 400, 400, 600, activedash=True, fill=darkmode_val(data, True), dash=(5, 5), width=2)
-        
-    canvas.create_line(800, 400, 1200, 350, activedash=True, fill=darkmode_val(data, True), dash=(5, 5), width=2)
-        
 
     
 ####   Allegedly the below need not be edited whatsoever.
@@ -274,14 +135,12 @@ def run(width=800, height=600):
     
     root = Tk()
 
-    explosion_gif = PhotoImage(file="explosion.gif", format="gif - 3")
-    
     canvas = Canvas(master=root,
                     width=data.width,
                     height=data.height,
                     background='black')
 
-    data.frames = [PhotoImage(file='explosion_medium_transparent.gif',format = 'gif -index %i' %(i)) for i in range(10)]
+    data.frames = [PhotoImage(file='./img/explosion_medium_transparent.gif',format = 'gif -index %i' %(i)) for i in range(10)]
 
     canvas.pack()
     

@@ -7,46 +7,59 @@ def handle_state_definitions(data):
 
     data.state = data.next_state
  
-    if data.state == 'play':
+    state = data.state
+
+    if state == 'play':
 
         data.timerDelay = data.prev_timer_delay
 
-    elif data.state == 'pause' or data.state == 'bossmode':
+    elif state == 'pause' or state == 'bossmode':
 
         data.prev_timer_delay = data.timerDelay
         data.timerDelay = 2**32
 
-    elif data.state == 'leaderboard':
+    elif state == 'leaderboard':
 
         pass
 
-    elif data.state == 'level_up':
+    elif state == 'level_up':
 
         data = handle_level_up_state(data)
 
-        data.block_state_change = True
+    return data
 
-        data = handle_level_up(data)
 
-        if data.level_up_src == 'cheat':
+def handle_level_up_state(data):
 
-            data = load_level(data, 100)
+    data = handle_level_up(data)
 
-        elif data.level_up_src == 'load':
+    if data.level_up_src == 'cheat':
+
+        data = load_level(data, 100)
+
+    elif data.level_up_src == 'load':
+
+        try:
 
             with open('savefile.txt', encoding="utf-8") as f:
                 saved_level = int(f.read().strip())
 
-            data = load_level(data, saved_level)
+        except:
 
-        elif data.level_up_src == 'win':
+            saved_level = 10
 
-            data = load_level(data, data.level + 1)
+        data = load_level(data, saved_level)
+
+    elif data.level_up_src == 'win':
+
+        data = load_level(data, data.level + 1)
 
     return data
 
 
 def load_level(data, level):
+
+    ##  All data related to level is derived from level value.
 
     data.level = level
 
@@ -54,29 +67,24 @@ def load_level(data, level):
 
     data.target_n = random.randrange(0,data.max_random)
     
-        ##  Play animation sequence
+    ##  Subsequence (sub-fsm) for playing animation sequence.
 
-        data.play_success = 10
+    if data.play_transition == 0:
+
+        ##  Block higher level state changes to allow animation to play.
+
+        data.play_transition = 10
         data.prev_timer_delay = data.timerDelay
         data.timerDelay = 60
 
-    if data.play_success > 0:
+    elif data.play_transition > 0:
 
         data.play_success -= 1
     
-    if data.play_success == 0:
+    if data.play_transition == 0:
 
+        data.next_state = 'play'
+        
         data.timerDelay = data.prev_timer_delay
 
-    if data.cheatmode == 10:
-
-        data.level += 100
-        data.timerDelay = 20
-        data.max_random = 2
-        data.target_n = 1
-        data.cheatmode = 0
-
-    if data.save == True:
-
-        with open('savefile.txt', encoding="utf-8") as f:
-            f.write(data.level)
+    return data

@@ -4,14 +4,11 @@
 
 def handle_state_transitions(key, data):
 
-    ######  This will need to be changed when entering leaderboard
-    ######  initials.
-
-    if data.state != 'play' and data.block_state_change == False:
+    if data.state != 'play' and data.next_state == 'play':
 
         ##  All non-play states go back to state 'play' - see diagram.
 
-        data.next_state = play
+        data.next_state = data.state
 
     elif data.state == 'play':
 

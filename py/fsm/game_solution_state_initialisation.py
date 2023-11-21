@@ -10,6 +10,7 @@ def handle_state_initialisation(data):
     data.state = 'play'
     data.next_state = 'play'
     data.block_state_change = False
+    data.play_transition = 0
     
 
     ##  timerDelay is speed of frame changes.

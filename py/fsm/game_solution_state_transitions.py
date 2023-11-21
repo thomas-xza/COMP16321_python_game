@@ -4,7 +4,7 @@
 
 def handle_state_transitions(key, data):
 
-    print("key input pressed")
+    print(f"key input pressed: {key}")
 
     print("\nbefore:", data)
 

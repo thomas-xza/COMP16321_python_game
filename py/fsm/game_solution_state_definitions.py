@@ -32,9 +32,13 @@ def handle_state_definitions(data):
 
         data['next_state'] = 'play'
 
-    elif state == 'highscores':
+    elif state == 'highscores_input':
 
-        handle_highscore_state(data)
+        data = handle_highscores_input_state(data)
+
+    elif state == 'highscores_input':
+
+        data = handle_highscores_display_state(data)
 
     elif state == 'level_up':
 
@@ -52,11 +56,11 @@ def handle_state_definitions(data):
     return data
 
 
-def handle_highscore_state(data):
+def handle_highscores_input_state(data):
 
     ##  Speed up the clock so user input doesn't lag.
 
-    data['timerDelay'] = 100
+    data['timerDelay'] = 50
 
     user_input_str = data['highscore_new_entry']
 
@@ -64,9 +68,13 @@ def handle_highscore_state(data):
 
         data['highscores'][user_input_str[0:3]] = data['score']
 
-        ##  Reset the clock by reloading the level.
+        ##  Revert the clock by simulating a level up.
 
-                
+        data = load_level(data, data['level'] - 1)
+
+        data['next_state'] = 'highscores_display'
+
+    return data
 
 
 def handle_level_up_state(data):

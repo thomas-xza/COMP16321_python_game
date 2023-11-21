@@ -2,6 +2,7 @@
 
 import random
 
+import pdb; pdb.set_trace()
 
 def handle_state_definitions(data):
 
@@ -9,7 +10,11 @@ def handle_state_definitions(data):
  
     state = data.state
 
+    print(data)
+    
     if state == 'play':
+
+        breakpoint()
 
         data.timerDelay = data.prev_timer_delay
         data.random_n = random.randrange(1, data.max_random)

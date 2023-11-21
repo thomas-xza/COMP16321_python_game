@@ -10,6 +10,10 @@ def handle_state_transitions(key, data):
 
         data.next_state = data.state
 
+    elif data.state == 'pause' and key == 'p':
+
+        data.next_state = 'play'
+
     elif data.state == 'play':
 
         ##  State can change from 'play' depending on input.

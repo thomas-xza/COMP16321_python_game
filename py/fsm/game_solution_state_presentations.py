@@ -30,7 +30,7 @@ def handle_state_presentation(canvas, data):
 
         canvas.create_text(data.width/2, data.height/2,
                            text="PAUSED!",
-                           font = ('', '50', ''),
+                           font = ('', '10', ''),
                        fill=darkmode_val(data, True))        
 
     elif data.state == 'bossmode':
@@ -39,16 +39,16 @@ def handle_state_presentation(canvas, data):
 
     elif data.state == 'level_up':
 
-        canvas.create_image(
-            data.width/2,
-            data.height,
-            image=data.frames[9 - data.play_animation],
-            anchor='s')
+        # canvas.create_image(
+        #     data.width/2,
+        #     data.height,
+        #     image=data.frames[9 - data.play_animation],
+        #     anchor='s')
 
-        # canvas.create_text(data.width/2, data.height/2,
-        #                    text=f"w00t!",
-        #                    font = ('', '80', ''),
-        #                fill=darkmode_val(data, True))
+        canvas.create_text(data.width/2, data.height/2,
+                           text=f"level up",
+                           font = ('', '10', ''),
+                       fill=darkmode_val(data, True))
 
         if data.play_animation == 9:
 

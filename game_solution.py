@@ -140,7 +140,9 @@ def run(width=800, height=600):
                     height=data.height,
                     background='black')
 
-    data.frames = [PhotoImage(file='./img/explosion_medium_transparent.gif',format = 'gif -index %i' %(i)) for i in range(10)]
+    # data.frames = [PhotoImage(file='./img/explosion_medium_transparent.gif',format = 'gif -index %i' %(i)) for i in range(10)]
+
+    data.frames = [PhotoImage(file='./img/explosion.gif',format = 'gif -index %i' %(i)) for i in range(10)]
 
     canvas.pack()
     

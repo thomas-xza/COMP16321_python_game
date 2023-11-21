@@ -76,11 +76,9 @@ def load_level(data, level):
 
         data.level = level
         data.max_random = new_max_random
-        data.target_n = random.randrange(0, new_max_random)
+        data.target_n = random.randrange(1, new_max_random)
         data.timerDelay -= data.timerDelay // 20
     
-        
-
     elif data.play_animation > 0:
 
         data.play_animation -= 1

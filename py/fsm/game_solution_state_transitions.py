@@ -18,6 +18,10 @@ def handle_state_transitions(key, data):
 
         data['next_state'] = 'unpause'
 
+    elif data['state'] == 'bossmode' and key == 'b':
+
+        data['next_state'] = 'play'
+
     elif data['state'] == 'play':
 
         ##  State can change from 'play' depending on input.

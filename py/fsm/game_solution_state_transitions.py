@@ -4,21 +4,20 @@
 
 def handle_state_transitions(key, data):
 
-    ##  All non-play states go back to state 'play' - see diagram.
+    ######  This will need to be changed when entering leaderboard
+    ######  initials.
 
-    if data.state != 'play':
+    if data.state != 'play' and data.block_state_change == False:
+
+        ##  All non-play states go back to state 'play' - see diagram.
 
         data.next_state = play
 
-    ##  State can change from 'play' depending on input.
-
     elif data.state == 'play':
 
-        if key == 's':
-        
-            data.next_state = 'leaderboard'
+        ##  State can change from 'play' depending on input.
 
-        elif key == 'b':
+        if key == 'b':
 
             data.next_state = 'bossmode'
 
@@ -26,17 +25,23 @@ def handle_state_transitions(key, data):
         
             data.next_state = 'pause'
 
+        elif key == 's':
+        
+            data.next_state = 'leaderboard'
+
         elif key == 'c':
 
             data.next_state = 'level_up'
             data.level_up_src = 'cheat'
 
         elif key == 'l':
-
+x
             data.next_state = 'level_up'
             data.level_up_src = 'load'
 
         else:
+
+            ##  Catch any other key input.
 
             if data.target_n == data.random_n:
             
@@ -49,5 +54,3 @@ def handle_state_transitions(key, data):
 
         data.darkmode = not data.darkmode
 
-
-        

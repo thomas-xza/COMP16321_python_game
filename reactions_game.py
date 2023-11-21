@@ -11,6 +11,9 @@ from tkinter import *
 import random
 import subprocess
 
+from states import *
+
+from game_solution
 
 ##  Initialise some values.
     
@@ -38,13 +41,13 @@ def init(data):
     data.darkmode = True
     data.save = False
     data.load = False
+    data.state = 'play'
 
     
 ##  timerFired() is called at regular intervals.
 ##    Is used to update state of game.
 
-##    Warning: this should be based on intricate diagrams of state
-##      machines, but was instead hacked together quickly.
+##  See state_diagram.svg for info on how these states work
 
 def timerFired(data):
 

@@ -8,7 +8,7 @@ def handle_state_transitions(key, data):
 
         ##  All non-play states go back to state 'play' - see diagram.
 
-        data.next_state = data.state
+        data.state = data.next_state
 
     elif data.state == 'pause' and key == 'p':
 
@@ -54,4 +54,3 @@ def handle_state_transitions(key, data):
     if key == 'd':
 
         data.darkmode = not data.darkmode
-

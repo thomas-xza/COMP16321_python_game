@@ -25,7 +25,7 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.84096521"
-     inkscape:cx="527.37021"
+     inkscape:cx="528.55932"
      inkscape:cy="384.08248"
      inkscape:window-width="1440"
      inkscape:window-height="831"
@@ -185,21 +185,17 @@
        id="path3444"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3650)"
-       d="M 177.35397,48.312395 151.12633,77.232731"
-       id="path3646" />
-    <path
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3540)"
        d="m 163.84134,87.773684 c 0,0 32.8924,-5.740559 31.11652,-21.617742"
        id="path3786" />
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,1.4022651,4.5459936)"
+       transform="matrix(0.26458333,0,0,0.26458333,1.4219288,2.4739349)"
        id="text4062"
        style="white-space:pre;shape-inside:url(#rect4064);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan5590">leaderboard</tspan></text>
+         id="tspan2102">leaderboard</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-29.583238,42.693769)"
@@ -207,11 +203,11 @@
        style="white-space:pre;shape-inside:url(#rect4064-7);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan5592">update
+         id="tspan2104">update
 </tspan><tspan
          x="258.77539"
          y="182.87305"
-         id="tspan5594">leaderboard</tspan></text>
+         id="tspan2106">leaderboard</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,126.03746,-0.51221928)"
@@ -219,22 +215,27 @@
        style="white-space:pre;shape-inside:url(#rect4064-3);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan5596">pause</tspan></text>
+         id="tspan2108">pause</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.175px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
-       x="229.08661"
-       y="152.0923"
+       x="234.79399"
+       y="150.65193"
        id="text6540"><tspan
          sodipodi:role="line"
          id="tspan6538"
          style="stroke-width:0.265"
-         x="229.08661"
-         y="152.0923">level up sequence</tspan><tspan
+         x="234.79399"
+         y="150.65193">level up</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.265"
-         x="229.08661"
-         y="156.06105"
+         x="234.79399"
+         y="154.62068"
+         id="tspan1853">sequence</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.265"
+         x="234.79399"
+         y="158.58943"
          id="tspan6542" /></text>
     <path
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3540)"
@@ -253,7 +254,7 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker3540)"
-       d="m 152.1095,104.70287 c 0,0 69.53809,2.02291 85.20881,28.67209"
+       d="m 157.40025,99.047108 c 0,0 64.24734,7.678672 79.91806,34.327852"
        id="path6810"
        sodipodi:nodetypes="cc" />
     <path
@@ -301,14 +302,14 @@
     <text
        xml:space="preserve"
        style="font-size:3.175px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
-       x="43.400173"
-       y="120.88361"
+       x="43.478828"
+       y="122.66809"
        id="text17910"><tspan
          sodipodi:role="line"
          id="tspan17908"
          style="stroke-width:0.265"
-         x="43.400173"
-         y="120.88361">save</tspan></text>
+         x="43.478828"
+         y="122.66809">save</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.175px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-dasharray:none;stroke-opacity:1"
@@ -446,5 +447,10 @@
          x="38.474113"
          y="53.220543"
          id="tspan1479-5-6-8" /></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264999;marker-end:url(#marker3540)"
+       d="m 180.10811,51.44875 c 0,0 -20.35926,4.9958 -31.52946,20.519034"
+       id="path1527"
+       sodipodi:nodetypes="cc" />
   </g>
 </svg>

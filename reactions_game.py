@@ -3,7 +3,7 @@
 ##  The template of this code is from Carnegie Mellon:
 ##    https://www.cs.cmu.edu/~112-n19/notes/notes-animations-part2.html
 ##    Because I didn't want to spend days learning about Tkinter.
-##  Many comments added to figure out how it works, various redundant
+##  Many comments added to figure out how it works, a few redundant
 ##    parts deleted.
 
 
@@ -36,6 +36,8 @@ def init(data):
     data.bossmode = False
     data.cheatmode = 0
     data.darkmode = True
+    data.save = False
+    data.load = False
 
     
 ##  timerFired() is called at regular intervals.
@@ -55,7 +57,7 @@ def timerFired(data):
     elif data.pause == 1:
 
         data.timerDelay = data.prev_timer_delay
-        data.pause = 0        
+        data.pause = 0
 
     ##  Below is the level up & animation sequence.
         
@@ -91,6 +93,20 @@ def timerFired(data):
         data.target_n = 1
         data.cheatmode = 0
 
+    if data.save == True:
+
+        with open('savefile.txt', encoding="utf-8") as f:
+            f.write(data.level)
+
+        data.save = False
+
+    if data.load == True:
+
+        with open('savefile.txt', encoding="utf-8") as f:
+            data.level = int(f.read().strip())
+
+        data.load = False
+
         
 def darkmode_val(data, text):
 
@@ -121,6 +137,14 @@ def mousePressed(event, data):
 
 
 def keyPressed(event, data):
+
+    if event.char == 's':
+
+        data.save = not data.save
+
+    if event.char == 'l':
+
+        data.save = not data.save
 
     if event.char == 'd':
 

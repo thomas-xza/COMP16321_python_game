@@ -27,6 +27,12 @@ def handle_state_initialisation(data):
     data['timerDelay'] = data['timer_delay_init']
     data['prev_timer_delay'] = data['timerDelay']
 
+
+    ##  Highscore feature
+
+    data['highscores'] = {}
+    data['highscore_new_entry'] = ""
+
     
     ##  Extra features
     

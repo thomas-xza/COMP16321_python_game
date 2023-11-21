@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
-##  The template of this code is from Carnegie Mellon:
+##  The template of this MVC code is from Carnegie Mellon:
 ##    https://www.cs.cmu.edu/~112-n19/notes/notes-animations-part2.html
 ##    Because I didn't want to spend days learning about Tkinter.
 ##  Many comments added to figure out how it works, a few redundant
 ##    parts deleted, main data structure adjusted.
 
-##  I built a finite state machine on top of it, quite complicated,
-##  error-prone.
+##  I built a finite state machine on top of it.
 
 
 from tkinter import *
@@ -107,13 +106,14 @@ def run(width=800, height=600):
         
         redrawAllWrapper(canvas, data)
         
-        ##  Pause, then add another call to this function to event loop.
+        ##  Pause, then add another call to this function to event
+        ##  loop, to be triggered on the positive clock edge.
         
         canvas.after(data['timerDelay'], timerFiredWrapper, canvas, data)
 
 
     ##  CMU's template was an object of an empty class.  However, this
-    ##    is a bad hack, and was eventually rewritten...
+    ##    is a bad hack, and was eventually changed...
     
     data = {}
 
@@ -134,9 +134,9 @@ def run(width=800, height=600):
                     height=data['height'],
                     background='black')
 
-    # data['frames'] = [PhotoImage(file='./img/explosion_medium_transparent.gif',format = 'gif -index %i' %(i)) for i in range(10)]
+    data['frames'] = [PhotoImage(file='./img/explosion_medium_transparent.gif',format = 'gif -index %i' %(i)) for i in range(10)]
 
-    data['frames'] = [PhotoImage(file='./img/explosion.gif',format = 'gif -index %i' %(i)) for i in range(10)]
+    # data['frames'] = [PhotoImage(file='./img/explosion.gif',format = 'gif -index %i' %(i)) for i in range(10)]
 
     canvas.pack()
     

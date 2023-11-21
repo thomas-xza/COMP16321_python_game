@@ -22,6 +22,14 @@ def handle_state_transitions(key, data):
 
         data['next_state'] = 'play'
 
+    elif data['state'] == 'highscores_input' and key.isalpha():
+
+        data['highscore_new_entry'].append(key)
+
+    elif data['state'] == 'highscores_display':
+
+        data['next_state'] = 'play'
+
     elif data['state'] == 'play':
 
         ##  State can change from 'play' depending on input.
@@ -32,7 +40,7 @@ def handle_state_transitions(key, data):
 
         elif key == 'h':
         
-            data['next_state'] = 'highscores'
+            data['next_state'] = 'highscores_input'
 
         elif key == 'p':
         

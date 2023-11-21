@@ -18,8 +18,8 @@ online long-term, as a result).
 
 Instead, I opted for a clock-based template for Tkinter, implemented
 by Carnegie Mellon University, which fit nicely with COMP12111, then
-wrote an FSM on top of it. Initially I built with no FSM, but it was a
-mess.
+wrote a finite-state-machine on top of it. Initially I built with no
+FSM, but it was a mess.
 
 I originally discovered event loops in 2022, with Python's `asyncio`,
 and then went on to more deeply understand them in 2023 with
@@ -35,7 +35,7 @@ are some extra novelty features, to meet the specification, but not
 all of them - 'feature creep'!
 
 
-##  Underlying Carnegie Mellon template - how it works
+##  Underlying Carnegie Mellon MVC template - how it works
 
 All CMU code is found within `game_solution.py` *only*.
 
@@ -43,7 +43,8 @@ A diagram of their event loop is found here:
 https://www.cs.cmu.edu/~112/notes/event_loop.png
 
 A clock ticks at set intervals, the frequency of the ticks dependent
-upon a numeric variable.
+upon a numeric variable (implemented by a function that re-adds itself
+to the event loop after a set period of time).
 
 Further execution is then initiated by the following functions:
 
@@ -60,7 +61,8 @@ every clock tick or key input.
 Heavy use of inline commenting has been made to make the template more
 understandable. Furthering, the original template contained a poor
 data structure - an object of an empty class, which makes debugging a
-hassle. This was changed to a Python dictionary, for easier output.
+hassle. This was (eventually) changed to a Python dictionary, for
+easier output.
 
 
 ##  Overlaid finite state machine by me - how it works
@@ -97,20 +99,20 @@ transparent.
 ##  Specification
 
 The game meets the COMP16321 specifications (as mentioned in
-Coursework_02.pdf) via the following means.
+`Coursework_02.pdf`) via the following means.
 
 1. Images: explosion gif
 2. Shapes: crummy astral background
 3. Text: gameplay
 4. Scoring: score is incremented/deincremented
-5. Leaderboard: press 'l' and input 3 characters
+5. Leaderboard: press `l` and input 3 characters
 6. Resolution: 1280x720
 7. Movement: text & animation timing
 8. User can move object: n/a
 9. Collision detection: n/a
 10. Pause: press `p`
 11. Customise: press `d` for darkmode
-12. Cheat code: press 'c' 10 times
+12. Cheat code: press `c` 10 times
 13. Save load: press `s` or `l`
 14. Boss key: press `b`
 
@@ -132,15 +134,16 @@ Coursework_02.pdf) via the following means.
 
 ##  Known bugs
 
+Coming soon.
 
 
 ##  Extra notes
 
-I originally came around to Carnegie Mellon software whilst setting up
-the HFSC algorithm on OpenWRT for a MIPS router in an office with a
-limited uplink, after a tutor from a short course at City University
-had taught me about a less dynamic, and therefore less efficient,
-algorithm, to introduce quality-of-service networking concepts. Sure
-enough, the HFSC algorithm worked exceptionally well, and it put CMU
-on the radar for me in a big way.
+I originally came around to software from Carnegie Mellon University
+whilst setting up the HFSC algorithm on OpenWRT for a MIPS router in
+an office with a limited uplink, after a tutor from a short course at
+City University had taught me about a less dynamic, and therefore less
+efficient, algorithm, to introduce quality-of-service networking
+concepts. Sure enough, the HFSC algorithm worked exceptionally well,
+and it put CMU on the radar for me in a big way.
 

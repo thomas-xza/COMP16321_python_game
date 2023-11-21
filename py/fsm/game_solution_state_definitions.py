@@ -18,8 +18,8 @@ def handle_state_definitions(data):
 
     elif state == 'pause' or state == 'bossmode':
 
-        ##  Now we can't actually pause with this CMU template,
-        ##    because setting the timer high can't be interrupted.
+        ##  We can't actually pause with this CMU template, because
+        ##    setting the timer high can't be interrupted.
 
         ##  So, next option is to allow game to keep running in
         ##    background, and hide and restore status.
@@ -32,9 +32,9 @@ def handle_state_definitions(data):
 
         data['next_state'] = 'play'
 
-    elif state == 'leaderboard':
+    elif state == 'highscores':
 
-        pass
+        handle_highscore_state(data)
 
     elif state == 'level_up':
 
@@ -50,6 +50,23 @@ def handle_state_definitions(data):
     data['state'] = data['next_state']
 
     return data
+
+
+def handle_highscore_state(data):
+
+    ##  Speed up the clock so user input doesn't lag.
+
+    data['timerDelay'] = 100
+
+    user_input_str = data['highscore_new_entry']
+
+    if len(user_input_str) >= 3:
+
+        data['highscores'][user_input_str[0:3]] = data['score']
+
+        ##  Reset the clock by reloading the level.
+
+                
 
 
 def handle_level_up_state(data):

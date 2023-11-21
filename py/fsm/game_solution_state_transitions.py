@@ -32,7 +32,7 @@ def handle_state_transitions(key, data):
             data.level_up_src = 'cheat'
 
         elif key == 'l':
-x
+
             data.next_state = 'level_up'
             data.level_up_src = 'load'
 

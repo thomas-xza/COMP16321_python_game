@@ -9,25 +9,35 @@ def handle_state_presentation(canvas, data):
 
     draw_astral(canvas,data)
 
-    if data.play_success == False and data.pause == 0 and data.bossmode == False:
+    if data.state == 'play':
     
+        canvas.create_text(data.width/2, data.height/3,
+                           text=f"Hit keyboard at {data.target_n}!!",
+                           font = ('', '50', ''),
+                           fill=darkmode_val(data, True))
+
         canvas.create_text(data.width/2, data.height/2,
                            text=str(data.random_n),
                            font = ('', '50', ''),
                        fill=darkmode_val(data, True))
 
-    elif data.pause == 2:
+        canvas.create_text(data.width/2, data.height/5*4,
+                           text=f"Level: {data.level}",
+                           font = ('', '20', ''),
+                           fill=darkmode_val(data, True))
+
+    elif data.state == 'pause':
 
         canvas.create_text(data.width/2, data.height/2,
                            text="PAUSED!",
                            font = ('', '50', ''),
-                       fill=darkmode_val(data, True))
+                       fill=darkmode_val(data, True))        
 
-    elif data.bossmode == True:
+    elif data.state == 'bossmode':
 
         pass
 
-    else:
+    elif data.state == 'level_up':
 
         canvas.create_image(
             data.width/2,
@@ -40,19 +50,7 @@ def handle_state_presentation(canvas, data):
                            font = ('', '80', ''),
                        fill=darkmode_val(data, True))
 
-        if data.play_success == 9:
+        if data.play_animation == 9:
 
             subprocess.Popen(["aplay", "mechanical_explosion.wav"])
-
-    if data.bossmode == False:
-
-        canvas.create_text(data.width/2, data.height/3,
-                           text=f"Hit keyboard at {data.target_n}!!",
-                           font = ('', '50', ''),
-                           fill=darkmode_val(data, True))
-
-        canvas.create_text(data.width/2, data.height/5*4,
-                           text=f"Level: {data.level}",
-                           font = ('', '20', ''),
-                           fill=darkmode_val(data, True))
 

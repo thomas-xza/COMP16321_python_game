@@ -12,6 +12,7 @@ def handle_state_definitions(data):
     if state == 'play':
 
         data.timerDelay = data.prev_timer_delay
+        data.random_n = random.randrange(1, data.max_random)
 
     elif state == 'pause' or state == 'bossmode':
 
@@ -59,29 +60,31 @@ def handle_level_up_state(data):
 
 def load_level(data, level):
 
-    ##  All data related to level is derived from level value.
+    ##  All data related to difficulty is derived from level value.
 
     data.level = level
 
     data.max_random = level + 2
 
     data.target_n = random.randrange(0,data.max_random)
+
+    data.timerDelay -= data.timerDelay // 20
     
     ##  Subsequence (sub-fsm) for playing animation sequence.
 
-    if data.play_transition == 0:
+    if data.play_animation == 0:
 
         ##  Block higher level state changes to allow animation to play.
 
-        data.play_transition = 10
+        data.play_animation = 10
         data.prev_timer_delay = data.timerDelay
         data.timerDelay = 60
 
-    elif data.play_transition > 0:
+    elif data.play_animation > 0:
 
-        data.play_success -= 1
+        data.play_animation -= 1
     
-    if data.play_transition == 0:
+    if data.play_animation == 0:
 
         data.next_state = 'play'
         

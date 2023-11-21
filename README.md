@@ -18,6 +18,10 @@ I originally discovered event loops in 2022, with Python's `asyncio`,
 and then went on to more deeply understand them in 2023 with
 Javascript's more native implementation.
 
+A few days in, I began to appreciate the project less as a game, and
+more as an application of a finite state machine - see
+`state_diagram.svg`.
+
 
 ##  Gameplay
 

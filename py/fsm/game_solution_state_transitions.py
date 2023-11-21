@@ -30,13 +30,17 @@ def handle_state_transitions(key, data):
 
             data['next_state'] = 'bossmode'
 
+        elif key == 'h':
+        
+            data['next_state'] = 'highscores'
+
         elif key == 'p':
         
             data['next_state'] = 'pause'
 
         elif key == 's':
         
-            data['next_state'] = 'leaderboard'
+            data['next_state'] = 'save'
 
         elif key == 'c':
 

@@ -37,6 +37,13 @@ def handle_state_definitions(data):
 
         data = handle_level_up_state(data)
 
+    elif state == 'save':
+
+        with open('savefile.txt', 'w', encoding="utf-8") as f:
+            f.write(str(data['level']))
+
+        data['next_state'] = 'play'
+
     data['state'] = data['next_state']
 
     return data
@@ -46,20 +53,11 @@ def handle_level_up_state(data):
 
     if data['level_up_src'] == 'cheat':
 
-        data = load_level(data, 100)
+        data = handle_level_up_via_cheat(data)
 
     elif data['level_up_src'] == 'load':
 
-        try:
-
-            with open('savefile.txt', encoding="utf-8") as f:
-                saved_level = int(f.read().strip())
-
-        except:
-
-            saved_level = 10
-
-        data = load_level(data, saved_level)
+        data = handle_level_up_via_load(data)
 
     elif data['level_up_src'] == 'win':
 
@@ -68,6 +66,38 @@ def handle_level_up_state(data):
     return data
 
 
+def handle_level_up_via_cheat(data):
+
+    presses = data['cheat_presses']
+
+    if presses == 10:
+
+        data = load_level(data, 100)
+        data['cheat_presses'] = 0
+
+    else:
+
+        data['cheat_presses'] += 1
+
+    return data
+    
+
+def handle_level_up_via_load(data)
+
+    try:
+
+        with open('savefile.txt', encoding="utf-8") as f:
+            saved_level = int(f.read().strip())
+
+    except:
+
+        saved_level = 10
+
+    data = load_level(data, saved_level)
+
+    return data
+
+        
 def load_level(data, level):
 
     ##  All data related to difficulty is derived from level value.
@@ -83,13 +113,14 @@ def load_level(data, level):
         data['timerDelay'] = 60
 
         ##  Only edit level data at beginning of level-up animation
+        ##  Derive difficulty of game solely from level.
 
         new_max_random = level + 2
 
         data['level'] = level
         data['max_random'] = new_max_random
         data['target_n'] = random.randrange(1, new_max_random)
-        data['timerDelay'] -= data['timerDelay'] // 20
+        data['timerDelay'] = data['timer_delay_init'] - level * 10 
     
     elif data['play_animation'] > 0:
 

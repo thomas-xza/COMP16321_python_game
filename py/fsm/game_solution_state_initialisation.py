@@ -21,7 +21,8 @@ def handle_state_initialisation(data):
     ##  timerDelay is speed of frame changes.
     ##  100 millisecond == 0.1 seconds
     
-    data['timerDelay'] = 400
+    data['timer_delay_init'] = 400
+    data['timerDelay'] = data['timer_delay_init']
     data['prev_timer_delay'] = data['timerDelay']
 
     

@@ -6,9 +6,9 @@ import pdb; pdb.set_trace()
 
 def handle_state_definitions(data):
 
-    data.state = data.next_state
+    data['state'] = data['next_state']
  
-    state = data.state
+    state = data['state']
 
     print(data)
     
@@ -16,13 +16,13 @@ def handle_state_definitions(data):
 
         breakpoint()
 
-        data.timerDelay = data.prev_timer_delay
-        data.random_n = random.randrange(1, data.max_random)
+        data['timerDelay'] = data['prev_timer_delay']
+        data['random_n'] = random.randrange(1, data['max_random'])
 
     elif state == 'pause' or state == 'bossmode':
 
-        data.prev_timer_delay = data.timerDelay
-        data.timerDelay = 2**32
+        data['prev_timer_delay'] = data['timerDelay']
+        data['timerDelay'] = 2**32
 
     elif state == 'leaderboard':
 
@@ -37,11 +37,11 @@ def handle_state_definitions(data):
 
 def handle_level_up_state(data):
 
-    if data.level_up_src == 'cheat':
+    if data['level_up_src'] == 'cheat':
 
         data = load_level(data, 100)
 
-    elif data.level_up_src == 'load':
+    elif data['level_up_src'] == 'load':
 
         try:
 
@@ -54,9 +54,9 @@ def handle_level_up_state(data):
 
         data = load_level(data, saved_level)
 
-    elif data.level_up_src == 'win':
+    elif data['level_up_src'] == 'win':
 
-        data = load_level(data, data.level + 1)
+        data = load_level(data, data['level + 1'])
 
     return data
 
@@ -67,31 +67,31 @@ def load_level(data, level):
 
     ##  Subsequence (sub-fsm) for playing animation sequence.
 
-    if data.play_animation == 0:
+    if data['play_animation'] == 0:
 
         ##  Block higher level state changes to allow animation to play.
 
-        data.play_animation = 10
-        data.prev_timer_delay = data.timerDelay
-        data.timerDelay = 60
+        data['play_animation'] = 10
+        data['prev_timer_delay'] = data['timerDelay']
+        data['timerDelay'] = 60
 
         ##  Only edit level data at beginning of level-up animation
 
         new_max_random = level + 2
 
-        data.level = level
-        data.max_random = new_max_random
-        data.target_n = random.randrange(1, new_max_random)
-        data.timerDelay -= data.timerDelay // 20
+        data['level'] = level
+        data['max_random'] = new_max_random
+        data['target_n'] = random.randrange(1, new_max_random)
+        data['timerDelay'] -= data['timerDelay // 20']
     
-    elif data.play_animation > 0:
+    elif data['play_animation'] > 0:
 
-        data.play_animation -= 1
+        data['play_animation'] -= 1
     
-    if data.play_animation == 0:
+    if data['play_animation'] == 0:
 
-        data.next_state = 'play'
+        data['next_state'] = 'play'
         
-        data.timerDelay = data.prev_timer_delay
+        data['timerDelay'] = data['prev_timer_delay']
 
     return data

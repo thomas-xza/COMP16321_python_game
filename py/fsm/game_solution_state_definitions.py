@@ -32,8 +32,6 @@ def handle_state_definitions(data):
 
 def handle_level_up_state(data):
 
-    data = handle_level_up(data)
-
     if data.level_up_src == 'cheat':
 
         data = load_level(data, 100)
@@ -62,14 +60,6 @@ def load_level(data, level):
 
     ##  All data related to difficulty is derived from level value.
 
-    data.level = level
-
-    data.max_random = level + 2
-
-    data.target_n = random.randrange(0,data.max_random)
-
-    data.timerDelay -= data.timerDelay // 20
-    
     ##  Subsequence (sub-fsm) for playing animation sequence.
 
     if data.play_animation == 0:
@@ -79,6 +69,17 @@ def load_level(data, level):
         data.play_animation = 10
         data.prev_timer_delay = data.timerDelay
         data.timerDelay = 60
+
+        ##  Only edit level data at beginning of level-up animation
+
+        new_max_random = level + 2
+
+        data.level = level
+        data.max_random = new_max_random
+        data.target_n = random.randrange(0, new_max_random)
+        data.timerDelay -= data.timerDelay // 20
+    
+        
 
     elif data.play_animation > 0:
 

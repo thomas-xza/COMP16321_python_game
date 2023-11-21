@@ -13,17 +13,17 @@ def handle_state_presentation(canvas, data):
     
         canvas.create_text(data.width/2, data.height/3,
                            text=f"Hit keyboard at {data.target_n}!!",
-                           font = ('', '50', ''),
+                           font = ('', '10', ''),
                            fill=darkmode_val(data, True))
 
         canvas.create_text(data.width/2, data.height/2,
                            text=str(data.random_n),
-                           font = ('', '50', ''),
+                           font = ('', '10', ''),
                        fill=darkmode_val(data, True))
 
         canvas.create_text(data.width/2, data.height/5*4,
                            text=f"Level: {data.level}",
-                           font = ('', '20', ''),
+                           font = ('', '10', ''),
                            fill=darkmode_val(data, True))
 
     elif data.state == 'pause':
@@ -42,13 +42,13 @@ def handle_state_presentation(canvas, data):
         canvas.create_image(
             data.width/2,
             data.height,
-            image=data.frames[10 - data.play_success],
-            anchor=S)
+            image=data.frames[9 - data.play_animation],
+            anchor='s')
 
-        canvas.create_text(data.width/2, data.height/2,
-                           text=f"w00t!",
-                           font = ('', '80', ''),
-                       fill=darkmode_val(data, True))
+        # canvas.create_text(data.width/2, data.height/2,
+        #                    text=f"w00t!",
+        #                    font = ('', '80', ''),
+        #                fill=darkmode_val(data, True))
 
         if data.play_animation == 9:
 

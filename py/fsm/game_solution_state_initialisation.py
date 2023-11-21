@@ -11,9 +11,9 @@ def handle_state_initialisation(data):
     data.next_state = 'play'
 
     data.level = 1
-    data.max_random = 1
-    data.target_n = random.randrange(1, data.max_random)
-    data.random_n = random.randrange(1, data.max_random)
+    data.max_random = 3
+    data.target_n = random.randrange(1, 3)
+    data.random_n = random.randrange(1, 3)
     
     data.play_animation = 0
 

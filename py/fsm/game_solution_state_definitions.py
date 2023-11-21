@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 import random
 
 def handle_state_definitions(data):
@@ -36,7 +37,7 @@ def handle_state_definitions(data):
 
         data = handle_highscores_input_state(data)
 
-    elif state == 'highscores_input':
+    elif state == 'highscores_display':
 
         data = handle_highscores_display_state(data)
 
@@ -66,15 +67,38 @@ def handle_highscores_input_state(data):
 
     if len(user_input_str) >= 3:
 
+        ##  Valid input received, so load highscores, update, write.
+
+        try:
+
+            with open('highscores.json', 'r', encoding="utf-8") as f:
+                data['highscores'] = json.load(f.read().strip())
+
+        except:
+
+            data['highscores'] = {}
+
         data['highscores'][user_input_str[0:3]] = data['score']
+        
+        with open('highscores.json', 'w', encoding="utf-8") as f:
+            f.write(json.dump(data['highscores']))
 
         ##  Revert the clock by simulating a level up.
 
         data = load_level(data, data['level'] - 1)
 
+        ##  Ready to display highscores.
+
         data['next_state'] = 'highscores_display'
 
     return data
+
+
+def handle_highscores_display_state(data):
+
+    ##  No data manipulation occurs in this state.
+
+    pass
 
 
 def handle_level_up_state(data):

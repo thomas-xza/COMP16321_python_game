@@ -11,10 +11,12 @@ def handle_state_initialisation(data):
     data['next_state'] = 'play'
 
     data['level'] = 1
-    data['max_random'] = 3
-    data['target_n'] = random.randrange(1, 3)
-    data['random_n'] = random.randrange(1, 3)
     
+    data['max_random'] = 3
+    data['target_n'] = random.randrange(1, data['max_random'])
+    data['random_n'] = random.randrange(1, data['max_random'])
+
+    data['score'] = 10
     data['play_animation'] = 0
 
     

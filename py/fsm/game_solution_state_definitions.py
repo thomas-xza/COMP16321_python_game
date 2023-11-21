@@ -12,6 +12,7 @@ def handle_state_definitions(data):
 
         data['timerDelay'] = data['prev_timer_delay']
         data['random_n'] = random.randrange(1, data['max_random'])
+        data['score'] -= 1
 
     elif state == 'pause' or state == 'bossmode':
 
@@ -40,7 +41,7 @@ def handle_state_definitions(data):
     elif state == 'save':
 
         with open('savefile.txt', 'w', encoding="utf-8") as f:
-            f.write(str(data['level']))
+            f.write(f"{data['level']},{data['score']}")
 
         data['next_state'] = 'play'
 
@@ -74,6 +75,7 @@ def handle_level_up_via_cheat(data):
 
         data = load_level(data, 100)
         data['cheat_presses'] = 0
+        data['score'] += 1000000
 
     else:
 
@@ -87,7 +89,11 @@ def handle_level_up_via_load(data)
     try:
 
         with open('savefile.txt', encoding="utf-8") as f:
-            saved_level = int(f.read().strip())
+            save_file = int(f.read().strip())
+
+        saved_level = save_file.split()[0]
+
+        data['score'] = save_file.split()[1]
 
     except:
 

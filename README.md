@@ -50,7 +50,7 @@ Ongoing execution is initiated by the following functions:
 - A timer function is triggered every clock tick so calls further
   functions based on regular time invervals (like a sequential
   circuit), which then adds another instance of itself to the event
-  loop
+  loop before exiting
 
 - A user-input function is trigged by peripheral devices,
   e.g. keyboard (more like a combinatorial circuit)
@@ -68,7 +68,7 @@ The concepts I have used are similar to the CMU template, except that
 I have built something less monolithic to 1 file, which only updates
 on the clock, and with a more sane data structure.
 
-##  Overlaid finite state machine - how it works
+##  Overlaid finite state machine - how it work
 
 See `docs/state_diagram.svg` for a diagram of the finite state machine.
 

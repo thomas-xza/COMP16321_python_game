@@ -30,7 +30,9 @@ def handle_state_transitions(key, data):
 
         # if key == 'a':
 
-        if key == 'd':
+        ##  Ideally key would be right-arrow, but required refactoring.
+
+        if key == 'a':
 
             data['character_state'] += 5
 

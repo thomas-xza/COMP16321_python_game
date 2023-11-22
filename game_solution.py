@@ -48,11 +48,13 @@ def main(width=1280, height=720):
     data = handle_state_initialisation([width, height],images)
 
 
-    ##  Add key binding which triggers callback to user_input_trigger()
-    ##    at user input.
+    ##  Add key binding which triggers callback to user_input_trigger(),
+    ##    via handle_key_input().
+
+    def handle_key_input(event):
+        user_input_trigger(event, canvas, data)
     
-    main_window.bind("<Key>", lambda event:
-                            user_input_trigger(event, canvas, data))
+    main_window.bind("<Key>", handle_key_input)
 
 
     ##  Add 1st clock trigger to the event loop.

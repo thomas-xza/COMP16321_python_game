@@ -464,10 +464,10 @@
        style="white-space:pre;shape-inside:url(#rect4064);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan16452">highscores </tspan><tspan
+         id="tspan23121">highscores </tspan><tspan
          x="258.77539"
          y="182.87305"
-         id="tspan16454">input</tspan></text>
+         id="tspan23123">input</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.30423432,0,0,0.30423432,6.8624524,2.5748284)"
@@ -475,7 +475,7 @@
        style="white-space:pre;shape-inside:url(#rect4064-3);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan16456">pause</tspan></text>
+         id="tspan23125">pause</tspan></text>
     <circle
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.146142;stroke-opacity:1"
        id="path2923-3-6"
@@ -489,7 +489,7 @@
        style="white-space:pre;shape-inside:url(#rect4064-3-3);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan16458">unpause</tspan></text>
+         id="tspan23127">unpause</tspan></text>
     <path
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.304712;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3540-53)"
        d="m 150.88238,207.29194 c -1.29337,-2.83342 18.50083,-0.64794 31.53776,-13.99974"
@@ -673,6 +673,17 @@
     <text
        xml:space="preserve"
        style="font-size:3.65082px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.304712;stroke-dasharray:none;stroke-opacity:1"
+       x="293.35934"
+       y="35.624733"
+       id="text17910-3-7-5-8-7"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.304713"
+         x="293.35934"
+         y="35.624733"
+         id="tspan4522-3-9-3">clock tick</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.65082px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.304712;stroke-dasharray:none;stroke-opacity:1"
        x="76.40107"
        y="19.953392"
        id="text17910-3-7-9"><tspan
@@ -783,10 +794,10 @@
        style="white-space:pre;shape-inside:url(#rect4064-9-9-3);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan16460">highscore </tspan><tspan
+         id="tspan23129">highscore </tspan><tspan
          x="258.77539"
          y="182.87305"
-         id="tspan16462">display</tspan></text>
+         id="tspan23131">display</tspan></text>
     <circle
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.146142;stroke-opacity:1"
        id="path2923-5"
@@ -840,13 +851,13 @@
     <text
        xml:space="preserve"
        style="font-size:3.65082px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.304712;stroke-dasharray:none;stroke-opacity:1"
-       x="325.10611"
-       y="68.114441"
+       x="326.03769"
+       y="68.336906"
        id="text6540-6-0"><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="325.10611"
-         y="68.114441"
-         id="tspan6542-3-3">explode</tspan></text>
+         x="326.03769"
+         y="68.336906"
+         id="tspan6542-3-3">level up</tspan></text>
   </g>
 </svg>

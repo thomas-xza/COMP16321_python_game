@@ -4,8 +4,6 @@
 
 def handle_state_transitions(key, data):
 
-    print(f"key input pressed: {key}")
-
     if data['state'] != 'play' and data['next_state'] == 'play':
 
         data['state'] = data['next_state']
@@ -29,6 +27,12 @@ def handle_state_transitions(key, data):
     elif data['state'] == 'play':
 
         ##  State can change from 'play' depending on input.
+
+        # if key == 'a':
+
+        if key == 'd':
+
+            data['character_state'] += 5
 
         if key == 'b':
 

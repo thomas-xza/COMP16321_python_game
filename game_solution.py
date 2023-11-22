@@ -39,7 +39,13 @@ def main(width=1280, height=720):
     
     animation = [PhotoImage(file='./img/explosion_medium_transparent_green.gif',format = 'gif -index %i' %(i)) for i in range(10)]
     
-    data = handle_state_initialisation([width, height], animation)
+    man_walk = [PhotoImage(file='./img/walking_man_big.gif')]
+    
+    man_stand = [PhotoImage(file='./img/standing_man_big.gif')]
+
+    images = [animation, man_walk, man_stand]
+    
+    data = handle_state_initialisation([width, height],images)
 
 
     ##  Add key binding which triggers callback to user_input_trigger()
@@ -60,6 +66,8 @@ def main(width=1280, height=720):
 
 
 def user_input_trigger(event, canvas, data):
+
+    print(event)
 
     ##  Take input data and change state.
 

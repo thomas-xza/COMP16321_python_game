@@ -3,7 +3,7 @@
 import random
 
     
-def handle_state_initialisation(resolution, animation):
+def handle_state_initialisation(resolution, images):
 
     data = {}
 
@@ -11,9 +11,16 @@ def handle_state_initialisation(resolution, animation):
 
     data['width'] = resolution[0]
     data['height'] = resolution[1]
-    data['frames'] = animation
 
-    ##  Set initial state data.
+    ##  Images.
+    
+    data['frames'] = images[0]
+    data['img_walk'] = images[1]
+    data['img_walk_pos'] = 50
+    data['img_stand'] = images[2]
+    data['img_stand_pos'] = data['width'] - 50
+
+    ##  Set initial state data of main FSM.
 
     data['state'] = 'play'
     data['next_state'] = 'play'
@@ -27,6 +34,10 @@ def handle_state_initialisation(resolution, animation):
 
     data['score'] = 10
     data['play_animation'] = 0
+
+    ##  Set initial state date of secondary mini FSM.
+
+    data['character_state'] = 0
     
     ##  clock_time is speed of frame changes.
     ##  100 millisecond == 0.1 seconds

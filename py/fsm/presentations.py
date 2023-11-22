@@ -18,6 +18,19 @@ def handle_state_presentation(canvas, data):
 
     centre = data['width']/2
 
+
+    if data['state'] != 'bossmode':
+
+        canvas.create_image(
+            data['img_walk_pos'],
+            data['height'] -30,
+            image=data['img_walk'])
+
+        canvas.create_image(
+            data['img_stand_pos'],
+            data['height'] - 30,
+            image=data['img_stand'])
+        
     if data['state'] == 'play':
 
         draw_play_frame(canvas, data, centre, f_size)
@@ -81,7 +94,7 @@ def draw_play_frame(canvas, data, centre, f_size):
               f"Level: {data['level']}",
               f_size)
 
-                      
+    
 def draw_levelup_frame(canvas, data, centre, f_size):
 
     canvas.create_image(

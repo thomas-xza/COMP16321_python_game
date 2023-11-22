@@ -35,7 +35,7 @@ stated number. On success, there is an explosion and level-up. There
 are some extra novelty features, to meet the specification.
 
 
-##  Underlying Carnegie Mellon MVC template - how it works
+##  Underlying Carnegie Mellon MVC concepts - how they works
 
 The concepts from the CMU template are found within `game_solution.py`
 *only*.

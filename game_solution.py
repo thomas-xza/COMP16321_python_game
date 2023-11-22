@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-##  The template of this is adapted MVC code from Carnegie Mellon:
+##  The concepts of this are adapted MVC code from Carnegie Mellon:
 ##    https://www.cs.cmu.edu/~112-n19/notes/notes-animations-part2.html
 ##    Because I didn't want to spend days learning about Tkinter.
 ##    Many comments added to figure out how it works, a few redundant
@@ -43,13 +43,14 @@ def main(width=1280, height=720):
     data = handle_state_initialisation([width, height], animation)
 
 
-    ##  Add key binding which triggers callback upon user input.
+    ##  Add key binding which triggers callback to keyboard_trigger()
+    ##    at user input.
     
     root.bind("<Key>", lambda event:
                             keyboard_trigger(event, canvas, data))
 
 
-    ##  Add an initial event instance to the event loop.
+    ##  Add 1st clock trigger to the event loop.
     
     clock_trigger(canvas, data)
 
@@ -92,7 +93,7 @@ def clock_trigger(canvas, data):
     draw_new_frame(canvas, data)
 
     ##  Pause, then add another call to clock_trigger() to event loop,
-    ##  to be triggered on the next clock tick, with game data as args.
+    ##  to be triggered after delay (clock tick), with game data as args.
 
     canvas.after(data['timerDelay'], clock_trigger, canvas, data)
 

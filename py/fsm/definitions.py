@@ -13,7 +13,7 @@ def handle_state_definitions(data):
  
     if state == 'play':
 
-        data['timerDelay'] = data['prev_timer_delay']
+        data['clock_time'] = data['prev_clock_time']
         data['random_n'] = random.randrange(1, data['max_random'])
 
         if data['score'] != 0:
@@ -71,7 +71,7 @@ def handle_highscores_input_state(data):
 
     ##  Speed up the clock so user input doesn't lag.
 
-    data['timerDelay'] = 50
+    data['clock_time'] = 50
 
     user_input_str = data['highscore_new_entry']
 
@@ -173,8 +173,8 @@ def load_level(data, level):
         ##  Block higher level state changes to allow animation to play.
 
         data['play_animation'] = 10
-        data['prev_timer_delay'] = data['timerDelay']
-        data['timerDelay'] = 60
+        data['prev_clock_time'] = data['clock_time']
+        data['clock_time'] = 60
 
         ##  Only edit level data at beginning of level-up animation
         ##  Derive difficulty of game solely from level.
@@ -204,7 +204,7 @@ def handle_play_animation_state(data):
 
         data['next_state'] = 'play'
 
-        data['timerDelay'] = data['timer_delay_init'] - data['level'] * 10
-        # data['timerDelay'] = data['prev_timer_delay']
+        data['clock_time'] = data['clock_time_init'] - data['level'] * 10
+        # data['clock_time'] = data['prev_clock_time']
 
     return data

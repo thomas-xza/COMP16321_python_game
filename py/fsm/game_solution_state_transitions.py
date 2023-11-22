@@ -24,7 +24,7 @@ def handle_state_transitions(key, data):
 
     elif data['state'] == 'highscores_input' and key.isalpha():
 
-        data['highscore_new_entry'].append(key)
+        data['highscore_new_entry'] += key
 
     elif data['state'] == 'highscores_display':
 

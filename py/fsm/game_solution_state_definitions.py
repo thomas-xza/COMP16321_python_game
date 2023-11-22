@@ -37,9 +37,9 @@ def handle_state_definitions(data):
 
         data = handle_highscores_input_state(data)
 
-    elif state == 'highscores_display':
+    # elif state == 'highscores_display':
 
-        data = handle_highscores_display_state(data)
+    #     data = handle_highscores_display_state(data)
 
     elif state == 'level_up':
 
@@ -56,6 +56,8 @@ def handle_state_definitions(data):
 
         data['next_state'] = 'play'
 
+    print("\nerror somewhere", data)
+
     data['state'] = data['next_state']
 
     return data
@@ -71,6 +73,8 @@ def handle_highscores_input_state(data):
 
     if len(user_input_str) >= 3:
 
+        data['highscore_new_entry'] = ''
+
         ##  Valid input received, so load highscores, update, write.
 
         try:
@@ -85,12 +89,12 @@ def handle_highscores_input_state(data):
         data['highscores'][user_input_str[0:3]] = data['score']
         
         with open('highscores.json', 'w', encoding="utf-8") as f:
-            f.write(json.dump(data['highscores']))
+            json.dump(data['highscores'], f)
 
         ##  Revert the clock by simulating a level up.
-
+    
         data = load_level(data, data['level'] - 1)
-
+            
         ##  Ready to display highscores.
 
         data['next_state'] = 'highscores_display'
@@ -100,9 +104,7 @@ def handle_highscores_input_state(data):
 
 def handle_highscores_display_state(data):
 
-    ##  No data manipulation occurs in this state.
-
-    pass
+    return data
 
 
 def handle_level_up_state(data):
@@ -167,8 +169,6 @@ def load_level(data, level):
 
     if data['state'] == 'level_up':
 
-        print(data)
-
         ##  Block higher level state changes to allow animation to play.
 
         data['play_animation'] = 10
@@ -185,8 +185,6 @@ def load_level(data, level):
         data['target_n'] = random.randrange(1, new_max_random)
 
         data['next_state'] = 'play_animation'
-
-    print(data)
 
     return data
 
@@ -205,4 +203,3 @@ def handle_play_animation_state(data):
         # data['timerDelay'] = data['prev_timer_delay']
 
     return data
-

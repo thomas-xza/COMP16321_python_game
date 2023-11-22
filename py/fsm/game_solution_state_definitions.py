@@ -45,6 +45,10 @@ def handle_state_definitions(data):
 
         data = handle_level_up_state(data)
 
+    elif state == 'play_animation':
+
+        data = handle_play_animation_state(data)
+        
     elif state == 'save':
 
         with open('savefile.txt', 'w', encoding="utf-8") as f:
@@ -161,34 +165,44 @@ def load_level(data, level):
 
     ##  Subsequence (sub-fsm) for playing animation sequence.
 
-    if data['play_animation'] == 0:
+    if data['state'] == 'level_up':
 
-        if data['level'] != level:
+        print(data)
 
-            ##  Block higher level state changes to allow animation to play.
+        ##  Block higher level state changes to allow animation to play.
 
-            data['play_animation'] = 10
-            data['prev_timer_delay'] = data['timerDelay']
-            data['timerDelay'] = 60
+        data['play_animation'] = 10
+        data['prev_timer_delay'] = data['timerDelay']
+        data['timerDelay'] = 60
 
-            ##  Only edit level data at beginning of level-up animation
-            ##  Derive difficulty of game solely from level.
+        ##  Only edit level data at beginning of level-up animation
+        ##  Derive difficulty of game solely from level.
 
-            new_max_random = level + 2
+        new_max_random = level + 2
 
-            data['level'] = level
-            data['max_random'] = new_max_random
-            data['target_n'] = random.randrange(1, new_max_random)
-            data['timerDelay'] = data['timer_delay_init'] - level * 10
+        data['level'] = level
+        data['max_random'] = new_max_random
+        data['target_n'] = random.randrange(1, new_max_random)
 
-        else:
+        data['next_state'] = 'play_animation'
 
-            data['next_state'] = 'play'
-        
-            data['timerDelay'] = data['prev_timer_delay']
+    print(data)
 
-    elif data['play_animation'] > 0:
+    return data
+
+
+def handle_play_animation_state(data):
+
+    if data['play_animation'] > 0:
 
         data['play_animation'] -= 1
 
+    else:
+
+        data['next_state'] = 'play'
+
+        data['timerDelay'] = data['timer_delay_init'] - data['level'] * 10
+        # data['timerDelay'] = data['prev_timer_delay']
+
     return data
+

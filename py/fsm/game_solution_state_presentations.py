@@ -32,7 +32,7 @@ def handle_state_presentation(canvas, data):
 
         pass
 
-    elif data['state'] == 'level_up':
+    elif data['state'] == 'level_up' or data['state'] == 'play_animation':
 
         draw_levelup_frame(canvas, data, centre, f_size)
 

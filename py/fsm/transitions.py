@@ -30,13 +30,17 @@ def handle_state_transitions(key, data):
 
         # if key == 'a':
 
-        ##  Ideally key would be right-arrow, but required refactoring.
+        ##  Ideally key would be right-arrow, but requires refactoring.
 
         if key == 'a':
 
-            data['character_state'] += 5
+            data['character_state'] += 50
 
-        if key == 'b':
+            # if data['character_state'] >= data['img_stand_pos']:
+
+            #     data['character_value'] = 0
+
+        elif key == 'b':
 
             data['next_state'] = 'bossmode'
 

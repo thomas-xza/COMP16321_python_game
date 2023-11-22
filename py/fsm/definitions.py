@@ -7,7 +7,7 @@ def handle_state_definitions(data):
 
     print("tick...")
 
-    print("\ntick", data)
+    # print("\ntick", data)
 
     state = data['next_state']
  
@@ -18,6 +18,8 @@ def handle_state_definitions(data):
 
         if data['score'] != 0:
             data['score'] -= 1
+
+        handle_sub_fsm(data)
 
     elif state == 'pause' or state == 'bossmode':
 
@@ -208,3 +210,16 @@ def handle_play_animation_state(data):
         # data['clock_time'] = data['prev_clock_time']
 
     return data
+
+
+def handle_sub_fsm(data):
+
+    print(data['character_state'], data['img_stand_pos'])
+
+    if data['character_state'] + 50 >= data['img_stand_pos']:
+
+        data['next_state'] = 'level_up'
+        data['level_up_src'] = 'win'
+
+        data['character_state'] = 0
+

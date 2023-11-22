@@ -22,7 +22,7 @@ def handle_state_presentation(canvas, data):
     if data['state'] != 'bossmode':
 
         canvas.create_image(
-            data['img_walk_pos'],
+            data['img_walk_pos'] + data['character_state'],
             data['height'] -30,
             image=data['img_walk'])
 
@@ -139,7 +139,3 @@ def draw_highscores_display_frame(canvas, data, centre, f_size):
 
         pos_y_append += 75
         
-
-
-
-    

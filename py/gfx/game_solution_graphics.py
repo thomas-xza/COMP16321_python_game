@@ -44,3 +44,12 @@ def draw_astral(canvas, data):
         
     canvas.create_line(800, 400, 1200, 350, activedash=True, fill=darkmode_val(data, True), dash=(5, 5), width=2)
         
+
+def draw_text(canvas, data, pos_x, pos_y, text, f_size):
+
+    canvas.create_text(pos_x, pos_y,
+                       text=f"{text}",
+                       font = ('', f_size, ''),
+                       fill=darkmode_val(data, True))
+
+

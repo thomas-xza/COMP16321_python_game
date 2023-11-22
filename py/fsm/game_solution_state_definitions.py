@@ -163,30 +163,32 @@ def load_level(data, level):
 
     if data['play_animation'] == 0:
 
-        ##  Block higher level state changes to allow animation to play.
+        if data['level'] != level:
 
-        data['play_animation'] = 10
-        data['prev_timer_delay'] = data['timerDelay']
-        data['timerDelay'] = 60
+            ##  Block higher level state changes to allow animation to play.
 
-        ##  Only edit level data at beginning of level-up animation
-        ##  Derive difficulty of game solely from level.
+            data['play_animation'] = 10
+            data['prev_timer_delay'] = data['timerDelay']
+            data['timerDelay'] = 60
 
-        new_max_random = level + 2
+            ##  Only edit level data at beginning of level-up animation
+            ##  Derive difficulty of game solely from level.
 
-        data['level'] = level
-        data['max_random'] = new_max_random
-        data['target_n'] = random.randrange(1, new_max_random)
-        data['timerDelay'] = data['timer_delay_init'] - level * 10 
-    
+            new_max_random = level + 2
+
+            data['level'] = level
+            data['max_random'] = new_max_random
+            data['target_n'] = random.randrange(1, new_max_random)
+            data['timerDelay'] = data['timer_delay_init'] - level * 10
+
+        else:
+
+            data['next_state'] = 'play'
+        
+            data['timerDelay'] = data['prev_timer_delay']
+
     elif data['play_animation'] > 0:
 
         data['play_animation'] -= 1
-    
-    if data['play_animation'] == 0:
-
-        data['next_state'] = 'play'
-        
-        data['timerDelay'] = data['prev_timer_delay']
 
     return data

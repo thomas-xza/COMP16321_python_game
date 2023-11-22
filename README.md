@@ -70,7 +70,7 @@ easier output.
 All code by me is found within `py/` directory *mainly* (also made a
 few edits to `game_solution.py`).
 
-See `state_diagram.svg` for a diagram of the finite state machine.
+See `docs/state_diagram.svg` for a diagram of the finite state machine.
 
 Some things to note about it:
 
@@ -116,6 +116,10 @@ The game meets the COMP16321 specifications (as mentioned in
 13. Save load: press `s` or `l`
 14. Boss key: press `b`
 
+As you can see, #8 and #9 are missing, but it may be possible to
+quickly hack in a few characters that walk along the bottom and
+explode!
+
 
 ##  Resources
 
@@ -137,7 +141,7 @@ The game meets the COMP16321 specifications (as mentioned in
 Coming soon.
 
 
-##  Extra notes
+##  Final notes
 
 I originally came around to software from Carnegie Mellon University
 whilst setting up the HFSC algorithm on OpenWRT for a MIPS router in
@@ -147,3 +151,9 @@ efficient, algorithm, to introduce quality-of-service networking
 concepts. Sure enough, the HFSC algorithm worked exceptionally well,
 and it put CMU on the radar for me in a big way.
 
+If I ever need to build a desktop application, I will probably reach
+for CMU's MVC, as it is quite productive relatively fast! Especially
+for Python's standard library alone (e.g. compared to `asyncio` which
+requires manually implementing the HTTP protocol to make asynchronous
+HTTP requests, or `multiprocessing` which is a RAM hungry way to do
+multicore).

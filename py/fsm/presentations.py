@@ -107,9 +107,9 @@ def draw_levelup_frame(canvas, data, centre, f_size):
               "w00t",
               f_size)
 
-    # if data['play_animation'] == 9:
+    if data['play_animation'] == 9:
 
-    #     subprocess.Popen(["aplay", "mechanical_explosion.wav"])
+        subprocess.Popen(["aplay", "spell4.wav"])
                       
 
 def draw_highscores_display_frame(canvas, data, centre, f_size):

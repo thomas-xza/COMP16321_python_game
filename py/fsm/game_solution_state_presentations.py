@@ -20,7 +20,7 @@ def handle_state_presentation(canvas, data):
 
     if data['state'] == 'play':
 
-        draw_play_frame(canvas, data, f_size)
+        draw_play_frame(canvas, data, centre, f_size)
     
     elif data['state'] == 'pause':
 
@@ -34,43 +34,43 @@ def handle_state_presentation(canvas, data):
 
     elif data['state'] == 'level_up':
 
-        draw_levelup_frame(canvas, data, f_size)
+        draw_levelup_frame(canvas, data, centre, f_size)
 
     elif data['state'] == 'highscores_input':
 
-        draw_text(centre, data['height']/3,
+        draw_text(canvas, data, centre, data['height']/3,
                            "Input your initials!",
                            f_size)
 
-        draw_text(centre, data['height']/2,
+        draw_text(canvas, data, centre, data['height']/2,
                   data['highscore_new_entry'],
                   f_size)
 
     elif data['state'] == 'highscores_display':
 
-        draw_highscores_display_frame(canvas,data, f_size)
+        draw_highscores_display_frame(canvas,data, centre, f_size)
 
 
-def draw_play_frame(canvas, data, f_size):
+def draw_play_frame(canvas, data, centre, f_size):
 
-    draw_text(centre, data['height']/3,
-              "Hit keyboard at {data['target_n']}!!",
+    draw_text(canvas, data, centre, data['height']/3,
+              f"Hit keyboard at {data['target_n']}!!",
               f_size)
 
-    draw_text(centre, data['height']/3,
-              "Hit keyboard at {data['target_n']}!!",
+    draw_text(canvas, data, centre, data['height']/3,
+              f"Hit keyboard at {data['target_n']}!!",
               f_size)
 
-    draw_text(centre, data['height']/2,
+    draw_text(canvas, data, centre, data['height']/2,
               str(data['random_n']),
               f_size)
 
-    draw_text(centre, data['height']/5*4,
+    draw_text(canvas, data, centre, data['height']/5*4,
               f"Level: {data['level']}",
               f_size)
 
                       
-def draw_levelup_frame(canvas, data, f_size):
+def draw_levelup_frame(canvas, data, centre, f_size):
 
     canvas.create_image(
         centre,
@@ -78,8 +78,8 @@ def draw_levelup_frame(canvas, data, f_size):
         image=data['frames'][9 - data['play_animation']],
         anchor='s')
 
-    draw_text(centre, data['height']/2,
-              "w00t",
+    draw_text(canvas, data, centre, data['height']/2,
+              "",
               f_size)
 
     if data['play_animation'] == 9:
@@ -87,9 +87,9 @@ def draw_levelup_frame(canvas, data, f_size):
         subprocess.Popen(["aplay", "mechanical_explosion.wav"])
                       
 
-def draw_highscores_display_frame(canvas, data, f_size):
+def draw_highscores_display_frame(canvas, data, centre, f_size):
 
-    draw_text(centre, data['height']/3,
+    draw_text(canvas, data, centre, data['height']/3,
                        "HIGH SCORES TOP 5",
                        f_size)
 
@@ -108,7 +108,7 @@ def draw_highscores_display_frame(canvas, data, f_size):
 
     for score in sorted_scores:
 
-        draw_text(centre, data['height']/3 + pos_y_append,
+        draw_text(canvas, data, centre, data['height']/3 + pos_y_append,
                   f"{score[0]} {score[1]}",
                   f_size)
 

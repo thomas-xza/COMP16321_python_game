@@ -135,7 +135,7 @@ def handle_level_up_via_cheat(data):
     return data
     
 
-def handle_level_up_via_load(data)
+def handle_level_up_via_load(data):
 
     try:
 

@@ -162,8 +162,9 @@ concepts. Sure enough, the HFSC algorithm worked exceptionally well,
 and it put CMU on the radar for me in a big way.
 
 If I ever need to build a desktop application, I will probably reach
-for CMU's MVC, as it prototypes to productity relatively fast, though
-it does need adjustments, especially for Python's standard library
-alone (e.g. compared to `asyncio` which requires manually implementing
-the HTTP protocol to make asynchronous HTTP requests, or
-`multiprocessing` which is a RAM hungry way to do multicore).
+for CMU's MVC, as it prototypes to productivity relatively fast,
+especially for Python's standard library alone (e.g. compared to
+`asyncio` which requires manually implementing the HTTP protocol to
+make asynchronous HTTP requests, or `multiprocessing` which is a RAM
+hungry way to do multicore), though the template does need essential
+adjustments.

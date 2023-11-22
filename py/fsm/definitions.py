@@ -5,7 +5,7 @@ import random
 
 def handle_state_definitions(data):
 
-    print("tick...")
+    print(f"{data['clock_time']} tick...")
 
     # print("\ntick", data)
 
@@ -13,7 +13,6 @@ def handle_state_definitions(data):
  
     if state == 'play':
 
-        data['clock_time'] = data['prev_clock_time']
         data['random_n'] = random.randrange(1, data['max_random'])
 
         if data['score'] != 0:
@@ -175,7 +174,6 @@ def load_level(data, level):
         ##  Block higher level state changes to allow animation to play.
 
         data['play_animation'] = 10
-        data['prev_clock_time'] = data['clock_time']
         data['clock_time'] = 60
 
         ##  Only edit level data at beginning of level-up animation
@@ -187,7 +185,7 @@ def load_level(data, level):
         data['max_random'] = new_max_random
         data['target_n'] = random.randrange(1, new_max_random)
 
-        data['score'] += 10
+        data['score'] += 50
 
         data['next_state'] = 'play_animation'
 
@@ -206,8 +204,7 @@ def handle_play_animation_state(data):
 
         data['next_state'] = 'play'
 
-        data['clock_time'] = data['clock_time_init'] - data['level'] * 10
-        # data['clock_time'] = data['prev_clock_time']
+        data['clock_time'] = data['clock_time_init'] - data['level'] * 50
 
     return data
 

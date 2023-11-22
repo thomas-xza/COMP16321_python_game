@@ -44,6 +44,7 @@ def handle_state_initialisation(resolution, images):
     
     data['clock_time_init'] = 400
     data['clock_time'] = data['clock_time_init']
+    data['clock_time_prev'] = data['clock_time_init']
 
     ##  Highscore feature
 

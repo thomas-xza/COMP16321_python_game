@@ -42,9 +42,9 @@ def handle_state_definitions(data):
 
         data = handle_highscores_input_state(data)
 
-    # elif state == 'highscores_display':
+    elif state == 'highscores_display':
 
-    #     data = handle_highscores_display_state(data)
+        data = handle_highscores_display_state(data)
 
     elif state == 'level_up':
 
@@ -72,6 +72,8 @@ def handle_highscores_input_state(data):
 
     ##  Speed up the clock so user input doesn't lag.
 
+    data['clock_time_prev'] = data['clock_time']
+
     data['clock_time'] = 50
 
     user_input_str = data['highscore_new_entry']
@@ -82,14 +84,8 @@ def handle_highscores_input_state(data):
 
         ##  Valid input received, so load highscores, update, write.
 
-        # try:
-
         with open('highscores.json', 'r', encoding="utf-8") as f:
             data['highscores'] = json.load(f)
-
-        # except:
-
-        #     data['highscores'] = {}
 
         data['highscores'][user_input_str[0:3]] = data['score']
         
@@ -108,6 +104,8 @@ def handle_highscores_input_state(data):
 
 
 def handle_highscores_display_state(data):
+
+    data['clock_time'] = data['clock_time_prev']
 
     return data
 

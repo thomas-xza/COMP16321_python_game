@@ -22,9 +22,9 @@ def main(width=1280, height=720):
     
     ##  Initialise TK parts, load Canvas type to TK root frame.
     
-    root = Tk()
+    main_window = Tk()
 
-    canvas = Canvas(master=root,
+    canvas = Canvas(master=main_window,
                     width=width,
                     height=height,
                     background='black')
@@ -46,7 +46,7 @@ def main(width=1280, height=720):
     ##  Add key binding which triggers callback to keyboard_trigger()
     ##    at user input.
     
-    root.bind("<Key>", lambda event:
+    main_window.bind("<Key>", lambda event:
                             keyboard_trigger(event, canvas, data))
 
 
@@ -57,7 +57,7 @@ def main(width=1280, height=720):
     
     ##  Run event loop.
     
-    root.mainloop()
+    main_window.mainloop()
 
 
 def draw_new_frame(canvas, data):
@@ -73,29 +73,28 @@ def draw_new_frame(canvas, data):
 
 def keyboard_trigger(event, canvas, data):
 
-    ##  Handle input data.
+    ##  Take input data and change state.
 
-    handle_state_transitions(event.char, data)
+    data = handle_state_transitions(event.char, data)
 
-    ##  Redraw using new data.
+    ##  Don't redraw at keyboard input.
 
-    draw_new_frame(canvas, data)
 
 
 def clock_trigger(canvas, data):
 
     ##  Process data at fixed intervals.
 
-    handle_state_definitions(data)
+    data = handle_state_definitions(data)
 
-    ##  Redraw using new data.
+    ##  Redraw using new state, at clock tick.
 
     draw_new_frame(canvas, data)
 
     ##  Pause, then add another call to clock_trigger() to event loop,
     ##  to be triggered after delay (clock tick), with game data as args.
 
-    canvas.after(data['timerDelay'], clock_trigger, canvas, data)
+    canvas.after(data['clock_time'], clock_trigger, canvas, data)
 
 
 if __name__ == "__main__":

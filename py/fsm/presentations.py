@@ -91,7 +91,7 @@ def draw_levelup_frame(canvas, data, centre, f_size):
         anchor='s')
 
     draw_text(canvas, data, centre, data['height']/2,
-              "",
+              "w00t",
               f_size)
 
     if data['play_animation'] == 9:

@@ -7,7 +7,6 @@
 ##    parts deleted, main data structure adjusted.
 
 
-
 from tkinter import *
 
 from py.fsm.definitions import *
@@ -43,11 +42,11 @@ def main(width=1280, height=720):
     data = handle_state_initialisation([width, height], animation)
 
 
-    ##  Add key binding which triggers callback to keyboard_trigger()
+    ##  Add key binding which triggers callback to user_input_trigger()
     ##    at user input.
     
     main_window.bind("<Key>", lambda event:
-                            keyboard_trigger(event, canvas, data))
+                            user_input_trigger(event, canvas, data))
 
 
     ##  Add 1st clock trigger to the event loop.
@@ -60,26 +59,24 @@ def main(width=1280, height=720):
     main_window.mainloop()
 
 
-def keyboard_trigger(event, canvas, data):
+def user_input_trigger(event, canvas, data):
 
     ##  Take input data and change state.
 
     data = handle_state_transitions(event.char, data)
 
-    ##  Don't redraw at keyboard input.
-
 
 def clock_trigger(canvas, data):
 
-    ##  Process data at fixed intervals.
+    ##  Process inputs and current state data upon the clock tick.
 
     data = handle_state_definitions(data)
 
-    ##  Redraw using new state, at clock tick.
+    ##  Wipe old frame.
 
     canvas.delete(ALL)
 
-    ##  Draw canvas.
+    ##  Draw new frame based on new data.
 
     handle_state_presentation(canvas, data)
 

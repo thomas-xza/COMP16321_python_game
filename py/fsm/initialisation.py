@@ -27,7 +27,6 @@ def handle_state_initialisation(resolution, animation):
 
     data['score'] = 10
     data['play_animation'] = 0
-
     
     ##  clock_time is speed of frame changes.
     ##  100 millisecond == 0.1 seconds
@@ -36,18 +35,15 @@ def handle_state_initialisation(resolution, animation):
     data['clock_time'] = data['clock_time_init']
     data['prev_clock_time'] = data['clock_time']
 
-
     ##  Highscore feature
 
     data['highscores'] = {}
     data['highscore_new_entry'] = ""
-
     
     ##  Extra features
 
     data['saved'] = False
     data['darkmode'] = True
     data['cheat_presses'] = 0
-
 
     return data

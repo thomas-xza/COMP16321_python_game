@@ -130,33 +130,28 @@ def handle_level_up_via_cheat(data):
 
     presses = data['cheat_presses']
 
-    if presses == 10:
+    if presses == 2:
 
-        data = load_level(data, 100)
         data['cheat_presses'] = 0
         data['score'] += 1000000
+        data = load_level(data, data['level'] + 10)
 
     else:
 
         data['cheat_presses'] += 1
+        data['next_state'] = 'play'
 
     return data
     
 
 def handle_level_up_via_load(data):
 
-    try:
+    with open('savefile.txt', encoding="utf-8") as f:
+        save_file = int(f.read().strip())
 
-        with open('savefile.txt', encoding="utf-8") as f:
-            save_file = int(f.read().strip())
+    saved_level = save_file.split()[0]
 
-        saved_level = save_file.split()[0]
-
-        data['score'] = save_file.split()[1]
-
-    except:
-
-        saved_level = 10
+    data['score'] = save_file.split()[1]
 
     data = load_level(data, saved_level)
 
@@ -194,6 +189,8 @@ def load_level(data, level):
 
 
 def handle_play_animation_state(data):
+
+    print(data)
 
     if data['play_animation'] > 0:
 

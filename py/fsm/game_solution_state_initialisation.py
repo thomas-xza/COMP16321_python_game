@@ -11,6 +11,7 @@ def handle_state_initialisation(data):
     data['next_state'] = 'play'
 
     data['level'] = 1
+    data['level_up_src'] = ''
     
     data['max_random'] = 3
     data['target_n'] = random.randrange(1, data['max_random'])
@@ -38,4 +39,5 @@ def handle_state_initialisation(data):
 
     data['saved'] = False
     data['darkmode'] = True
+    data['cheat_presses'] = 0
 

@@ -36,6 +36,9 @@ within a range, you have to hit the keyboard when it reaches a certain
 stated number. On success, there is an explosion and level-up. There
 are some extra novelty features, to meet the specification.
 
+A secondary way to level-up is to move the character at the bottom of
+the screen rightwards, until he collides with a twin-like character.
+
 
 ##  Underlying Carnegie Mellon MVC concepts - how they work
 
@@ -68,9 +71,15 @@ The concepts I have used are similar to the CMU template, except that
 I have built something less monolithic to 1 file, which only updates
 on the clock, and with a more sane data structure.
 
-##  Overlaid finite state machine - how it work
+##  Overlaid finite state machines - how they work
 
 See `docs/state_diagram.svg` for a diagram of the finite state machine.
+
+There is 1 main finite state machine, state changes being queue in
+`transitions.py` by keyboard input, and being further traversed by
+clock ticks in `definitions.py`, which takes actions on different
+states. `presentations.py` is oriented around the presentation of
+different states.
 
 Some things to note about it:
 
@@ -85,6 +94,11 @@ Some things to note about it:
   related to the difficulty of the game) are derived via the level
   number
 
+There is a secondary finite machine, providing another method or
+levelling up, which technically exists within the `play` state to
+change the main FSM, but is graphically depicted as if somewhat
+separate, as the graphics for it are more static.
+
 
 ##  Other game details
 
@@ -96,26 +110,23 @@ transparent.
 
 ##  Specification
 
-The game meets the COMP16321 specifications (as mentioned in
+The game attemps to meet the COMP16321 specifications (as mentioned in
 `Coursework_02.pdf`) via the following means.
 
 1. Images: explosion gif
-2. Shapes: crummy astral background
+2. Shapes: basic astral background
 3. Text: gameplay
-4. Scoring: score is incremented/deincremented
-5. Leaderboard: press `h` and input 3 characters
-6. Resolution: 1280x720
-7. Movement: text & animation timing
+4. Scoring: score is incremented/deincremented by gameplay
+5. Leaderboard: press `h` and input 3 characters, stored to `highscores.json`
+6. Resolution: 1280x720 fixed
+7. Movement: move character across screen
 8. User can move object: n/a
-9. Collision detection: n/a
+9. Collision detection: collide characters
 10. Pause: press `p`
 11. Customise: press `d` for darkmode
 12. Cheat code: press `c` 10 times
-13. Save load: press `s` or `l`
+13. Save load: press `s` or `l` to save/load to `savefile.txt`
 14. Boss key: press `b`
-
-#8 and #9 are missing, but it may be possible to quickly hack in a few
-characters that walk along the bottom and explode!
 
 
 ##  Resources
@@ -149,8 +160,8 @@ concepts. Sure enough, the HFSC algorithm worked exceptionally well,
 and it put CMU on the radar for me in a big way.
 
 If I ever need to build a desktop application, I will probably reach
-for CMU's MVC, as it is quite productive relatively fast! Especially
-for Python's standard library alone (e.g. compared to `asyncio` which
-requires manually implementing the HTTP protocol to make asynchronous
-HTTP requests, or `multiprocessing` which is a RAM hungry way to do
-multicore).
+for CMU's MVC, as it prototypes to productity relatively fast, though
+it does need adjustments, especially for Python's standard library
+alone (e.g. compared to `asyncio` which requires manually implementing
+the HTTP protocol to make asynchronous HTTP requests, or
+`multiprocessing` which is a RAM hungry way to do multicore).

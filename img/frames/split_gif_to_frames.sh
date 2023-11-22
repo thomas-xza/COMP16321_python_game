@@ -1,0 +1,1 @@
+convert explosion_medium_transparent.gif frames/expl_medium_trans_%05d.gif

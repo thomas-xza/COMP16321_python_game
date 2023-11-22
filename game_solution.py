@@ -10,10 +10,10 @@
 
 from tkinter import *
 
-from py.fsm.game_solution_state_definitions import *
-from py.fsm.game_solution_state_initialisation import *
-from py.fsm.game_solution_state_transitions import *
-from py.fsm.game_solution_state_presentations import *
+from py.fsm.definitions import *
+from py.fsm.initialisation import *
+from py.fsm.transitions import *
+from py.fsm.presentations import *
 
 
 ##  See docs/state_diagram.svg for info on how these states work.

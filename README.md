@@ -37,7 +37,8 @@ all of them - 'feature creep'!
 
 ##  Underlying Carnegie Mellon MVC template - how it works
 
-All CMU code is found within `game_solution.py` *only*.
+The concepts from the CMU template are found within `game_solution.py`
+*only*.
 
 A diagram of their event loop is found here:
 https://www.cs.cmu.edu/~112/notes/event_loop.png
@@ -48,27 +49,23 @@ to the event loop after a set period of time).
 
 Further execution is then initiated by the following functions:
 
-- `timerFired()` is triggered every clock tick, and so calls functions
-  based on regular time invervals (like a sequential circuit)
+- A timer function is triggered every clock tick so calls further
+  functions based on regular time invervals (like a sequential
+  circuit)
 
-- `keyPressed()` and `mousePressed()` are triggered on user input
-  (like a combinatorial circuit)
+- An user-input function is trigged by peripheral devices,
+  e.g. keyboard (more like a combinatorial circuit)
 
-The function `redrawAll()` takes the current state and makes graphical
-actions based on it, using Tkinter's `canvas` type, and is called
-every clock tick or key input.
+Then a redrawing function takes the current data and makes graphical
+actions based on it, using Tkinter's `canvas` type, which is called by
+both the timer and the user-input functions.
 
-Heavy use of inline commenting has been made to make the template more
-understandable. Furthering, the original template contained a poor
-data structure - an object of an empty class, which makes debugging a
-hassle. This was (eventually) changed to a Python dictionary, for
-easier output.
+There was a data structure issue with the CMU code - it used an object
+which was an instance of an empty class, instead of a Python
+dictionary, which makes debugging harder.
 
 
-##  Overlaid finite state machine by me - how it works
-
-All code by me is found within `py/` directory *mainly* (also made a
-few edits to `game_solution.py`).
+##  Overlaid finite state machine - how it works
 
 See `docs/state_diagram.svg` for a diagram of the finite state machine.
 

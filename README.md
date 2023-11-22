@@ -37,7 +37,7 @@ stated number. On success, there is an explosion and level-up. There
 are some extra novelty features, to meet the specification.
 
 
-##  Underlying Carnegie Mellon MVC concepts - how they works
+##  Underlying Carnegie Mellon MVC concepts - how they work
 
 The concepts from the CMU template are found within `game_solution.py`
 *only*.
@@ -45,27 +45,28 @@ The concepts from the CMU template are found within `game_solution.py`
 A diagram of their event loop is found here:
 https://www.cs.cmu.edu/~112/notes/event_loop.png
 
-A clock ticks at set intervals, the frequency of the ticks dependent
-upon a numeric variable (implemented by a function that re-adds itself
-to the event loop after a set period of time).
-
-Further execution is then initiated by the following functions:
+Ongoing execution is initiated by the following functions:
 
 - A timer function is triggered every clock tick so calls further
   functions based on regular time invervals (like a sequential
-  circuit)
+  circuit), which then adds another instance of itself to the event
+  loop
 
-- An user-input function is trigged by peripheral devices,
+- A user-input function is trigged by peripheral devices,
   e.g. keyboard (more like a combinatorial circuit)
 
-Then a redrawing function takes the current data and makes graphical
-actions based on it, using Tkinter's `canvas` type, which is called by
-both the timer and the user-input functions.
+Then a redrawing function, which in the template is triggered both on
+clock ticks and user-input, takes the current data and makes graphical
+actions based on it, using Tkinter's `canvas` type (a large grid),
+which is called by both the timer and the user-input functions.
 
 There was a data structure issue with the CMU code - it used an object
 which was an instance of an empty class, instead of a Python
 dictionary, which makes debugging harder.
 
+The concepts I have used are similar to the CMU template, except that
+I have built something less monolithic to 1 file, which only updates
+on the clock, and with a more sane data structure.
 
 ##  Overlaid finite state machine - how it works
 

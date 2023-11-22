@@ -22,11 +22,19 @@ def handle_state_presentation(canvas, data):
 
         draw_play_frame(canvas, data, centre, f_size)
     
-    elif data['state'] == 'pause':
+    elif data['state'] == 'pause' or data['state'] == 'save':
 
-        draw_text_frame(centre, data['height']/2,
-                           "PAUSED!",
-                           f_size)
+        if data['saved'] == True:
+
+            draw_text(canvas, data, centre, data['height']/2,
+                            "SAVED!",
+                            f_size)
+
+        else:
+        
+            draw_text(canvas, data, centre, data['height']/2,
+                            "PAUSED!",
+                            f_size)
         
     elif data['state'] == 'bossmode':
 
@@ -53,19 +61,23 @@ def handle_state_presentation(canvas, data):
 
 def draw_play_frame(canvas, data, centre, f_size):
 
-    draw_text(canvas, data, centre, data['height']/3,
+    # draw_text(canvas, data, centre, data['height']/6,
+    #           f"Hit keyboard at {data['target_n']}!!",
+    #           f_size)
+
+    draw_text(canvas, data, centre, data['height']/6*2,
               f"Hit keyboard at {data['target_n']}!!",
               f_size)
 
-    draw_text(canvas, data, centre, data['height']/3,
-              f"Hit keyboard at {data['target_n']}!!",
-              f_size)
-
-    draw_text(canvas, data, centre, data['height']/2,
+    draw_text(canvas, data, centre, data['height']/6*3,
               str(data['random_n']),
               f_size)
 
-    draw_text(canvas, data, centre, data['height']/5*4,
+    draw_text(canvas, data, centre, data['height']/6*4,
+              f"Score: {data['score']}",
+              f_size)
+
+    draw_text(canvas, data, centre, data['height']/6*5,
               f"Level: {data['level']}",
               f_size)
 
@@ -104,7 +116,7 @@ def draw_highscores_display_frame(canvas, data, centre, f_size):
 
     sorted_scores.reverse()
 
-    pos_y_append = 50
+    pos_y_append = 75
 
     for score in sorted_scores:
 
@@ -112,7 +124,7 @@ def draw_highscores_display_frame(canvas, data, centre, f_size):
                   f"{score[0]} {score[1]}",
                   f_size)
 
-        pos_y_append += 50
+        pos_y_append += 75
         
 
 

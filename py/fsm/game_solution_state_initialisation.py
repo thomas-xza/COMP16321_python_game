@@ -35,6 +35,7 @@ def handle_state_initialisation(data):
 
     
     ##  Extra features
-    
+
+    data['saved'] = False
     data['darkmode'] = True
 

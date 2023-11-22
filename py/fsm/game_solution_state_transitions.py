@@ -14,7 +14,7 @@ def handle_state_transitions(key, data):
 
         data['state'] = data['next_state']
 
-    elif data['state'] == 'pause' and key == 'p':
+    elif data['state'] == 'pause' and (key == 'p' or key == 's'):
 
         data['next_state'] = 'unpause'
 

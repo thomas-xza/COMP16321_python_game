@@ -31,6 +31,8 @@ def handle_state_definitions(data):
 
         data['level'] = data['level_pause']
 
+        data['saved'] = False
+
         data['next_state'] = 'play'
 
     elif state == 'highscores_input':
@@ -54,7 +56,9 @@ def handle_state_definitions(data):
         with open('savefile.txt', 'w', encoding="utf-8") as f:
             f.write(f"{data['level']},{data['score']}")
 
-        data['next_state'] = 'play'
+        data['saved'] = True
+
+        data['next_state'] = 'pause'
 
     data['state'] = data['next_state']
 
@@ -181,6 +185,8 @@ def load_level(data, level):
         data['level'] = level
         data['max_random'] = new_max_random
         data['target_n'] = random.randrange(1, new_max_random)
+
+        data['score'] += 10
 
         data['next_state'] = 'play_animation'
 

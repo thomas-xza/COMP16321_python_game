@@ -137,6 +137,8 @@ The game attemps to meet the COMP16321 specifications (as mentioned in
 
 - Pixel art explosion from Open Game Art - https://opengameart.org/content/animated-explosions
 
+- Pixel art little man from Open Game Art - https://opengameart.org/content/4-direction-isometric-human-male-standing-walk-attack
+
 - Official Tkinter docs - https://tkdocs.com/shipman/intro.html
 
 - What the VFX industry recommends to build GUIs -  https://vfxplatform.com/

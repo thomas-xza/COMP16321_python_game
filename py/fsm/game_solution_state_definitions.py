@@ -56,8 +56,6 @@ def handle_state_definitions(data):
 
         data['next_state'] = 'play'
 
-    print("\nerror somewhere", data)
-
     data['state'] = data['next_state']
 
     return data
@@ -77,14 +75,14 @@ def handle_highscores_input_state(data):
 
         ##  Valid input received, so load highscores, update, write.
 
-        try:
+        # try:
 
-            with open('highscores.json', 'r', encoding="utf-8") as f:
-                data['highscores'] = json.load(f.read().strip())
+        with open('highscores.json', 'r', encoding="utf-8") as f:
+            data['highscores'] = json.load(f)
 
-        except:
+        # except:
 
-            data['highscores'] = {}
+        #     data['highscores'] = {}
 
         data['highscores'][user_input_str[0:3]] = data['score']
         

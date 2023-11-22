@@ -19,7 +19,8 @@ online long-term, as a result).
 Instead, I opted for a clock-based template for Tkinter, implemented
 by Carnegie Mellon University, which fit nicely with COMP12111, then
 wrote a finite-state-machine on top of it. Initially I built with no
-FSM, but it was a mess.
+FSM, but it was a mess. Afterwards, I re-hashed the template around,
+in a way that made more sense to me.
 
 I originally discovered event loops in 2022, with Python's `asyncio`,
 and then went on to more deeply understand them in 2023 with
@@ -31,8 +32,7 @@ Javascript's more native implementation.
 The computer automatically cycles through a series of random numbers
 within a range, you have to hit the keyboard when it reaches a certain
 stated number. On success, there is an explosion and level-up. There
-are some extra novelty features, to meet the specification, but not
-all of them - 'feature creep'!
+are some extra novelty features, to meet the specification.
 
 
 ##  Underlying Carnegie Mellon MVC template - how it works

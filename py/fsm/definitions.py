@@ -204,7 +204,7 @@ def handle_play_animation_state(data):
 
         data['next_state'] = 'play'
 
-        data['clock_time'] = data['clock_time_init'] - data['level'] * 50
+        data['clock_time'] = data['clock_time_init'] - data['level'] * 20
 
     return data
 

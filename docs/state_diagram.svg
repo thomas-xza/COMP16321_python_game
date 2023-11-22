@@ -459,23 +459,23 @@
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
-       transform="matrix(0.30423432,0,0,0.30423432,-53.132531,120.66072)"
+       transform="matrix(0.30423432,0,0,0.30423432,-52.744948,121.84085)"
        id="text4062"
        style="white-space:pre;shape-inside:url(#rect4064);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan23121">highscores </tspan><tspan
+         id="tspan34263">highscores </tspan><tspan
          x="258.77539"
          y="182.87305"
-         id="tspan23123">input</tspan></text>
+         id="tspan34265">input</tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(0.30423432,0,0,0.30423432,6.8624524,2.5748284)"
+       transform="matrix(0.30423432,0,0,0.30423432,6.3566831,3.5724627)"
        id="text4062-5"
        style="white-space:pre;shape-inside:url(#rect4064-3);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan23125">pause</tspan></text>
+         id="tspan34267">pause</tspan></text>
     <circle
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.146142;stroke-opacity:1"
        id="path2923-3-6"
@@ -489,7 +489,7 @@
        style="white-space:pre;shape-inside:url(#rect4064-3-3);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan23127">unpause</tspan></text>
+         id="tspan34269">unpause</tspan></text>
     <path
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.304712;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3540-53)"
        d="m 150.88238,207.29194 c -1.29337,-2.83342 18.50083,-0.64794 31.53776,-13.99974"
@@ -545,23 +545,23 @@
     <text
        xml:space="preserve"
        style="font-size:3.65082px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.304712;stroke-dasharray:none;stroke-opacity:1"
-       x="272.86407"
-       y="72.685989"
+       x="271.72046"
+       y="73.826141"
        id="text7766-2"><tspan
          sodipodi:role="line"
          id="tspan7764-9"
          style="stroke-width:0.304713"
-         x="272.86407"
-         y="72.685989">stand</tspan><tspan
+         x="271.72046"
+         y="73.826141">stand</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="272.86407"
-         y="77.249512"
+         x="271.72046"
+         y="78.389664"
          id="tspan15583">still</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="272.86407"
-         y="81.813042"
+         x="271.72046"
+         y="82.953194"
          id="tspan7768-1" /></text>
     <text
        xml:space="preserve"
@@ -577,23 +577,23 @@
     <text
        xml:space="preserve"
        style="font-size:3.65082px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.304712;stroke-dasharray:none;stroke-opacity:1"
-       x="25.017988"
-       y="140.36037"
+       x="33.904579"
+       y="132.86942"
        id="text17910-3-6"><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="25.017988"
-         y="140.36037"
+         x="33.904579"
+         y="132.86942"
          id="tspan1473-2">keyboard</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="25.017988"
-         y="144.92389"
+         x="33.904579"
+         y="137.43294"
          id="tspan1477-9">input</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="25.017988"
-         y="149.48741"
+         x="33.904579"
+         y="141.99646"
          id="tspan1479-1" /></text>
     <text
        xml:space="preserve"
@@ -640,13 +640,13 @@
     <text
        xml:space="preserve"
        style="font-size:3.65082px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.304712;stroke-dasharray:none;stroke-opacity:1"
-       x="9.5330858"
-       y="83.309921"
+       x="14.781963"
+       y="83.29776"
        id="text17910-3-7"><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="9.5330858"
-         y="83.309921"
+         x="14.781963"
+         y="83.29776"
          id="tspan4522">clock tick</tspan></text>
     <text
        xml:space="preserve"
@@ -662,40 +662,40 @@
     <text
        xml:space="preserve"
        style="font-size:3.65082px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.304712;stroke-dasharray:none;stroke-opacity:1"
-       x="302.60568"
-       y="119.9231"
+       x="300.67123"
+       y="116.88327"
        id="text17910-3-7-5-8"><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="302.60568"
-         y="119.9231"
+         x="300.67123"
+         y="116.88327"
          id="tspan4522-3-9">clock tick</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.65082px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.304712;stroke-dasharray:none;stroke-opacity:1"
-       x="293.35934"
-       y="35.624733"
+       x="293.35239"
+       y="33.827602"
        id="text17910-3-7-5-8-7"><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="293.35934"
-         y="35.624733"
+         x="293.35239"
+         y="33.827602"
          id="tspan4522-3-9-3">clock tick</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.65082px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.304712;stroke-dasharray:none;stroke-opacity:1"
-       x="76.40107"
-       y="19.953392"
+       x="70.107628"
+       y="18.241425"
        id="text17910-3-7-9"><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="76.40107"
-         y="19.953392"
+         x="70.107628"
+         y="18.241425"
          id="tspan1477-3-2">keyboard input</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="76.40107"
-         y="24.516916"
+         x="70.107628"
+         y="22.804949"
          id="tspan1479-5-7" /></text>
     <text
        xml:space="preserve"
@@ -721,23 +721,23 @@
     <text
        xml:space="preserve"
        style="font-size:3.65082px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.304712;stroke-dasharray:none;stroke-opacity:1"
-       x="236.54128"
-       y="48.000565"
+       x="233.61269"
+       y="49.961071"
        id="text17910-3-7-3-6"><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="236.54128"
-         y="48.000565"
+         x="233.61269"
+         y="49.961071"
          id="tspan1473-5-6-0">keyboard</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="236.54128"
-         y="52.564091"
+         x="233.61269"
+         y="54.524597"
          id="tspan1477-3-0-6">input</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="236.54128"
-         y="57.127613"
+         x="233.61269"
+         y="59.08812"
          id="tspan1479-5-6-2" /></text>
     <text
        xml:space="preserve"
@@ -789,15 +789,15 @@
        r="16.047712" />
     <text
        xml:space="preserve"
-       transform="matrix(0.30423432,0,0,0.30423432,38.152262,157.03871)"
+       transform="matrix(0.30423432,0,0,0.30423432,38.776218,157.62964)"
        id="text4062-0-3-0"
        style="white-space:pre;shape-inside:url(#rect4064-9-9-3);display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00157;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="258.77539"
          y="167.87305"
-         id="tspan23129">highscore </tspan><tspan
+         id="tspan34271">highscore </tspan><tspan
          x="258.77539"
          y="182.87305"
-         id="tspan23131">display</tspan></text>
+         id="tspan34273">display</tspan></text>
     <circle
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.146142;stroke-opacity:1"
        id="path2923-5"
@@ -851,13 +851,13 @@
     <text
        xml:space="preserve"
        style="font-size:3.65082px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.304712;stroke-dasharray:none;stroke-opacity:1"
-       x="326.03769"
-       y="68.336906"
+       x="326.48264"
+       y="68.293457"
        id="text6540-6-0"><tspan
          sodipodi:role="line"
          style="stroke-width:0.304713"
-         x="326.03769"
-         y="68.336906"
+         x="326.48264"
+         y="68.293457"
          id="tspan6542-3-3">level up</tspan></text>
   </g>
 </svg>

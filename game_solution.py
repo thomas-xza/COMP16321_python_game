@@ -48,6 +48,11 @@ def main(width=1280, height=720):
     data = handle_state_initialisation([width, height],images)
 
 
+    ##  Add 1st clock trigger to the event loop.
+    
+    clock_trigger(canvas, data)
+
+    
     ##  Add key binding which triggers callback to user_input_trigger(),
     ##    via handle_key_input().
 
@@ -57,12 +62,7 @@ def main(width=1280, height=720):
     main_window.bind("<Key>", handle_key_input)
 
 
-    ##  Add 1st clock trigger to the event loop.
-    
-    clock_trigger(canvas, data)
-
-    
-    ##  Run event loop.
+     ##  Run event loop.
     
     main_window.mainloop()
 

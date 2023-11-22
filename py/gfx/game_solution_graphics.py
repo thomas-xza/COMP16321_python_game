@@ -1,6 +1,18 @@
 #!/usr/bin/env python3
 
 
+def initialise_canvas(canvas, data):
+
+    ##  Create a blank new one.
+
+    canvas.create_rectangle(0, 0, data['width'], data['height'],
+                                fill=darkmode_val(data, False), width=0)
+
+    ##  Draw a background
+    
+    draw_astral(canvas,data)
+
+
 def darkmode_val(data, text):
 
     if text == True:

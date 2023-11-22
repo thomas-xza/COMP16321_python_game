@@ -12,9 +12,7 @@ def handle_state_presentation(canvas, data):
 
     print("drawing...")
 
-    print(data)
-
-    draw_astral(canvas,data)
+    initialise_canvas(canvas, data)
 
     f_size = 50
 
@@ -29,14 +27,12 @@ def handle_state_presentation(canvas, data):
         if data['saved'] == True:
 
             draw_text(canvas, data, centre, data['height']/2,
-                            "SAVED!",
-                            f_size)
+                            "SAVED!", f_size)
 
         else:
         
             draw_text(canvas, data, centre, data['height']/2,
-                            "PAUSED!",
-                            f_size)
+                            "PAUSED!", f_size)
         
     elif data['state'] == 'bossmode':
 
@@ -59,6 +55,8 @@ def handle_state_presentation(canvas, data):
     elif data['state'] == 'highscores_display':
 
         draw_highscores_display_frame(canvas,data, centre, f_size)
+
+    canvas.update()
 
 
 def draw_play_frame(canvas, data, centre, f_size):

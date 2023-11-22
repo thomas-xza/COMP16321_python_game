@@ -3,12 +3,15 @@
 import random
 
     
-def handle_state_initialisation(resolution):
+def handle_state_initialisation(resolution, animation):
+
+    data = {}
 
     ##  Basic graphical data.
 
     data['width'] = resolution[0]
     data['height'] = resolution[1]
+    data['frames'] = animation
 
     ##  Set initial state data.
 

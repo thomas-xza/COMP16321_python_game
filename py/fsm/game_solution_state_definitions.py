@@ -7,6 +7,8 @@ def handle_state_definitions(data):
 
     print("tick...")
 
+    print("\ntick", data)
+
     state = data['next_state']
  
     if state == 'play':
@@ -147,11 +149,13 @@ def handle_level_up_via_cheat(data):
 def handle_level_up_via_load(data):
 
     with open('savefile.txt', encoding="utf-8") as f:
-        save_file = int(f.read().strip())
+        save_file = f.read().strip()
 
-    saved_level = save_file.split()[0]
+    saved_level = int(save_file.split(',')[0])
 
-    data['score'] = save_file.split()[1]
+    ##  Minus 10 because load_level() will add 10.
+
+    data['score'] = int(save_file.split(',')[1]) - 10
 
     data = load_level(data, saved_level)
 

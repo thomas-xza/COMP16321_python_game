@@ -12,6 +12,8 @@ def handle_state_presentation(canvas, data):
 
     print("drawing...")
 
+    print(data)
+
     draw_astral(canvas,data)
 
     f_size = 50

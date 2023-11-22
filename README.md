@@ -16,11 +16,13 @@ to learn JS & React quickly this year, and indeed this whole game
 could have been easily built with Javascript and React (and survived
 online long-term, as a result).
 
-Instead, I opted for a clock-based template for Tkinter, implemented
-by Carnegie Mellon University, which fit nicely with COMP12111, then
-wrote a finite-state-machine on top of it. Initially I built with no
-FSM, but it was a mess. Afterwards, I re-hashed the template around,
-in a way that made more sense to me.
+I found some template for a timer app for Tkinter, implemented by
+Carnegie Mellon University, clock-based, which fit nicely with
+COMP12111, then wrote a finite-state-machine on top of it. Initially I
+built with no FSM, but it was a mess. Afterwards, I re-hashed the
+template around, in a way that made more sense to me, however, the
+logic of the MVC is so sound, that if I were to start from scratch,
+I'd just be writing out something very similar.
 
 I originally discovered event loops in 2022, with Python's `asyncio`,
 and then went on to more deeply understand them in 2023 with

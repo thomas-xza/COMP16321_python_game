@@ -60,17 +60,6 @@ def main(width=1280, height=720):
     main_window.mainloop()
 
 
-def draw_new_frame(canvas, data):
-
-    ##  Wipe current canvas.
-
-    canvas.delete(ALL)
-
-    ##  Draw canvas.
-
-    handle_state_presentation(canvas, data)
-
-
 def keyboard_trigger(event, canvas, data):
 
     ##  Take input data and change state.
@@ -78,7 +67,6 @@ def keyboard_trigger(event, canvas, data):
     data = handle_state_transitions(event.char, data)
 
     ##  Don't redraw at keyboard input.
-
 
 
 def clock_trigger(canvas, data):
@@ -89,7 +77,11 @@ def clock_trigger(canvas, data):
 
     ##  Redraw using new state, at clock tick.
 
-    draw_new_frame(canvas, data)
+    canvas.delete(ALL)
+
+    ##  Draw canvas.
+
+    handle_state_presentation(canvas, data)
 
     ##  Pause, then add another call to clock_trigger() to event loop,
     ##  to be triggered after delay (clock tick), with game data as args.

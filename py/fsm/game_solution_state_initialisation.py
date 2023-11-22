@@ -3,7 +3,12 @@
 import random
 
     
-def handle_state_initialisation(data):
+def handle_state_initialisation(resolution):
+
+    ##  Basic graphical data.
+
+    data['width'] = resolution[0]
+    data['height'] = resolution[1]
 
     ##  Set initial state data.
 
@@ -41,3 +46,5 @@ def handle_state_initialisation(data):
     data['darkmode'] = True
     data['cheat_presses'] = 0
 
+
+    return data

@@ -94,8 +94,6 @@ an animated pixel `.gif` and adjusting the `.gif` background to be
 transparent.
 
 
-
-
 ##  Specification
 
 The game meets the COMP16321 specifications (as mentioned in
@@ -105,7 +103,7 @@ The game meets the COMP16321 specifications (as mentioned in
 2. Shapes: crummy astral background
 3. Text: gameplay
 4. Scoring: score is incremented/deincremented
-5. Leaderboard: press `l` and input 3 characters
+5. Leaderboard: press `h` and input 3 characters
 6. Resolution: 1280x720
 7. Movement: text & animation timing
 8. User can move object: n/a
@@ -116,9 +114,8 @@ The game meets the COMP16321 specifications (as mentioned in
 13. Save load: press `s` or `l`
 14. Boss key: press `b`
 
-As you can see, #8 and #9 are missing, but it may be possible to
-quickly hack in a few characters that walk along the bottom and
-explode!
+#8 and #9 are missing, but it may be possible to quickly hack in a few
+characters that walk along the bottom and explode!
 
 
 ##  Resources

@@ -21,7 +21,6 @@ from py.fsm.game_solution_state_presentations import *
     
 def init(data):
 
-    handle_state_initialisation(data)
 
     
 ##  timerFired() is called at regular intervals.
@@ -120,9 +119,7 @@ def run(width=800, height=600):
     
     ##  Initialise data in the object.
         
-    data['width'] = width
-    data['height'] = height
-    init(data)
+    data = handle_state_initialisation([width, height])
 
     
     ##  Initialise TK parts, load Canvas type to TK root frame.

@@ -148,7 +148,7 @@ The game attemps to meet the COMP16321 specifications (as mentioned in
 
 ##  Known bugs
 
-Coming soon.
+After loading highscores, the speed goes into overdrive.
 
 
 ##  Final notes

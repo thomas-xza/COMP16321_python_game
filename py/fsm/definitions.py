@@ -72,7 +72,7 @@ def handle_highscores_input_state(data):
 
     ##  Speed up the clock so user input doesn't lag.
 
-    data['clock_time_prev'] = data['clock_time']
+    print(data['clock_time_prev'])
 
     data['clock_time'] = 50
 

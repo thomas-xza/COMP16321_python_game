@@ -1,12 +1,43 @@
-TASK 1
-------
+OVERVIEW
+--------
 
 10 types of boats
 10 countries
 2 types of races - single points or double points
 1st place = 1*race_type points, 10th place = 10*race_type points
 
-lowest points total is winner
+Lowest points total is winner.
 
-data structure of input:
+Data structure of input:
 [boat type][race type] - [first_place] - [second_place] - [third_place] ..
+
+INITIAL THOUGHTS
+----------------
+
+"Good programmers think about the data structures, bad programmers think about the code"
+- Linus Torvalds
+
+To write unit tests, will probably be easier to build outside of the race_condition.py file, and then fit it into the class.
+
+
+PLANNED DATA STRUCTURES
+-----------------------
+
+The task sections orient around the data in different ways.
+
+Section 2:
+Select by boat type, race type
+
+Section 3:
+Select by boat type, country type
+
+Section 4:
+Similar to Section 3, but with exceptions
+
+Section 5:
+Select by country
+
+It might be easier to just overlay on top of the current data structure?
+
+dictionary[boat_type][race_type] = { race_n: [country_order] }
+

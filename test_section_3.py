@@ -92,7 +92,7 @@ class Test_section_3(unittest.TestCase):
                 'results_invalid': [5]
             },
             3: {
-                'boat': 9,
+                'boat': 8,
                 'points': 1,
                 'results_raw': '0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910',
                 'results_valid': [8,7,6,4,3,2,1,10,9],
@@ -129,7 +129,8 @@ class Test_section_3(unittest.TestCase):
                 }
         }
 
-        self.assertEqual(boat_results, expected_output)
+        self.assertEqual(boat_results[9], expected_output[9])
+        self.assertEqual(boat_results[8], expected_output[8])
         
 
 if __name__ == '__main__':

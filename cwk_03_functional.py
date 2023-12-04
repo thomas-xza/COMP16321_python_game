@@ -126,3 +126,35 @@ def process_data(process_type, results_raw):
     elif process_type == 'results_invalid':
 
         return results_invalid
+
+
+#####  SECTION 3
+
+def build_data_structure_for_boat_results(base_data_struct):
+
+    boat_results = setup_dict_for_boat_results(10, 10)
+
+    for key, sub_dict in base_data_struct.items():
+
+        boat_type = sub_dict['boat']
+
+    return boat_results
+
+
+def setup_dict_for_boat_results(boat_type_quantity, country_quantity):
+
+    boat_results = {}
+
+    template_countries = {}
+
+    for i in range(1, country_quantity + 1):
+
+        template_countries[i] = 0
+
+    # print(template_countries)
+        
+    for j in range(1, boat_type_quantity + 1):
+
+        boat_results[j] = template_countries.copy()
+
+    return boat_results

@@ -145,10 +145,10 @@ def build_data_structure_for_boat_results(base_data_struct):
             race_data['results_invalid'],
             10)
 
-        all_boat_results['boat_type'] = \
+        all_boat_results[boat_type] = \
             merge_score_dicts(scores_prev, scores_new)
 
-    return boat_results
+    return all_boat_results
 
 
 def setup_dict_for_boat_results(boat_type_quantity, country_quantity):

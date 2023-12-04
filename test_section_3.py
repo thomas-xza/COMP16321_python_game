@@ -6,6 +6,8 @@ from cwk_03_functional import *
 
 
 class Test_section_3(unittest.TestCase):
+
+    maxDiff = None
     
     def test_build_data_structure_for_boat_results(self):
 
@@ -28,7 +30,6 @@ class Test_section_3(unittest.TestCase):
 
         
     def test_score_countries(self):
-
     
         data = {
             1: {
@@ -71,7 +72,6 @@ class Test_section_3(unittest.TestCase):
         merged_scores = merge_score_dicts(scores_a, scores_b)
 
         self.assertEqual(merged_scores, expected_output)
-
         
         
     def test_process_data_for_boat_results(self):
@@ -90,10 +90,46 @@ class Test_section_3(unittest.TestCase):
                 'results_raw': '0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910',
                 'results_valid': [8,7,6,4,3,2,1,10,9],
                 'results_invalid': [5]
-            }
+            },
+            3: {
+                'boat': 9,
+                'points': 1,
+                'results_raw': '0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910',
+                'results_valid': [8,7,6,4,3,2,1,10,9],
+                'results_invalid': [5]
+            }            
         }
+
+        boat_results = build_data_structure_for_boat_results(data_struct)
         
-        # self.assertEqual(base_dict, expected_dict)
+        expected_output = {
+            8: {
+                1: 7,
+                2: 6,
+                3: 5,
+                4: 4,
+                5: 11,
+                6: 3,
+                7: 2,
+                8: 1,
+                9: 9,
+                10: 8                
+                },
+            9: {
+                1: 9 + 7,
+                2: 6 + 6,
+                3: 2 + 5,
+                4: 3 + 4,
+                5: 7 + 11,
+                6: 4 + 3,
+                7: 1 + 2,
+                8: 11 + 1,
+                9: 8 + 9,
+                10: 5 + 8
+                }
+        }
+
+        self.assertEqual(boat_results, expected_output)
         
 
 if __name__ == '__main__':

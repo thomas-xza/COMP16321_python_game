@@ -37,28 +37,26 @@ class Test_section_2(unittest.TestCase):
 
     def test_process_data_1(self):
 
-        results_valid = process_data(
+        results = process_data(
             'results_valid',
             '0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110'
         )
 
         expected_results = [7,3,4,6,10,2,5,9,1]
 
-        print(results)
-                
         self.assertEqual(results, expected_results)
 
 
     def test_process_data_2(self):
 
-        results_invalid = process_data(
+        results = process_data(
             'results_invalid',
             '0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910'
         )
 
         expected_results = [5]
 
-        self.assertEqual(results_invalid, expected_results)
+        self.assertEqual(results, expected_results)
         
 
     # def test_section_2_extreme(self):

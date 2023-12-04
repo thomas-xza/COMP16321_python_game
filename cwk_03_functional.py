@@ -112,18 +112,21 @@ def process_data(process_type, results_raw):
 
     for result in results_arr:
 
+        country = int(result[0:2])
+
         if 'xx' in result:
 
-            results_invalid.append(result)
+            results_invalid.append(country)
 
         else:
 
-            results_invalid.append(result)
+            results_valid.append(country)
+            
 
     if process_type == 'results_valid':
 
         return results_valid
 
-    else:
+    elif process_type == 'results_invalid':
 
         return results_invalid

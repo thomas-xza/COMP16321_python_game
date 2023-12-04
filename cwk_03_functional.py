@@ -4,17 +4,18 @@
 #####  SECTION 1
 
 
-def read_file(filename="input.txt"):
+def read_file(filename='input.txt'):
 
     file_as_array = []
 
-    with open(filename, encoding="utf-8") as f:
+    with open(filename, encoding='utf-8') as f:
 
         for line in f:
 
             file_as_array.append(line.strip())
 
     return file_as_array
+
 
 
 #####  SECTION 2
@@ -32,7 +33,7 @@ def specific_race_results(data_arr, boat_n, race_x):
 
     except:
 
-        found_data = ""
+        found_data = ''
 
     return found_data
 
@@ -44,18 +45,18 @@ def build_data_structure(arr):
     ##  => {
     ##    data_struct[race_n] = {
     ##       1: {
-    ##          "boat": 9,
-    ##          "points": 1,
-    ##          "results_raw": '0701-0302-0403-08xx-0605-1006-0207-0508-0909-0910',
-    ##          "results_valid": [7,3,4,6,10,2,5,9,1],
-    ##          "results_invalid": [8],
+    ##          'boat': 9,
+    ##          'points': 1,
+    ##          'results_raw': '0701-0302-0403-08xx-0605-1006-0207-0508-0909-0910',
+    ##          'results_valid': [7,3,4,6,10,2,5,9,1],
+    ##          'results_invalid': [8],
     ##          },
     ##       2: {
-    ##          "boat": 9,
-    ##          "points": 1,
-    ##          "results_raw": '0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910',
-    ##          "results_valid": [8,7,6,4,3,2,1,10,9],
-    ##          "results_invalid": [5],
+    ##          'boat': 9,
+    ##          'points': 1,
+    ##          'results_raw': '0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910',
+    ##          'results_valid': [8,7,6,4,3,2,1,10,9],
+    ##          'results_invalid': [5],
     ##          }
     ##     }
 
@@ -70,11 +71,11 @@ def build_data_structure(arr):
         results_raw =  extract_data('results_raw', line)
         
         data_struct[race_n] = {
-            "boat": extract_data('boat', line),
-            "points": extract_data('points', line),
-            "results_raw": results_raw,
-            "results_valid": process_data('results_valid', results_raw),
-            "results_invalid": process_data('results_invalid', results_raw)
+            'boat': extract_data('boat', line),
+            'points': extract_data('points', line),
+            'results_raw': results_raw,
+            'results_valid': process_data('results_valid', results_raw),
+            'results_invalid': process_data('results_invalid', results_raw)
         }
 
     print(data_struct)
@@ -96,7 +97,7 @@ def extract_data(data_type, line):
 
         results = line.split('-')
 
-        results_2 = results[1:len(results)]
+        results_2 = '-'.join(results[1:len(results)])
 
         return results_2
 

@@ -21,21 +21,19 @@ def read_file(filename='input.txt'):
 #####  SECTION 2
 
 
-def specific_race_results(data_arr, boat_n, race_x):
+def specific_race_results(data_arr, race_x, boat_n):
 
     races_data = build_data_structure(data_arr)
 
-    # print(races_data)
+    race_data = races_data[race_x]
 
-    try:
+    if race_data['boat'] == boat_n:
 
-        found_data = races_data[boat_n][race_x]
+        return race_data['results_raw']
 
-    except:
+    else:
 
-        found_data = ''
-
-    return found_data
+        return ''
 
 
 def build_data_structure(arr):

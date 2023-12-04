@@ -37,26 +37,6 @@ def specific_race_results(data_arr, race_x, boat_n):
 
 def build_data_structure(arr):
 
-    ##  ['0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110',
-    ##   '0901-0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910']
-    ##  => {
-    ##    data_struct[race_n] = {
-    ##       1: {
-    ##          'boat': 9,
-    ##          'points': 1,
-    ##          'results_raw': '0701-0302-0403-08xx-0605-1006-0207-0508-0909-0910',
-    ##          'results_valid': [7,3,4,6,10,2,5,9,1],
-    ##          'results_invalid': [8],
-    ##          },
-    ##       2: {
-    ##          'boat': 9,
-    ##          'points': 1,
-    ##          'results_raw': '0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910',
-    ##          'results_valid': [8,7,6,4,3,2,1,10,9],
-    ##          'results_invalid': [5],
-    ##          }
-    ##     }
-
     data_struct = {}
 
     race_n = 0
@@ -128,7 +108,6 @@ def process_data(process_type, results_raw):
 
 
 #####  SECTION 3
-
 
 def build_data_structure_for_boat_results(base_data_struct):
 
@@ -211,3 +190,5 @@ def merge_score_dicts(scores_prev, scores_new):
             new_dict[k] = scores_prev[k]
 
     return new_dict
+
+

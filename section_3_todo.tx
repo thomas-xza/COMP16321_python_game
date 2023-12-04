@@ -1,0 +1,5 @@
+double points not implemented
+tie breakers not implemented
+ - do a 2nd pass of main data struct
+   - mark last races of boat types
+   - put them into new results_final order

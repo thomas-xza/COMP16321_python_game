@@ -17,7 +17,6 @@ def read_file(filename='input.txt'):
     return file_as_array
 
 
-
 #####  SECTION 2
 
 
@@ -130,6 +129,7 @@ def process_data(process_type, results_raw):
 
 #####  SECTION 3
 
+
 def build_data_structure_for_boat_results(base_data_struct):
 
     all_boat_results = setup_dict_for_boat_results(10, 10)
@@ -141,7 +141,7 @@ def build_data_structure_for_boat_results(base_data_struct):
         scores_prev = all_boat_results[boat_type]
 
         scores_new = score_countries(
-            race_data['results_valid']
+            race_data['results_valid'],
             race_data['results_invalid'],
             10)
 
@@ -166,9 +166,13 @@ def setup_dict_for_boat_results(boat_type_quantity, country_quantity):
 
 def build_dict_country_scores(country_quantity):
 
+    template_countries = {}
+
     for i in range(1, country_quantity + 1):
 
-        template_countries[i] = 0    
+        template_countries[i] = 0
+
+    return template_countries
 
 
 def score_countries(valid_entries, disqual_entries, country_quantity):
@@ -188,3 +192,22 @@ def score_countries(valid_entries, disqual_entries, country_quantity):
         country_scores[entry] = 11
 
     return country_scores
+
+
+def merge_score_dicts(scores_prev, scores_new):
+
+    new_dict = {}
+
+    # print(scores_prev, scores_new)
+
+    for k, v in scores_prev.items():
+
+        try:
+
+            new_dict[k] = scores_prev[k] + scores_new[k]
+
+        except:
+
+            new_dict[k] = scores_prev[k]
+
+    return new_dict

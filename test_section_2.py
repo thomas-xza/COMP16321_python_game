@@ -7,19 +7,19 @@ class Test_section_2(unittest.TestCase):
     def test_build_data_structures_section_2(self):
 
          data_arr = [
-             '0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0910',
+             '0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110',
              '0901-0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910'
          ]
 
          data_struct = build_data_structure(data_arr)
 
-         print(data_struct)
+         # print(data_struct)
 
          expected_data_struct = {
              1: {
                  "boat": 9,
-                 "points": 1,
-                 "results_raw": '0701-0302-0403-08xx-0605-1006-0207-0508-0909-0910',
+                 "points": 2,
+                 "results_raw": '0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110',
                  "results_valid": [7,3,4,6,10,2,5,9,1],
                  "results_invalid": [8],
              },

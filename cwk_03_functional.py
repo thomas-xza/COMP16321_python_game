@@ -78,8 +78,6 @@ def build_data_structure(arr):
             'results_invalid': process_data('results_invalid', results_raw)
         }
 
-    print(data_struct)
-
     return data_struct
 
 

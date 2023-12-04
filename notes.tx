@@ -1,0 +1,12 @@
+TASK 1
+------
+
+10 types of boats
+10 countries
+2 types of races - single points or double points
+1st place = 1*race_type points, 10th place = 10*race_type points
+
+lowest points total is winner
+
+data structure of input:
+[boat type][race type] - [first_place] - [second_place] - [third_place] ..

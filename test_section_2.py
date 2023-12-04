@@ -86,18 +86,18 @@ class Test_section_2(unittest.TestCase):
 
          expected_data_struct = {
              1: {
-                 "boat": 9,
-                 "points": 2,
-                 "results_raw": '0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110',
-                 "results_valid": [7,3,4,6,10,2,5,9,1],
-                 "results_invalid": [8],
+                 'boat': 9,
+                 'points': 2,
+                 'results_raw': '0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110',
+                 'results_valid': [7,3,4,6,10,2,5,9,1],
+                 'results_invalid': [8],
              },
              2: {
-                 "boat": 9,
-                 "points": 1,
-                 "results_raw": '0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910',
-                 "results_valid": [8,7,6,4,3,2,1,10,9],
-                 "results_invalid": [5],
+                 'boat': 9,
+                 'points': 1,
+                 'results_raw': '0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910',
+                 'results_valid': [8,7,6,4,3,2,1,10,9],
+                 'results_invalid': [5],
              }
          }
          

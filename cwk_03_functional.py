@@ -132,11 +132,21 @@ def process_data(process_type, results_raw):
 
 def build_data_structure_for_boat_results(base_data_struct):
 
-    boat_results = setup_dict_for_boat_results(10, 10)
+    all_boat_results = setup_dict_for_boat_results(10, 10)
 
-    for key, sub_dict in base_data_struct.items():
+    for key, race_data in base_data_struct.items():
 
-        boat_type = sub_dict['boat']
+        boat_type = race_data['boat']
+
+        scores_prev = all_boat_results[boat_type]
+
+        scores_new = score_countries(
+            race_data['results_valid']
+            race_data['results_invalid'],
+            10)
+
+        all_boat_results['boat_type'] = \
+            merge_score_dicts(scores_prev, scores_new)
 
     return boat_results
 
@@ -145,16 +155,36 @@ def setup_dict_for_boat_results(boat_type_quantity, country_quantity):
 
     boat_results = {}
 
-    template_countries = {}
+    template_countries = build_dict_country_scores(country_quantity)
 
-    for i in range(1, country_quantity + 1):
-
-        template_countries[i] = 0
-
-    # print(template_countries)
-        
     for j in range(1, boat_type_quantity + 1):
 
         boat_results[j] = template_countries.copy()
 
     return boat_results
+
+
+def build_dict_country_scores(country_quantity):
+
+    for i in range(1, country_quantity + 1):
+
+        template_countries[i] = 0    
+
+
+def score_countries(valid_entries, disqual_entries, country_quantity):
+
+    country_scores = build_dict_country_scores(country_quantity)
+
+    score = 1
+
+    for entry in valid_entries:
+
+        country_scores[entry] = score
+
+        score += 1
+
+    for entry in disqual_entries:
+
+        country_scores[entry] = 11
+
+    return country_scores

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 
-def read_file():
+def read_file(filename="input.txt"):
 
     file_as_array = []
 
-    with open('input.txt', encoding="utf-8") as f:
+    with open(filename, encoding="utf-8") as f:
 
         for line in f:
 
@@ -16,11 +16,11 @@ def read_file():
 
 
 
-def specific_race_results(boat_n, race_x):
+def specific_race_results(data_arr, boat_n, race_x):
 
-    file_as_arr = read_file()
+    races_data = build_data_structures_section_2(data_arr)
 
-    build_data_structures_section_2(file_as_arr)
+    # print(races_data)
 
     try:
 
@@ -44,6 +44,8 @@ def build_data_structures_section_2(arr):
 
     data_struct = {}
 
+    race_results_dict = {}
+
     for line in arr:
 
         boat = extract_data('boat', line)
@@ -52,9 +54,13 @@ def build_data_structures_section_2(arr):
 
         results = extract_data('results', line)
 
-        data_struct[boat][race] = results
+        race_results_dict = { race: results }
 
-    print(data_struct)
+        # print(boat, race, results)
+
+        data_struct[boat] = { **data_struct[boat], race_results_dict }
+
+    # print(data_struct)
 
     return data_struct
 
@@ -75,6 +81,14 @@ def extract_data(data_type, line):
 
         results_2 = results[1:len(results)]
 
-        return int(line.split()[)
+        results_3 = []
+
+        for result in results_2:
+
+            country = result[0:2]
+
+            results_3.append(country)
+
+        return results_2
 
         

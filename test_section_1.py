@@ -12,7 +12,7 @@ class Test_section_1(unittest.TestCase):
 
         self.assertEqual(file_as_arr[0], first_line)
 
-    def test_section_2_valid(self):
+    def test_section_1_valid_2(self):
 
         file_as_arr = read_file()
 

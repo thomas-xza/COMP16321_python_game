@@ -1,6 +1,6 @@
 import unittest
 
-from section_1 import *
+from cwk_03_functional import *
 
 class Test_section_1(unittest.TestCase):
 
@@ -12,7 +12,7 @@ class Test_section_1(unittest.TestCase):
 
         self.assertEqual(file_as_arr[0], first_line)
 
-    def test_section_1_valid(self):
+    def test_section_2_valid(self):
 
         file_as_arr = read_file()
 

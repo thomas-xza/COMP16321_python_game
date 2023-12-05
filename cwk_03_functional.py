@@ -112,11 +112,15 @@ def process_data(process_type, results_raw):
 
 def build_data_structure_for_boat_results(base_data_struct):
 
+    ##  Augments data structure of all races,
+    ##    then summarises scores for each country,
+    ##    then calculates final order of countries.
+
     data_struct_sec_3 = mark_final_races_by_boat_type(base_data_struct)
 
     all_boat_results = setup_dict_for_boat_results(10, 10)
 
-    for key, race_data in base_data_struct.items():
+    for key, race_data in data_struct_sec_3.items():
 
         boat_type = race_data['boat']
 
@@ -131,10 +135,19 @@ def build_data_structure_for_boat_results(base_data_struct):
         all_boat_results[boat_type] = \
             merge_score_dicts(scores_prev, scores_new)
 
+        if race_data['final_race'] == True:
+
+            final_race_data = race_data
+
+    final_sort_data(final_race_data)
+
     return all_boat_results
 
 
 def mark_final_races_by_boat_type(data_struct):
+
+    ##  Iterate through all race data starting from last,
+    ##    mark each last race within the data structure.
 
     quantity_of_races = len(data_struct)
 
@@ -154,10 +167,16 @@ def mark_final_races_by_boat_type(data_struct):
 
             data_struct[race_n]['final_race'] = False
 
+    return data_struct
+
     # print(data_struct[quantity_of_races])
 
 
 def setup_dict_for_boat_results(boat_type_quantity, country_quantity):
+
+    ##  Setup dictionary with boat type keys,
+    ##    with each boat type being assigned a sub-dictionary
+    ##    for country scores.
 
     boat_results = {}
 
@@ -172,6 +191,8 @@ def setup_dict_for_boat_results(boat_type_quantity, country_quantity):
 
 def build_dict_country_scores(country_quantity):
 
+    ##  Setup dictionary for scores for each country.
+
     template_countries = {}
 
     for i in range(1, country_quantity + 1):
@@ -182,6 +203,8 @@ def build_dict_country_scores(country_quantity):
 
 
 def score_countries(valid_entries, disqual_entries, points, country_quantity):
+
+    ##  Take specific race data and score each country using it.
 
     country_scores = build_dict_country_scores(country_quantity)
 
@@ -201,6 +224,8 @@ def score_countries(valid_entries, disqual_entries, points, country_quantity):
 
 
 def merge_score_dicts(scores_prev, scores_new):
+
+    ##  Merge two dictionaries with assigned scores for each country.
 
     new_dict = {}
 

@@ -112,7 +112,7 @@ def process_data(process_type, results_raw):
 
 def build_data_structure_for_boat_results(base_data_struct):
 
-    data_struct_sec_3 = second_pass_race_data(base_data_struct)
+    data_struct_sec_3 = mark_final_races_by_boat_type(base_data_struct)
 
     all_boat_results = setup_dict_for_boat_results(10, 10)
 
@@ -125,6 +125,7 @@ def build_data_structure_for_boat_results(base_data_struct):
         scores_new = score_countries(
             race_data['results_valid'],
             race_data['results_invalid'],
+            race_data['points'],
             10)
 
         all_boat_results[boat_type] = \
@@ -133,17 +134,25 @@ def build_data_structure_for_boat_results(base_data_struct):
     return all_boat_results
 
 
-def second_pass_race_data(data_struct):
+def mark_final_races_by_boat_type(data_struct):
 
     quantity_of_races = len(data_struct)
 
-    boat_types = []
-
-    for i in
-
     boat_types = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-    for 
+    for race_n in range(quantity_of_races, race_n, -1):
+
+        race_n_boat_type = data_struct['boat']
+
+        if race_n_boat_type in boat_types:
+
+            boat_types.remove(race_n_boat_type)
+
+            data_struct[race_n]['final_race'] = True
+
+        else:
+
+            data_struct[race_n]['final_race'] = False
 
     print(data_struct[quantity_of_races])
 
@@ -172,7 +181,7 @@ def build_dict_country_scores(country_quantity):
     return template_countries
 
 
-def score_countries(valid_entries, disqual_entries, country_quantity):
+def score_countries(valid_entries, disqual_entries, points, country_quantity):
 
     country_scores = build_dict_country_scores(country_quantity)
 
@@ -180,13 +189,13 @@ def score_countries(valid_entries, disqual_entries, country_quantity):
 
     for entry in valid_entries:
 
-        country_scores[entry] = score
+        country_scores[entry] = score * points
 
         score += 1
 
     for entry in disqual_entries:
 
-        country_scores[entry] = 11
+        country_scores[entry] = 11 * points
 
     return country_scores
 

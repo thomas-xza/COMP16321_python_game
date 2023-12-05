@@ -276,7 +276,7 @@ def sort_scores(all_boat_scores):
 
             if counter_score == score_iter:
 
-                all_boat_scores
+                rank_by_country.append(
     
 
 def adjust_for_ties(races_data_struct_sec_3):

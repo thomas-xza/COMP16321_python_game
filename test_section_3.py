@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
 
+##  In these files:
+##    code that potentially no one will ever pay me for the amount of
+##    time it takes to write...
+
+##  I am reminded of the 2021 Cambridge International Computer Science paper.
+##    Specifically, the back page with lots of space (compared to the
+##    overcomplicated spec in the middle of the paper with not enough space -
+##    that's industry)
+
 import unittest
 
 from cwk_03_functional import *
@@ -81,7 +90,7 @@ class Test_section_3(unittest.TestCase):
         data_struct = {
             1: {
                 'boat': 9,
-                'points': 2,
+                'points': 1,
                 'results_raw': '0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110',
                 'results_valid': [7,3,4,6,10,2,5,9,1],
                 'results_invalid': [8],
@@ -89,14 +98,6 @@ class Test_section_3(unittest.TestCase):
                 
             },
             2: {
-                'boat': 9,
-                'points': 1,
-                'results_raw': '0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910',
-                'results_valid': [8,7,6,4,3,2,1,10,9],
-                'results_invalid': [5],
-                'final_race': True
-            },
-            3: {
                 'boat': 8,
                 'points': 1,
                 'results_raw': '0301-0202-0103-10xx-0905-0806-0707-0608-0509-0410',
@@ -105,6 +106,10 @@ class Test_section_3(unittest.TestCase):
                 'final_race': True
             }            
         }
+
+        boat_scores = {
+
+            }
 
         boat_results = build_data_structure_for_boat_results(data_struct)
         
@@ -137,6 +142,41 @@ class Test_section_3(unittest.TestCase):
 
         self.assertEqual(boat_results[9], expected_output[9])
         self.assertEqual(boat_results[8], expected_output[8])
+
+        
+    def test_final_rank_data(self):
+
+        data_struct = {
+            1: {
+                'boat': 9,
+                'points': 1,
+                'results_raw': '0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110',
+                'results_valid': [7,3,4,6,10,2,5,9,1],
+                'results_invalid': [8],
+                'final_race': False
+                
+            },
+            2: {
+                'boat': 8,
+                'points': 1,
+                'results_raw': '01xx-02xx-03xx-0404-0505-0606-0707-0808-0909-10xx',
+                'results_valid': [2,4,5,6,7,8,9],
+                'results_invalid': [1,2,3,10],
+                'final_race': True
+            },
+            3: {
+                'boat': 8,
+                'points': 1,
+                'results_raw': '1001-0902-0803-07xx-0605-0506-0407-0308-02xx-01xx',
+                'results_valid': [10,9,8,6,5,4,3],
+                'results_invalid': [7,2,1],
+                'final_race': True
+            }
+        }
+
+        all_boat_scores = build_data_structure_for_boat_results(data_struct)
+
+        output = final_rank_data(8, races_data_struct_sec_3, all_boat_scores)
         
 
 if __name__ == '__main__':

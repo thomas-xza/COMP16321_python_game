@@ -249,10 +249,10 @@ def final_rank_data(boat_type, races_data_struct_sec_3, all_boat_scores):
 
     final_race = find_final_race_of_boat_type(boat_type, races_data_struct_sec_3)
 
-    sort_scores(all_boat_scores[boat_type])
+    sort_scores(all_boat_scores[boat_type], final_race)
 
     
-def sort_scores(all_boat_scores):
+def sort_scores(all_boat_scores, final_race):
 
     highest_score = 0
 
@@ -263,6 +263,22 @@ def sort_scores(all_boat_scores):
             highest_score = score
 
     rank = 1
+
+    ranks_by_country = rank_scores(all_boat_scores)
+
+    ranks_sorted = adjust_for_ties(ranks_by_country, final_race)
+
+    return ranks_sorted
+
+
+def adjust_for_ties(ranks_by_country, final_race):
+
+    
+
+    pass
+
+    
+def rank_scores(all_boat_scores):
 
     rank_by_country = {}
 
@@ -276,12 +292,9 @@ def sort_scores(all_boat_scores):
 
             if counter_score == score_iter:
 
-                all_boat_scores
-    
+                rank_by_country[rank].append(country)
 
-def adjust_for_ties(races_data_struct_sec_3):
-
-    pass
+    return rank_by_country
 
 
 def find_final_race_of_boat_type(boat_type, races_data_struct_sec_3):

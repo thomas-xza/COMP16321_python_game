@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
 
-##  In these files:
-##    code that potentially no one will ever pay me for the amount of
-##    time it takes to write...
-
-##  I am reminded of the 2021 Cambridge International Computer Science paper.
-##    Specifically, the back page with lots of space (compared to the
-##    overcomplicated spec in the middle of the paper with not enough space -
-##    that's industry)
-
 import unittest
 
 from cwk_03_functional import *

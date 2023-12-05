@@ -94,9 +94,9 @@ class Test_section_3(unittest.TestCase):
             3: {
                 'boat': 8,
                 'points': 1,
-                'results_raw': '0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910',
-                'results_valid': [8,7,6,4,3,2,1,10,9],
-                'results_invalid': [5]
+                'results_raw': '0301-0202-0103-10xx-0905-0806-0707-0608-0509-0410',
+                'results_valid': [3,2,1,9,8,7,6,5,4],
+                'results_invalid': [10]
             }            
         }
 
@@ -104,18 +104,18 @@ class Test_section_3(unittest.TestCase):
         
         expected_output = {
             8: {
-                1: 7,
-                2: 6,
-                3: 5,
-                4: 4,
-                5: 11,
-                6: 3,
-                7: 2,
-                8: 1,
-                9: 9,
-                10: 8                
+                1: 3,
+                2: 2,
+                3: 1,
+                4: 9,
+                5: 8,
+                6: 7,
+                7: 6,
+                8: 5,
+                9: 4,
+                10: 11                
                 },
-            9: {
+            9: {  ##  THIS IS ERRONEOUS AS DOUBLE POINTS NOT FACTORED
                 1: 9 + 7,
                 2: 6 + 6,
                 3: 2 + 5,

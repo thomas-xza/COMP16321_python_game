@@ -109,7 +109,10 @@ def process_data(process_type, results_raw):
 
 #####  SECTION 3
 
+
 def build_data_structure_for_boat_results(base_data_struct):
+
+    data_struct_sec_3 = second_pass_race_data(base_data_struct)
 
     all_boat_results = setup_dict_for_boat_results(10, 10)
 
@@ -128,6 +131,21 @@ def build_data_structure_for_boat_results(base_data_struct):
             merge_score_dicts(scores_prev, scores_new)
 
     return all_boat_results
+
+
+def second_pass_race_data(data_struct):
+
+    quantity_of_races = len(data_struct)
+
+    boat_types = []
+
+    for i in
+
+    boat_types = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    for 
+
+    print(data_struct[quantity_of_races])
 
 
 def setup_dict_for_boat_results(boat_type_quantity, country_quantity):
@@ -190,5 +208,4 @@ def merge_score_dicts(scores_prev, scores_new):
             new_dict[k] = scores_prev[k]
 
     return new_dict
-
 

@@ -49,24 +49,26 @@ class Test_section_3(unittest.TestCase):
         }
 
         expected_output = {
-            1: 9 + 7,
-            2: 6 + 6,
-            3: 2 + 5,
-            4: 3 + 4,
-            5: 7 + 11,
-            6: 4 + 3,
-            7: 1 + 2,
-            8: 11 + 1,
-            9: 8 + 9,
-            10: 5 + 8
+            1: 9*2 + 7,
+            2: 6*2 + 6,
+            3: 2*2 + 5,
+            4: 3*2 + 4,
+            5: 7*2 + 11,
+            6: 4*2 + 3,
+            7: 1*2 + 2,
+            8: 11*2 + 1,
+            9: 8*2 + 9,
+            10: 5*2 + 8
         }
 
         scores_a = score_countries(data[1]['results_valid'],
                                    data[1]['results_invalid'],
+                                   data[1]['points'],
                                    10)
 
         scores_b = score_countries(data[2]['results_valid'],
                                    data[2]['results_invalid'],
+                                   data[2]['points'],
                                    10)
 
         merged_scores = merge_score_dicts(scores_a, scores_b)
@@ -82,21 +84,25 @@ class Test_section_3(unittest.TestCase):
                 'points': 2,
                 'results_raw': '0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110',
                 'results_valid': [7,3,4,6,10,2,5,9,1],
-                'results_invalid': [8]
+                'results_invalid': [8],
+                'final_race': False
+                
             },
             2: {
                 'boat': 9,
                 'points': 1,
                 'results_raw': '0801-0702-0603-05xx-0405-0306-0207-0108-1009-0910',
                 'results_valid': [8,7,6,4,3,2,1,10,9],
-                'results_invalid': [5]
+                'results_invalid': [5],
+                'final_race': True
             },
             3: {
                 'boat': 8,
                 'points': 1,
                 'results_raw': '0301-0202-0103-10xx-0905-0806-0707-0608-0509-0410',
                 'results_valid': [3,2,1,9,8,7,6,5,4],
-                'results_invalid': [10]
+                'results_invalid': [10],
+                'final_race': True
             }            
         }
 
@@ -115,17 +121,17 @@ class Test_section_3(unittest.TestCase):
                 9: 4,
                 10: 11                
                 },
-            9: {  ##  THIS IS ERRONEOUS AS DOUBLE POINTS NOT FACTORED
-                1: 9 + 7,
-                2: 6 + 6,
-                3: 2 + 5,
-                4: 3 + 4,
-                5: 7 + 11,
-                6: 4 + 3,
-                7: 1 + 2,
-                8: 11 + 1,
-                9: 8 + 9,
-                10: 5 + 8
+            9: {
+                1: 9*2 + 7,
+                2: 6*2 + 6,
+                3: 2*2 + 5,
+                4: 3*2 + 4,
+                5: 7*2 + 11,
+                6: 4*2 + 3,
+                7: 1*2 + 2,
+                8: 11*2 + 1,
+                9: 8*2 + 9,
+                10: 5*2 + 8
                 }
         }
 

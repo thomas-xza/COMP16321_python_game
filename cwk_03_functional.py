@@ -140,9 +140,9 @@ def mark_final_races_by_boat_type(data_struct):
 
     boat_types = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-    for race_n in range(quantity_of_races, race_n, -1):
+    for race_n in range(quantity_of_races, 1, -1):
 
-        race_n_boat_type = data_struct['boat']
+        race_n_boat_type = data_struct[race_n]['boat']
 
         if race_n_boat_type in boat_types:
 
@@ -154,7 +154,7 @@ def mark_final_races_by_boat_type(data_struct):
 
             data_struct[race_n]['final_race'] = False
 
-    print(data_struct[quantity_of_races])
+    # print(data_struct[quantity_of_races])
 
 
 def setup_dict_for_boat_results(boat_type_quantity, country_quantity):

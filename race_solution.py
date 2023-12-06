@@ -82,6 +82,8 @@ class Races:#(s)
 
         def build_data_structure(arr):
 
+            print("arr", arr)
+
             data_struct = {}
 
             race_n = 0
@@ -152,7 +154,7 @@ class Races:#(s)
                 return results_invalid
 
 
-        data = specific_race_results(results_string, race_number, boat_type)
+        data = specific_race_results(results_string.split("\n"), race_number, boat_type)
 
         return data
 
@@ -532,11 +534,11 @@ class Races:#(s)
 
             return formatted_rank_all_str
 
-        print(boat_type, results_string)
+        data_arr = results_string.split("\n")
 
-        # output = score_and_rank_races_of_boat_type(boat_type, results_string.split("\n"))
+        output = score_and_rank_races_of_boat_type(data_arr, boat_type)
 
-        # return output
+        return output
 
         pass#(s)
 
@@ -567,10 +569,6 @@ class Races:#(s)
 
 
 if __name__ == '__main__':#(s)
-    # You can place any ad-hoc testing here
-    # e.g. my_instance = Races()
-    # e.g. section_1 = my_instance.read_results()
-    # e.g. print(section_1)
 
     obj = Races()
 
@@ -578,10 +576,15 @@ if __name__ == '__main__':#(s)
 
     ##  race_result(self, boat_type, race_number, results_string)
     
-    section_2 = obj.race_result(9, 1, "0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0910")
+    # section_2 = obj.race_result(9, 1, "0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0910")
 
+    # print(section_2)
     
-    print(section_1)
+    section_3 = obj.class_table_result(9, "0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110")
+
+    print(section_3)
+    
+    # print(section_1)
 
     pass#(s)
 

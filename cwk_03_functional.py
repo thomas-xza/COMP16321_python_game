@@ -118,9 +118,13 @@ def score_and_rank_races_of_boat_type(data_arr, boat_type, races_data_struct):
 
     races_data_struct_sec_3 = mark_final_races_by_boat_type(races_data_struct)
 
+    # print(races_data_struct_sec_3)
+
     all_boat_scores = build_data_structure_for_boat_results(races_data_struct_sec_3)
 
     final_scores_of_boat = final_rank_data(boat_type, races_data_struct_sec_3, all_boat_scores)
+
+    return final_scores_of_boat
 
 
 def build_data_structure_for_boat_results(races_data_struct):
@@ -157,7 +161,9 @@ def mark_final_races_by_boat_type(data_struct):
 
     boat_types = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-    for race_n in range(quantity_of_races, 1, -1):
+    # print(data_struct)
+
+    for race_n in range(quantity_of_races, 0, -1):
 
         race_n_boat_type = data_struct[race_n]['boat']
 
@@ -319,7 +325,7 @@ def rank_scores(boat_type_scores, highest_score):
 
                 rank_iter = True
 
-                print(country)
+                # print(country)
 
                 rank_by_country[rank].append(country)
 

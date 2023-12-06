@@ -251,10 +251,14 @@ def final_rank_data(boat_type, races_data_struct_sec_3, all_boat_scores):
 
     final_race = find_final_race_of_boat_type(boat_type, races_data_struct_sec_3)
 
-    sort_scores(all_boat_scores[boat_type], final_race)
+    sorted_scores = sort_scores(all_boat_scores[boat_type], final_race)
+
+    formatted_scores = format_scores(sorted_scores, all_boat_scores[boat_type])
 
     
 def find_final_race_of_boat_type(boat_type, races_data_struct_sec_3):
+
+    ##  Take boat type and data structure, return final race data.
 
     for race_n, race_n_data in races_data_struct_sec_3:
 
@@ -308,11 +312,56 @@ def rank_scores(boat_type_scores, highest_score):
     return rank_by_country
 
 
-def adjust_for_ties(ranks_by_country, final_race):
+def adjust_for_ties(boat_type_scores, ranks_by_country, final_race):
 
-    ##  Iterate over the 
+    ##  Iterate over the ranks by country.
 
-    for rank, countries in ranks_by_country.items():
+    for rank, countries_arr in ranks_by_country.items():
 
-        pass
+        if len(countries_arr) > 1:
+
+            new_order = reorder_countries(countries_arr, final_race)
+
+    return new_order
+
+
+def reorder_countries(unsorted_countries_arr, final_race):
+
+    ##  Iterate over the original race results, looking for specific
+    ##  elements.
+
+    sorted_countries_arr = []
+
+    results_final_race = final_race['results_valid'] + \
+        final_race['results_invalid']
+
+    for country in results_final_race:
+
+        if country in unsorted_countries_arr:
+
+            sorted_countries_arr.append(country)
+
+    return sorted_countries_arr
+
+
+def format_scores(sorted_scores, boat_type_scores):
+
+    ##  Take the processed data, fit into expected format.
+
+    final_rank = 1
+
+    formatted_rank_all = ""
+
+    for rank_n, countries in sorted_scores.items()
+
+        for country in countries:
+
+            formatted_rank = str(country).zfill(2) + \
+                str(final_rank).zfill(2) + \
+                str(sorted_scores[country]).zfill(2)
+
+            formatted_rank_all += formatted_rank
+
+            final_rank += 1
+
 

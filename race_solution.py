@@ -572,17 +572,19 @@ if __name__ == '__main__':#(s)
 
     obj = Races()
 
-    # section_1 = obj.read_results()
+    section_1 = obj.read_results()
 
-    ##  race_result(self, boat_type, race_number, results_string)
+    race_result(self, boat_type, race_number, results_string)
     
     # section_2 = obj.race_result(9, 1, "0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0910")
 
-    # print(section_2)
+    section_2 = obj.race_result(9, 1, section_1)
     
-    section_3 = obj.class_table_result(9, "0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110")
+    print(section_2)
+    
+    # section_3 = obj.class_table_result(9, "0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110")
 
-    print(section_3)
+    # print(section_3)
     
     # print(section_1)
 

@@ -574,19 +574,15 @@ if __name__ == '__main__':#(s)
 
     section_1 = obj.read_results()
 
-    print(section_1)
+    # print(section_1)
 
-    # section_2 = obj.race_result(9, 1, "0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0910\n0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110")
-
-    # section_2 = obj.race_result(9, 1, "\n".join(section_1))
+    # section_2 = obj.race_result(6, 1, "\n".join(section_1))
     
     # print(section_2)
     
-    # section_3 = obj.class_table_result(9, "0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110")
+    section_3 = obj.class_table_result(9, "\n".join(section_1))
 
-    # print(section_3)
+    print(section_3)
     
-    # print(section_1)
-
     pass#(s)
 

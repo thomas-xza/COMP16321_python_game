@@ -110,7 +110,7 @@ def process_data(process_type, results_raw):
 #####  SECTION 3
 
 
-def score_and_rank_races_of_boat_type(data_arr, boat_type, races_data_struct):
+def score_and_rank_races_of_boat_type(data_arr, boat_type):
 
     ##  Top level function of section 3, all others called by this.
 
@@ -400,5 +400,4 @@ def format_scores(sorted_scores, boat_type_scores):
 
 
 #####  SECTION 4
-
 

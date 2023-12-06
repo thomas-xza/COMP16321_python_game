@@ -191,11 +191,9 @@ class Test_section_3(unittest.TestCase):
 
         input_arr = ["0202-0701-0502-04xx-0204-0105-03xx-0907-1008-0609-0810"]
 
-        races_data_struct = build_data_structure(input_arr)
+        # print(races_data_struct)
 
-        print(races_data_struct)
-
-        output = score_and_rank_races_of_boat_type(input_arr, 2, races_data_struct)
+        output = score_and_rank_races_of_boat_type(input_arr, 2)
 
         expected_output = "07-01-02, 05-02-04, 02-03-06, 01-04-08, 09-05-10, 10-06-12, 06-07-14, 08-08-16, 04-09-22, 03-10-22"
         

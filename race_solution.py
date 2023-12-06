@@ -46,11 +46,12 @@ class Races:#(s)
 
                     return file_as_array
 
-        data = read_file
+        data = read_file()
 
         return data
 
         pass#(s)
+    
 
     def race_result(self, boat_type, race_number, results_string):#(s)
 
@@ -66,17 +67,17 @@ class Races:#(s)
 
         def specific_race_results(data_arr, race_x, boat_n):
 
-        races_data = build_data_structure(data_arr)
+            races_data = build_data_structure(data_arr)
 
-        race_data = races_data[race_x]
+            race_data = races_data[race_x]
 
-        if race_data['boat'] == boat_n:
+            if race_data['boat'] == boat_n:
 
-            return race_data['results_raw']
+                return race_data['results_raw']
 
-        else:
+            else:
 
-            return ''
+                return ''
 
 
         def build_data_structure(arr):
@@ -240,9 +241,10 @@ class Races:#(s)
                 return results_invalid
             
         ####  SECTION 2 COPY ABOVE
-        ####  SECTION 3 BELOW
+        
+        ####  SECTION 3 BELOW        
 
-        def score_and_rank_races_of_boat_type(data_arr, boat_type, races_data_struct):
+        def score_and_rank_races_of_boat_type(data_arr, boat_type):
 
             ##  Top level function of section 3, all others called by this.
 
@@ -250,9 +252,13 @@ class Races:#(s)
 
             races_data_struct_sec_3 = mark_final_races_by_boat_type(races_data_struct)
 
+            # print(races_data_struct_sec_3)
+
             all_boat_scores = build_data_structure_for_boat_results(races_data_struct_sec_3)
 
             final_scores_of_boat = final_rank_data(boat_type, races_data_struct_sec_3, all_boat_scores)
+
+            return final_scores_of_boat
 
 
         def build_data_structure_for_boat_results(races_data_struct):
@@ -289,7 +295,9 @@ class Races:#(s)
 
             boat_types = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-            for race_n in range(quantity_of_races, 1, -1):
+            # print(data_struct)
+
+            for race_n in range(quantity_of_races, 0, -1):
 
                 race_n_boat_type = data_struct[race_n]['boat']
 
@@ -451,7 +459,7 @@ class Races:#(s)
 
                         rank_iter = True
 
-                        print(country)
+                        # print(country)
 
                         rank_by_country[rank].append(country)
 
@@ -524,8 +532,11 @@ class Races:#(s)
 
             return formatted_rank_all_str
 
-        
+        print(boat_type, results_string)
 
+        # output = score_and_rank_races_of_boat_type(boat_type, results_string.split("\n"))
+
+        # return output
 
         pass#(s)
 
@@ -561,16 +572,16 @@ if __name__ == '__main__':#(s)
     # e.g. section_1 = my_instance.read_results()
     # e.g. print(section_1)
 
-    pass#(s)#!/usr/bin/env python3
+    obj = Races()
 
+    # section_1 = obj.read_results()
 
-#####  SECTION 2
+    ##  race_result(self, boat_type, race_number, results_string)
+    
+    section_2 = obj.race_result(9, 1, "0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0910")
 
+    
+    print(section_1)
 
-#####  SECTION 3
-
-
-
-#####  SECTION 4
-
+    pass#(s)
 

@@ -130,7 +130,7 @@ def build_data_structure_for_boat_results(races_data_struct):
 
     all_boat_scores = setup_dict_for_boat_results(10, 10)
 
-    for key, race_data in data_struct_sec_3.items():
+    for key, race_data in races_data_struct.items():
 
         boat_type = race_data['boat']
 
@@ -260,7 +260,7 @@ def find_final_race_of_boat_type(boat_type, races_data_struct_sec_3):
 
     ##  Take boat type and data structure, return final race data.
 
-    for race_n, race_n_data in races_data_struct_sec_3:
+    for race_n, race_n_data in races_data_struct_sec_3.items():
 
         if race_n_data['final_race'] == True and \
            race_n_data['boat'] == boat_type:
@@ -305,7 +305,7 @@ def rank_scores(boat_type_scores, highest_score):
 
         for country, country_score in boat_type_scores.items():
 
-            if counter_score == score_iter:
+            if country_score == score_iter:
 
                 rank_by_country[rank].append(country)
 
@@ -322,7 +322,9 @@ def adjust_for_ties(boat_type_scores, ranks_by_country, final_race):
 
             new_order = reorder_countries(countries_arr, final_race)
 
-    return new_order
+            ranks_by_country[rank] = new_order
+
+    return ranks_by_country
 
 
 def reorder_countries(unsorted_countries_arr, final_race):
@@ -352,7 +354,7 @@ def format_scores(sorted_scores, boat_type_scores):
 
     formatted_rank_all = ""
 
-    for rank_n, countries in sorted_scores.items()
+    for rank_n, countries in sorted_scores.items():
 
         for country in countries:
 

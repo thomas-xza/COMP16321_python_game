@@ -118,18 +118,20 @@ class Test_section_3(unittest.TestCase):
                 10: 11                
                 },
             9: {
-                1: 9*2 + 7,
-                2: 6*2 + 6,
-                3: 2*2 + 5,
-                4: 3*2 + 4,
-                5: 7*2 + 11,
-                6: 4*2 + 3,
-                7: 1*2 + 2,
-                8: 11*2 + 1,
-                9: 8*2 + 9,
-                10: 5*2 + 8
+                1: 9,
+                2: 6,
+                3: 2,
+                4: 3,
+                5: 7,
+                6: 4,
+                7: 1,
+                8: 11,
+                9: 8,
+                10: 5
                 }
         }
+                # 'results_valid': [7,3,4,6,10,2,5,9,1],
+                # 'results_invalid': [8],
 
         self.assertEqual(boat_results[9], expected_output[9])
         self.assertEqual(boat_results[8], expected_output[8])
@@ -137,7 +139,7 @@ class Test_section_3(unittest.TestCase):
         
     def test_final_rank_data(self):
 
-        data_struct = {
+        races_data_struct = {
             1: {
                 'boat': 9,
                 'points': 1,
@@ -165,9 +167,11 @@ class Test_section_3(unittest.TestCase):
             }
         }
 
-        all_boat_scores = build_data_structure_for_boat_results(data_struct)
+        all_boat_scores = build_data_structure_for_boat_results(races_data_struct)
 
-        output = final_rank_data(8, races_data_struct_sec_3, all_boat_scores)
+        output = final_rank_data(8, races_data_struct, all_boat_scores)
+
+        print(all_boat_scores)
         
 
 if __name__ == '__main__':

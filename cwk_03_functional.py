@@ -392,3 +392,7 @@ def format_scores(sorted_scores, boat_type_scores):
 
     return formatted_rank_all_str
 
+
+#####  SECTION 4
+
+

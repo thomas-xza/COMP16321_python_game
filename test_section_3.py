@@ -184,7 +184,7 @@ class Test_section_3(unittest.TestCase):
         
         expected_output = "06-01-07, 05-02-07, 04-03-07, 09-04-08, 08-05-08, 10-06-12, 07-07-15, 03-08-22, 02-09-22, 01-10-22"
 
-        print(all_boat_scores)
+        # print(all_boat_scores)
         
 
 if __name__ == '__main__':

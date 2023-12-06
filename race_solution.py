@@ -44,7 +44,7 @@ class Races:#(s)
 
                     file_as_array.append(line.strip())
 
-                    return file_as_array
+            return file_as_array
 
         data = read_file()
 
@@ -82,7 +82,7 @@ class Races:#(s)
 
         def build_data_structure(arr):
 
-            print("arr", arr)
+            # print("arr", arr)
 
             data_struct = {}
 
@@ -574,13 +574,13 @@ if __name__ == '__main__':#(s)
 
     section_1 = obj.read_results()
 
-    race_result(self, boat_type, race_number, results_string)
-    
-    # section_2 = obj.race_result(9, 1, "0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0910")
+    print(section_1)
 
-    section_2 = obj.race_result(9, 1, section_1)
+    # section_2 = obj.race_result(9, 1, "0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0910\n0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110")
+
+    # section_2 = obj.race_result(9, 1, "\n".join(section_1))
     
-    print(section_2)
+    # print(section_2)
     
     # section_3 = obj.class_table_result(9, "0902-0701-0302-0403-08xx-0605-1006-0207-0508-0909-0110")
 

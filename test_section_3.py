@@ -155,7 +155,7 @@ class Test_section_3(unittest.TestCase):
                 'results_raw': '01xx-02xx-03xx-0404-0505-0606-0707-0808-0909-10xx',
                 'results_valid': [4,5,6,7,8,9],
                 'results_invalid': [1,2,3,10],
-                'final_race': True
+                'final_race': False
             },
             3: {
                 'boat': 8,

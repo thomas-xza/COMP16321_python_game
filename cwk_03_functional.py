@@ -253,8 +253,6 @@ def final_rank_data(boat_type, races_data_struct_sec_3, all_boat_scores):
 
     sorted_scores = sort_scores(all_boat_scores[boat_type], final_race)
 
-    # print(sorted_scores)
-
     formatted_scores = format_scores(sorted_scores, all_boat_scores[boat_type])
 
     
@@ -287,7 +285,11 @@ def sort_scores(boat_type_scores, final_race):
 
     ranks_by_country = rank_scores(boat_type_scores, highest_score)
 
+    print(ranks_by_country)
+
     ranks_sorted = adjust_for_ties(boat_type_scores, ranks_by_country, final_race)
+
+    print(ranks_sorted)
 
     return ranks_sorted
 
@@ -302,8 +304,6 @@ def rank_scores(boat_type_scores, highest_score):
     for rank in range(1, 11):
 
         rank_by_country[rank] = []
-
-    print(boat_type_scores)
 
     rank = 1
 
@@ -326,11 +326,7 @@ def rank_scores(boat_type_scores, highest_score):
             rank += 1
 
             rank_iter = False
-
-        
-    print(rank_by_country)
-
-
+            
     return rank_by_country
 
 
@@ -358,6 +354,8 @@ def reorder_countries(unsorted_countries_arr, final_race):
 
     results_final_race = final_race['results_valid'] + \
         final_race['results_invalid']
+
+    print(results_final_race)
 
     for country in results_final_race:
 

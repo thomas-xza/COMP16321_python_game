@@ -350,6 +350,9 @@ def format_scores(sorted_scores, boat_type_scores):
 
     ##  Take the processed data, fit into expected format.
 
+    print(boat_type_scores)
+    print(sorted_scores)
+
     final_rank = 1
 
     formatted_rank_all = ""

@@ -255,8 +255,6 @@ def final_rank_data(boat_type, races_data_struct_sec_3, all_boat_scores):
 
     formatted_scores = format_scores(sorted_scores, all_boat_scores[boat_type])
 
-    print(formatted_scores)
-
     return formatted_scores
 
     
@@ -384,11 +382,13 @@ def format_scores(sorted_scores, boat_type_scores):
 
             formatted_rank = str(country).zfill(2) + "-" + \
                 str(final_rank).zfill(2) + "-" + \
-                str(sorted_scores[country]).zfill(2)
+                str(boat_type_scores[country]).zfill(2)
 
             formatted_rank_all.append(formatted_rank)
 
             final_rank += 1
 
-    return formatted_rank_all
+    formatted_rank_all_str = ", ".join(formatted_rank_all)
+
+    return formatted_rank_all_str
 

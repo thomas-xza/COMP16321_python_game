@@ -183,9 +183,9 @@ class Test_section_3(unittest.TestCase):
         ## 10: 12
         
         expected_output = "06-01-07, 05-02-07, 04-03-07, 09-04-08, 08-05-08, 10-06-12, 07-07-15, 03-08-22, 02-09-22, 01-10-22"
-
-        # print(all_boat_scores)
         
+        self.assertEqual(output, expected_output)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,9 @@
+(a) Each boat_type can discards the worst result from each race type and exclude them
+from their total score
+(b) Each racer will discard their worst single point race and their worst double points race
+(c) If there are 2 or less races of a certain race type then all sailors count all of that type of
+race’s scores and no results are removed for that boat and race type
+(d) If a sailor has multiple races with the same worst score remove the last instance of it
+(e) A sailor discarding a result does not affect the results of other sailors in that race
+(f) Output format is “CountryNumber-PositionInTable-TotalPoints” e.g. 05-01-25
+(g) Return the class table discard string

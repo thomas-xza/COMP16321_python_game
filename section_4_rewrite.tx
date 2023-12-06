@@ -1,0 +1,20 @@
+
+a)
+
+Within each boat_type, each country discards the worst result from both race_types (from total score)
+
+b)
+each country discards worst single & double points race
+
+     UNLESS
+     
+     2 or less races of race_type, no countries
+
+d)
+If country has multiple races with same worst score, remove from 
+
+e)
+Score discards do not affect other countries within same race
+
+f)
+Output as in section 3

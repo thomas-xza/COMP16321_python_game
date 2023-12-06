@@ -25,6 +25,9 @@ PLANNED DATA STRUCTURES
 
 The task sections orient around the data in different ways.
 
+Initial data:
+races_data[race_n]['race attribute'] = reformat(arr_of_strings)
+
 Section 2:
 Select by boat type, race type
 
@@ -35,9 +38,5 @@ Section 4:
 Similar to Section 3, but with exceptions
 
 Section 5:
-Select by country
-
-It might be easier to just overlay on top of the current data structure?
-
-dictionary[boat_type][race_type] = { race_n: [country_order] }
+OASelect by country
 

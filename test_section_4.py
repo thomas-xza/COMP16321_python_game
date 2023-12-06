@@ -9,26 +9,6 @@ class Test_section_3(unittest.TestCase):
 
     maxDiff = None
     
-    def test_build_data_structure_for_boat_results(self):
-
-        base_dict = setup_dict_for_boat_results(2, 5)
-
-        expected_dict = {
-            1: { 1:0,
-                 2:0,
-                 3:0,
-                 4:0,
-                 5:0 },
-            2: { 1:0,
-                 2:0,
-                 3:0,
-                 4:0,
-                 5:0 }
-        }
-
-        self.assertEqual(base_dict, expected_dict)
-
-        
     def test_score_countries(self):
     
         data = {
@@ -183,19 +163,6 @@ class Test_section_3(unittest.TestCase):
         ## 10: 12
         
         expected_output = "06-01-07, 05-02-07, 04-03-07, 09-04-08, 08-05-08, 10-06-12, 07-07-15, 03-08-22, 02-09-22, 01-10-22"
-        
-        self.assertEqual(output, expected_output)
-
-        
-    def test_integration(self):
-
-        input_arr = ["0202-0701-0502-04xx-0204-0105-03xx-0907-1008-0609-0810"]
-
-        # print(races_data_struct)
-
-        output = score_and_rank_races_of_boat_type(input_arr, 2)
-
-        expected_output = "07-01-02, 05-02-04, 02-03-06, 01-04-08, 09-05-10, 10-06-12, 06-07-14, 08-08-16, 04-09-22, 03-10-22"
         
         self.assertEqual(output, expected_output)
 

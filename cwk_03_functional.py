@@ -112,6 +112,8 @@ def process_data(process_type, results_raw):
 
 def score_and_rank_races_of_boat_type(data_arr, boat_type, races_data_struct):
 
+    ##  Top level function of section 3, all others called by this.
+
     races_data_struct = build_data_structure(data_arr)
 
     races_data_struct_sec_3 = mark_final_races_by_boat_type(races_data_struct)
@@ -252,11 +254,24 @@ def final_rank_data(boat_type, races_data_struct_sec_3, all_boat_scores):
     sort_scores(all_boat_scores[boat_type], final_race)
 
     
-def sort_scores(all_boat_scores, final_race):
+def find_final_race_of_boat_type(boat_type, races_data_struct_sec_3):
+
+    for race_n, race_n_data in races_data_struct_sec_3:
+
+        if race_n_data['final_race'] == True and \
+           race_n_data['boat'] == boat_type:
+            
+            return race_n_data
+
+        
+def sort_scores(boat_type_scores, final_race):
+
+    ##  Take dictionary of boat type scores per country,
+    ##    compare with final race.
 
     highest_score = 0
 
-    for country, score in all_boat_scores.items():
+    for country, score in boat_type_scores.items():
 
         if score > highest_score:
 
@@ -264,21 +279,17 @@ def sort_scores(all_boat_scores, final_race):
 
     rank = 1
 
-    ranks_by_country = rank_scores(all_boat_scores)
+    ranks_by_country = rank_scores(boat_type_scores, highest_score)
 
-    ranks_sorted = adjust_for_ties(ranks_by_country, final_race)
+    ranks_sorted = adjust_for_ties(boat_type_scores, ranks_by_country, final_race)
 
     return ranks_sorted
 
 
-def adjust_for_ties(ranks_by_country, final_race):
+def rank_scores(boat_type_scores, highest_score):
 
-    
-
-    pass
-
-    
-def rank_scores(all_boat_scores):
+    ##  Creates a new dictionary, that can be used like a linked list:
+    ##    { rank: [countries] }, used to access scores from { country: score }
 
     rank_by_country = {}
 
@@ -288,7 +299,7 @@ def rank_scores(all_boat_scores):
 
     for score_iter in range(1, highest_score):
 
-        for country, country_score in all_boat_scores.items():
+        for country, country_score in boat_type_scores.items():
 
             if counter_score == score_iter:
 
@@ -297,11 +308,11 @@ def rank_scores(all_boat_scores):
     return rank_by_country
 
 
-def find_final_race_of_boat_type(boat_type, races_data_struct_sec_3):
+def adjust_for_ties(ranks_by_country, final_race):
 
-    for race_n, race_n_data in races_data_struct_sec_3:
+    ##  Iterate over the 
 
-        if race_n_data['final_race'] == True and \
-           race_n_data['boat'] == boat_type:
-            
-            return race_n_data
+    for rank, countries in ranks_by_country.items():
+
+        pass
+

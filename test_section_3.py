@@ -153,7 +153,7 @@ class Test_section_3(unittest.TestCase):
                 'boat': 8,
                 'points': 1,
                 'results_raw': '01xx-02xx-03xx-0404-0505-0606-0707-0808-0909-10xx',
-                'results_valid': [2,4,5,6,7,8,9],
+                'results_valid': [4,5,6,7,8,9],
                 'results_invalid': [1,2,3,10],
                 'final_race': True
             },
@@ -161,8 +161,8 @@ class Test_section_3(unittest.TestCase):
                 'boat': 8,
                 'points': 1,
                 'results_raw': '1001-0902-0803-07xx-0605-0506-0407-0308-02xx-01xx',
-                'results_valid': [10,9,8,6,5,4,3],
-                'results_invalid': [7,2,1],
+                'results_valid': [10,9,8,6,5,4],
+                'results_invalid': [7,3,2,1],
                 'final_race': True
             }
         }
@@ -170,6 +170,19 @@ class Test_section_3(unittest.TestCase):
         all_boat_scores = build_data_structure_for_boat_results(races_data_struct)
 
         output = final_rank_data(8, races_data_struct, all_boat_scores)
+
+        ##  1: 22
+        ##  2: 22
+        ##  3: 22
+        ##  4: 7
+        ##  5: 7
+        ##  6: 7
+        ##  7: 15
+        ##  8: 8
+        ##  9: 8
+        ## 10: 12
+        
+        expected_output = "06-01-07, 05-02-07, 04-03-07, 09-04-08, 08-05-08, 10-06-12, 07-07-15, 03-08-22, 02-09-22, 01-10-22"
 
         print(all_boat_scores)
         

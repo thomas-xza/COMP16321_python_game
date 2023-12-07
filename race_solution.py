@@ -1074,7 +1074,7 @@ if __name__ == '__main__':#(s)
 
     # section_3 = obj.class_table_result(9, results_string)
 
-    # print(section_3)
+    # print(section_3)#
     
     section_4 = obj.class_table_discard_result(3, results_string)
 

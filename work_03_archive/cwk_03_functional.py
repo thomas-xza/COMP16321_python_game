@@ -401,3 +401,344 @@ def format_scores(sorted_scores, boat_type_scores):
 
 #####  SECTION 4
 
+
+def score_and_rank_races_of_boat_type(data_arr, boat_type):
+
+    ##  Top level function of section 4, all others called by this.
+
+    ##  This was written before reading:
+    ##    Blackboard discussion forum > Thread: Section 4 Part a
+    ##  So, no idea if the below will be what is expected, too late to change.
+
+    races_data_struct = build_data_structure(data_arr)
+
+    one_point_scores_del = derive_worst_scores(races_data_struct, boat_type, 1)
+
+    two_point_scores_del = derive_worst_scores(races_data_struct, boat_type, 2)
+
+    races_data_struct_sec_3 = mark_final_races_by_boat_type(races_data_struct)
+
+    all_boat_scores = build_data_structure_for_boat_results(races_data_struct_sec_3)
+    
+    all_boat_scores[boat_type] = merge_score_dicts(all_boat_scores[boat_type], one_point_scores_del)
+    
+    all_boat_scores[boat_type] = merge_score_dicts(all_boat_scores[boat_type], two_point_scores_del)
+    
+    final_scores_of_boat = final_rank_data(boat_type, races_data_struct_sec_3, all_boat_scores)
+
+    return final_scores_of_boat
+
+
+def derive_worst_scores(races_data_struct, boat_type, point_type):
+
+    quantity = 0
+
+    blank_country_score_dict = build_dict_country_scores(10)
+    
+    worst_scores = blank_country_score_dict.copy()
+
+    for race_n, race_data in races_data_struct.items():
+
+        if race_data['boat'] == boat_type and \
+           race_data['points'] == point_type:
+
+            quantity += 1
+
+            country_race_scores = score_countries(race_data['results_valid'],
+                                         race_data['results_invalid'],
+                                         race_data['points'],
+                                         10)
+
+            worst_scores = find_worst_scores(country_race_scores, worst_scores)
+
+    if quantity <= 2:
+
+        worst_scores = blank_country_score_dict.copy()
+
+    else:
+
+        ##  Allows the merge_dicts() function to be used later.
+
+        worst_scores = negate_dict_values(worst_scores)
+
+    return worst_scores
+
+
+def find_worst_scores(country_race_scores, worst_scores):
+
+    for country, race_score in country_race_scores.items():
+
+        if worst_scores[country] < race_score:
+
+            worst_scores[country] = race_score
+
+    return worst_scores
+
+
+def negate_dict_values(dict_data):
+
+    new_dict = {}
+
+    for key, value in dict_data.items():
+
+        new_dict[key] = value * -1
+
+    return new_dict
+
+
+#####  SECTION 5
+
+
+def medal_scores(data_arr, boat_type):
+
+    ##  Top level function of section 5.
+
+    races_data_struct = build_data_structure(data_arr)
+
+    valid_boat_types = find_boat_types_within_input(races_data_struct)
+
+    medals_data_template = build_medals_data_struct()
+
+    medals_data = derive_medals_data(races_data_struct, valid_boat_types, medals_data_template)
+
+    sorted_medal_scores = sort_medals_data(medals_data)
+
+    ##  Formatting should've been more separate, in section 4, that was a bug.
+    
+    medals_data_output = format_medal_scores(sorted_medal_scores)
+
+    return medals_data_output
+
+
+def find_boat_types_within_input(races_data_struct):
+
+    ##  Take race data and return which boat types are within it.
+
+    found_boat_types = []
+
+    for race_n, race_data in races_data_struct.items():
+
+        if race_data['boat'] not in found_boat_types:
+
+            found_boat_types.append(race_data['boat'])
+
+    return found_boat_types
+
+
+def build_medals_data_struct():
+
+    ##  Create data structure for medals of each country.
+
+    medals_data_struct = {}
+
+    for country in range(1, 10+1):
+
+        medals_data_struct[country] = [0,0,0]
+
+    return medals_data_struct
+
+
+def derive_medals_data(races_data_struct, valid_boat_types, medals_data):
+
+    ##  Iterate through the boat types, eventually return medals data.
+    
+    for boat_type in valid_boat_types:
+
+        boat_type_final_ranks = derive_final_ranks(races_data_struct, boat_type)
+
+        top_three = find_top_three_countries(boat_type_final_ranks)
+
+        medals_data = add_to_scores(medals_data, top_three)
+
+    return medals_data
+
+
+def find_top_three_countries(boat_type_final_ranks):
+
+    ##  Take race results, fully sorted including discards, extract top 3.
+
+    all_countries_ranked = []
+
+    for rank, country in boat_type_final_ranks.items():
+
+        all_countries_ranked.extend(country)
+
+    top_three = all_countries_ranked[0:3]
+
+    return top_three
+
+
+def add_to_scores(medals_data, top_three):
+
+    ##  Add medals of boat type to all medals data.
+
+    medal_type = 0
+
+    for medal_country in top_three:
+
+        medals_data[medal_country][medal_type] += 1
+
+        medal_type += 1
+
+    return medals_data
+
+
+def sort_medals_data(medals_data):
+
+    medals_data_arrs = convert_to_medal_arrays(medals_data)
+
+    medals_sorted = sorted(medals_data_arrs, key=lambda set: set[4])
+
+    ##  TO DO: write perfect sort function via recursion & sorted() etc...
+
+    # medals_sorted = recurse_sort_set_by_attribute(set_to_sort, target)
+
+    medals_sorted_rev = medals_sorted.reverse()
+
+    return medals_sorted_rev
+
+
+def recurse_sort_set_by_attribute(set_to_sort, target):
+
+    ##  There is some way to use sorted() with recursive calls...
+    ##    But not familiar enough with recursion to design algo in time!
+
+    next_target = find_next_target(target)
+
+    set_to_sort = sorted(set_to_sort, key=lambda set: set[target])
+
+    if next_target == -1 or len(set_to_sort) == 1:
+
+        return set_to_sort
+
+    output_set = []
+
+    for n in range(1000000):
+
+        subset_to_sort = []
+
+        for country_set in set_to_sort:
+
+            if country_set[target] == n:
+
+                subset_to_sort.append(country_set)
+
+        output_set.extend(recurse_sort_set_by_attribute(subset_to_sort, next_target))
+
+    return output_set
+
+
+def find_next_target(target):
+
+    if target == 4:
+
+        return 1
+
+    elif target == 1:
+
+        return 2
+
+    elif target == 2:
+
+        return 3
+
+    elif target == 3:
+
+        return 0
+
+    else:
+
+        return -1    
+
+    
+def find_all_with(data, target, value):
+
+    found = []
+
+    for score_set in data:
+
+        if score_set[target] == value:
+
+            found.append(score_set)
+
+    return found
+
+
+def sane_print(scores):
+
+    for score in scores:
+
+        print(score)
+
+
+def convert_to_medal_arrays(medals_data):
+
+    ##  Convert to arrays, for sorting.
+
+    medals_data_out = []
+
+    for country, medal_data in medals_data.items():
+
+        medal_score = medal_data[0] * 3 + \
+            medal_data[1] * 2 + \
+            medal_data[2] * 1
+
+        medal_data_arr = [country,
+                          medal_data[0],
+                          medal_data[1],
+                          medal_data[2],
+                          medal_score]
+                          
+        medals_data_out.append(medal_data_arr)
+
+    return medals_data_out
+
+
+def format_medal_scores(medals_data):
+
+    ##  Format medal data for expected output.
+
+    ##  Brief holy F detour:
+    ##    https://duckduckgo.com/?q=albino+indian&t=h_&iar=images&iax=images&ia=images
+
+    medals_data_str_arr = []
+
+    for medal_data in medals_data:
+
+        medal_data_zeroed = []
+
+        for data in medal_data:
+
+            medal_data_zeroed.append(str(data).zfill(2))
+
+        medals_data_str_arr.append("-".join(medal_data_zeroed))
+
+    medals_data_str = ", ".join(medals_data_str_arr)
+
+    return medals_data_str
+    
+
+def derive_final_ranks(races_data_struct, boat_type):
+
+    ##  Big copy of section 4, but without the formatting
+    ##    part. Really, section 4 function should instead be reworked
+    ##    and called, so the formatting function of the data is less
+    ##    deep (bad move), but not enough time to risk refactor etc.
+
+    one_point_scores_del = derive_worst_scores(races_data_struct, boat_type, 1)
+
+    two_point_scores_del = derive_worst_scores(races_data_struct, boat_type, 2)
+
+    races_data_struct_sec_3 = mark_final_races_by_boat_type(races_data_struct)
+
+    all_boat_scores = build_data_structure_for_boat_results(races_data_struct_sec_3)
+    
+    all_boat_scores[boat_type] = merge_score_dicts(all_boat_scores[boat_type], one_point_scores_del)
+    
+    all_boat_scores[boat_type] = merge_score_dicts(all_boat_scores[boat_type], two_point_scores_del)
+    
+    final_race = find_final_race_of_boat_type(boat_type, races_data_struct_sec_3)
+
+    sorted_scores = sort_scores(all_boat_scores[boat_type], final_race)
+
+    return sorted_scores

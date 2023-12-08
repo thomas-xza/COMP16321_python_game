@@ -1535,7 +1535,7 @@ class Races:#(s)
         #####  SECTION 5
 
 
-        def medal_scores(data_arr, boat_type):
+        def medal_scores(data_arr):
 
             ##  Top level function of section 5.
 
@@ -1546,14 +1546,20 @@ class Races:#(s)
             medals_data_template = build_medals_data_struct()
 
             medals_data = derive_medals_data(races_data_struct, valid_boat_types, medals_data_template)
+ 
+            print(medals_data)
 
             sorted_medal_scores = sort_medals_data(medals_data)
 
+            print(sorted_medal_scores)
+
             ##  Formatting should've been more separate, in section 4, that was a bug.
 
-            medals_data_output = format_medal_scores(sorted_medal_scores)
+            # medals_data_output = format_medal_scores(sorted_medal_scores)
 
-            return medals_data_output
+            # print(medals_data_output)
+
+            # return medals_data_output
 
 
         def find_boat_types_within_input(races_data_struct):
@@ -1639,9 +1645,9 @@ class Races:#(s)
 
             # medals_sorted = recurse_sort_set_by_attribute(set_to_sort, target)
 
-            medals_sorted_rev = medals_sorted.reverse()
+            medals_sorted.reverse()
 
-            return medals_sorted_rev
+            return medals_sorted
 
 
         def recurse_sort_set_by_attribute(set_to_sort, target):
@@ -1787,10 +1793,12 @@ class Races:#(s)
 
             sorted_scores = sort_scores(all_boat_scores[boat_type], final_race)
 
-            return sorted_scores
+            return sorted_scores        
+        
+        data = medal_scores(results_string.split("\n"))
 
-        
-        
+        return data
+            
         pass#(s)
 
 
@@ -1812,11 +1820,12 @@ if __name__ == '__main__':#(s)
 
     # print(section_3)#
     
-    section_4 = obj.class_table_discard_result(3, results_string)
+    # section_4 = obj.class_table_discard_result(3, results_string)
 
-    print(section_4)
+    # print(section_4)
+    
+    section_5 = obj.medal_table_result(results_string)
+
+    # print(section_5)
     
     pass#(s)
-
-
-
